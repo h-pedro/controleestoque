@@ -1,0 +1,8 @@
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\bin\Debug\ControleEstoque.WinUI.exe.config
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\bin\Debug\ControleEstoque.WinUI.exe
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\bin\Debug\ControleEstoque.WinUI.pdb
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\obj\Debug\ControleEstoque.WinUI.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\obj\Debug\ControleEstoque.WinUI.Properties.Resources.resources
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\obj\Debug\ControleEstoque.WinUI.csproj.GenerateResource.Cache
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\obj\Debug\ControleEstoque.WinUI.exe
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.WinUI\obj\Debug\ControleEstoque.WinUI.pdb

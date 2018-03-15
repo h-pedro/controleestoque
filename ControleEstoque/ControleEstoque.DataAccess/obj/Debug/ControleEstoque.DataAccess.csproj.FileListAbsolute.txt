@@ -1,0 +1,5 @@
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.DataAccess\bin\Debug\ControleEstoque.DataAccess.dll
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.DataAccess\bin\Debug\ControleEstoque.DataAccess.pdb
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.DataAccess\obj\Debug\ControleEstoque.DataAccess.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.DataAccess\obj\Debug\ControleEstoque.DataAccess.dll
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.DataAccess\obj\Debug\ControleEstoque.DataAccess.pdb

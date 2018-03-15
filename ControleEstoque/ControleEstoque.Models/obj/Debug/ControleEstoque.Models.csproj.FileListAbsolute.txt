@@ -1,0 +1,5 @@
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\bin\Debug\ControleEstoque.Models.dll
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\bin\Debug\ControleEstoque.Models.pdb
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.dll
+c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.pdb
