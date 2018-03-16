@@ -3,3 +3,8 @@ c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEst
 c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.csprojResolveAssemblyReference.cache
 c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.dll
 c:\users\aluno\documents\visual studio 2015\Projects\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.pdb
+C:\Users\Aluno\Documents\GitHub\controleestoque\ControleEstoque\ControleEstoque.Models\bin\Debug\ControleEstoque.Models.dll
+C:\Users\Aluno\Documents\GitHub\controleestoque\ControleEstoque\ControleEstoque.Models\bin\Debug\ControleEstoque.Models.pdb
+C:\Users\Aluno\Documents\GitHub\controleestoque\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Documents\GitHub\controleestoque\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.dll
+C:\Users\Aluno\Documents\GitHub\controleestoque\ControleEstoque\ControleEstoque.Models\obj\Debug\ControleEstoque.Models.pdb

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControleEstoque.WinUI
 {
-    public partial class Form1 : Form
+    public partial class FormEstoque : Form
     {
-        public Form1()
+        public FormEstoque()
         {
             InitializeComponent();
         }
