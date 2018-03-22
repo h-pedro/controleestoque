@@ -1,0 +1,9 @@
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\bin\Debug\ControleDeEstoque.exe.config
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\bin\Debug\ControleDeEstoque.exe
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\bin\Debug\ControleDeEstoque.pdb
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\obj\Debug\ControleDeEstoque.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\obj\Debug\ControleDeEstoque.FormLogin.resources
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\obj\Debug\ControleDeEstoque.Properties.Resources.resources
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\obj\Debug\ControleDeEstoque.csproj.GenerateResource.Cache
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\obj\Debug\ControleDeEstoque.exe
+c:\users\aluno\documents\visual studio 2015\Projects\ControleDeEstoque\ControleDeEstoque\obj\Debug\ControleDeEstoque.pdb
