@@ -28,80 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo02 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnEditar_estoque = new System.Windows.Forms.Button();
+            this.btnTela_Inicial = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // lblTitulo02
             // 
-            this.button3.Location = new System.Drawing.Point(488, 360);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 27);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Editar Estoque";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(236, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 23);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Estoque";
+            this.lblTitulo02.AutoSize = true;
+            this.lblTitulo02.Font = new System.Drawing.Font("Stylus BT", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo02.Location = new System.Drawing.Point(224, 35);
+            this.lblTitulo02.Name = "lblTitulo02";
+            this.lblTitulo02.Size = new System.Drawing.Size(106, 30);
+            this.lblTitulo02.TabIndex = 8;
+            this.lblTitulo02.Text = "Estoque";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(457, 51);
+            this.textBox1.Location = new System.Drawing.Point(98, 88);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(101, 20);
+            this.textBox1.Size = new System.Drawing.Size(153, 20);
             this.textBox1.TabIndex = 7;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 51);
+            this.button2.Location = new System.Drawing.Point(12, 88);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 20);
             this.button2.TabIndex = 6;
             this.button2.Text = "Pesquisar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // dataGridView1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 27);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Tela Inicial";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 114);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(481, 138);
+            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btnEditar_estoque
+            // 
+            this.btnEditar_estoque.Location = new System.Drawing.Point(399, 258);
+            this.btnEditar_estoque.Name = "btnEditar_estoque";
+            this.btnEditar_estoque.Size = new System.Drawing.Size(94, 27);
+            this.btnEditar_estoque.TabIndex = 11;
+            this.btnEditar_estoque.Text = "Editar Estoque";
+            this.btnEditar_estoque.UseVisualStyleBackColor = true;
+            this.btnEditar_estoque.Click += new System.EventHandler(this.btnEditar_estoque_Click);
+            // 
+            // btnTela_Inicial
+            // 
+            this.btnTela_Inicial.Location = new System.Drawing.Point(11, 12);
+            this.btnTela_Inicial.Name = "btnTela_Inicial";
+            this.btnTela_Inicial.Size = new System.Drawing.Size(81, 27);
+            this.btnTela_Inicial.TabIndex = 12;
+            this.btnTela_Inicial.Text = "Tela Inicial";
+            this.btnTela_Inicial.UseVisualStyleBackColor = true;
+            this.btnTela_Inicial.Click += new System.EventHandler(this.btnTela_Inicial_Click);
             // 
             // FormEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 399);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label1);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(512, 306);
+            this.Controls.Add(this.btnTela_Inicial);
+            this.Controls.Add(this.btnEditar_estoque);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lblTitulo02);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.MaximizeBox = false;
             this.Name = "FormEstoque";
             this.Text = "FormEstoque";
+            this.Load += new System.EventHandler(this.FormEstoque_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo02;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnEditar_estoque;
+        private System.Windows.Forms.Button btnTela_Inicial;
     }
 }

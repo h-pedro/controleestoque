@@ -1,6 +1,6 @@
 ﻿namespace ControleDeEstoque
 {
-    partial class FormProduto
+    partial class btnVoltar02
     {
         /// <summary>
         /// Required designer variable.
@@ -28,39 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTela_inical02 = new System.Windows.Forms.Button();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(505, 354);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 27);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Excluir";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(415, 354);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 27);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Alterar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(327, 354);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 27);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Adicionar";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -72,26 +45,58 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Estoque";
             // 
-            // button1
+            // btnTela_inical02
             // 
-            this.button1.Location = new System.Drawing.Point(12, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 27);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Tela Inicial";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTela_inical02.Location = new System.Drawing.Point(12, 12);
+            this.btnTela_inical02.Name = "btnTela_inical02";
+            this.btnTela_inical02.Size = new System.Drawing.Size(81, 27);
+            this.btnTela_inical02.TabIndex = 14;
+            this.btnTela_inical02.Text = "Voltar";
+            this.btnTela_inical02.UseVisualStyleBackColor = true;
+            this.btnTela_inical02.Click += new System.EventHandler(this.btnTela_inical02_Click);
             // 
-            // FormProduto
+            // btnAdicionar
+            // 
+            this.btnAdicionar.Location = new System.Drawing.Point(327, 354);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(82, 27);
+            this.btnAdicionar.TabIndex = 15;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(415, 354);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(84, 27);
+            this.btnAlterar.TabIndex = 16;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(505, 354);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(82, 27);
+            this.btnExcluir.TabIndex = 17;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btnVoltar02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(599, 399);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnAdicionar);
+            this.Controls.Add(this.btnTela_inical02);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Name = "FormProduto";
+            this.MaximizeBox = false;
+            this.Name = "btnVoltar02";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormProduto";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,11 +104,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTela_inical02;
+        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

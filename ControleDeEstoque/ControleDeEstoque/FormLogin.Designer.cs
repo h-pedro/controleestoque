@@ -39,9 +39,9 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(114, 196);
+            this.btnLogin.Location = new System.Drawing.Point(215, 166);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(78, 29);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -51,7 +51,7 @@
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(31, 131);
+            this.lblSenha.Location = new System.Drawing.Point(67, 115);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(60, 20);
             this.lblSenha.TabIndex = 2;
@@ -61,7 +61,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(23, 101);
+            this.lblUsuario.Location = new System.Drawing.Point(67, 85);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(68, 20);
             this.lblUsuario.TabIndex = 3;
@@ -69,22 +69,24 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(97, 101);
+            this.txtUsuario.Location = new System.Drawing.Point(141, 85);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(152, 20);
             this.txtUsuario.TabIndex = 4;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(97, 133);
+            this.txtSenha.Location = new System.Drawing.Point(141, 117);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(100, 20);
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(152, 20);
             this.txtSenha.TabIndex = 5;
+            this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             // 
             // cbSenha
             // 
             this.cbSenha.AutoSize = true;
-            this.cbSenha.Location = new System.Drawing.Point(97, 159);
+            this.cbSenha.Location = new System.Drawing.Point(141, 143);
             this.cbSenha.Name = "cbSenha";
             this.cbSenha.Size = new System.Drawing.Size(102, 17);
             this.cbSenha.TabIndex = 6;
@@ -95,7 +97,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 46);
+            this.label1.Location = new System.Drawing.Point(120, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 25);
             this.label1.TabIndex = 7;
@@ -105,7 +107,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(365, 232);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbSenha);
             this.Controls.Add(this.txtSenha);
@@ -113,8 +116,10 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.btnLogin);
+            this.MaximizeBox = false;
             this.Name = "FormLogin";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

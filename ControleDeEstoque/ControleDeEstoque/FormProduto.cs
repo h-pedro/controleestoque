@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace ControleDeEstoque
 {
-    public partial class FormProduto : Form
+    public partial class btnVoltar02 : Form
     {
-        public FormProduto()
+        public btnVoltar02()
         {
             InitializeComponent();
+        }
+
+        private void btnTela_inical02_Click(object sender, EventArgs e)
+        {
+            var frm = new FormEstoque();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            var frm = new FormAddP();
+            frm.Show();
+            this.Hide();
         }
     }
 }
