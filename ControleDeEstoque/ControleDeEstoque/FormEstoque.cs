@@ -37,7 +37,7 @@ namespace ControleDeEstoque
 
         private void btnTela_Inicial_Click(object sender, EventArgs e)
         {
-            var frm = new FormPrincipal();
+            var frm = new s();
             frm.Show();
             this.Hide();
         }

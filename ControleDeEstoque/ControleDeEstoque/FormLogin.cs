@@ -26,7 +26,7 @@ namespace ControleDeEstoque
             }
             else
             {
-                MessageBox.Show("Ops, digita certo ai bro! :(", "erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ops, digita certo ai bro!");
             }
 
 

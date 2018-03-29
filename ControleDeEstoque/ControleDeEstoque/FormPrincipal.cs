@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControleDeEstoque
 {
-    public partial class FormPrincipal : Form
+    public partial class s : Form
     {
-        public FormPrincipal()
+        public s()
         {
             InitializeComponent();
         }
@@ -29,6 +29,21 @@ namespace ControleDeEstoque
             var frm = new FormEstoque();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVisualizarEstoque_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
