@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControleDeEstoque
 {
-    public partial class FormEstoque : Form
+    public partial class FormProduto : Form
     {
-        public FormEstoque()
+        public FormProduto()
         {
             InitializeComponent();
         }
@@ -37,8 +37,6 @@ namespace ControleDeEstoque
 
         private void btnTela_Inicial_Click(object sender, EventArgs e)
         {
-            var frm = new s();
-            frm.Show();
             this.Hide();
         }
     }

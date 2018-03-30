@@ -26,7 +26,7 @@ namespace ControleDeEstoque
 
         private void consultaDeEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new FormEstoque();
+            var frm = new FormProduto();
             frm.MdiParent = this;
             frm.Show();
         }
@@ -42,6 +42,27 @@ namespace ControleDeEstoque
         }
 
         private void btnVisualizarEstoque_Click(object sender, EventArgs e)
+        {
+            var frm = new FormProduto();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnInserirProduto_Click(object sender, EventArgs e)
+        {
+            var frm = new FormAddP();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnAlterarProduto_Click(object sender, EventArgs e)
+        {
+            var frm = new FormProduto();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnExcluirProduto_Click(object sender, EventArgs e)
         {
 
         }

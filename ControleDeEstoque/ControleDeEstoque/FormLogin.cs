@@ -19,18 +19,15 @@ namespace ControleDeEstoque
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+
             if ((txtUsuario.Text == "cantina") && (txtSenha.Text == "1234"))
             {
                 this.DialogResult = DialogResult.OK;
             }
             else
             {
-                MessageBox.Show("Ops, digita certo ai bro!");
+                MessageBox.Show("Ops, senha incorreta!");
             }
-
-
-            this.DialogResult = DialogResult.OK;
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -39,6 +36,11 @@ namespace ControleDeEstoque
         }
 
         private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
 
         }

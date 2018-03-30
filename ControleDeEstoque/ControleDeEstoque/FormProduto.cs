@@ -19,7 +19,7 @@ namespace ControleDeEstoque
 
         private void btnTela_inical02_Click(object sender, EventArgs e)
         {
-            var frm = new FormEstoque();
+            var frm = new FormProduto();
             frm.Show();
             this.Hide();
         }
@@ -29,6 +29,16 @@ namespace ControleDeEstoque
             var frm = new FormAddP();
             frm.Show();
             this.Hide();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -40,6 +40,7 @@
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVendasaVista = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVisualizarVendasaVista = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVendasFiado = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRelatorioVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.relatórioDeVendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnVisualizarVendasaVista = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,18 +102,21 @@
             this.btnInserirProduto.Name = "btnInserirProduto";
             this.btnInserirProduto.Size = new System.Drawing.Size(152, 22);
             this.btnInserirProduto.Text = "Inserir";
+            this.btnInserirProduto.Click += new System.EventHandler(this.btnInserirProduto_Click);
             // 
             // btnAlterarProduto
             // 
             this.btnAlterarProduto.Name = "btnAlterarProduto";
             this.btnAlterarProduto.Size = new System.Drawing.Size(152, 22);
             this.btnAlterarProduto.Text = "Alterar";
+            this.btnAlterarProduto.Click += new System.EventHandler(this.btnAlterarProduto_Click);
             // 
             // btnExcluirProduto
             // 
             this.btnExcluirProduto.Name = "btnExcluirProduto";
             this.btnExcluirProduto.Size = new System.Drawing.Size(152, 22);
             this.btnExcluirProduto.Text = "Excluir";
+            this.btnExcluirProduto.Click += new System.EventHandler(this.btnExcluirProduto_Click);
             // 
             // usuárioToolStripMenuItem
             // 
@@ -150,6 +153,12 @@
             this.btnVendasaVista.Size = new System.Drawing.Size(162, 22);
             this.btnVendasaVista.Text = "Á vista";
             // 
+            // btnVisualizarVendasaVista
+            // 
+            this.btnVisualizarVendasaVista.Name = "btnVisualizarVendasaVista";
+            this.btnVisualizarVendasaVista.Size = new System.Drawing.Size(123, 22);
+            this.btnVisualizarVendasaVista.Text = "Vizualizar";
+            // 
             // btnVendasFiado
             // 
             this.btnVendasFiado.Name = "btnVendasFiado";
@@ -175,20 +184,20 @@
             // gastosToolStripMenuItem
             // 
             this.gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
-            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gastosToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.gastosToolStripMenuItem.Text = "Custos";
             this.gastosToolStripMenuItem.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // saldoToolStripMenuItem
             // 
             this.saldoToolStripMenuItem.Name = "saldoToolStripMenuItem";
-            this.saldoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saldoToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saldoToolStripMenuItem.Text = "Saldo";
             // 
             // visãoSemestralToolStripMenuItem
@@ -239,12 +248,6 @@
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.sairToolStripMenuItem.Text = "Sair";
-            // 
-            // btnVisualizarVendasaVista
-            // 
-            this.btnVisualizarVendasaVista.Name = "btnVisualizarVendasaVista";
-            this.btnVisualizarVendasaVista.Size = new System.Drawing.Size(152, 22);
-            this.btnVisualizarVendasaVista.Text = "Vizualizar";
             // 
             // s
             // 

@@ -19,12 +19,15 @@ namespace ControleDeEstoque
 
         private void btnVoltar01_Click(object sender, EventArgs e)
         {
-            var frm = new FormEstoque();
-            frm.Show();
             this.Hide();
         }
 
         private void btnApagar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
 
         }
