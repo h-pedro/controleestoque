@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExForms.WinUI", "ExForms.WinUI\ExForms.WinUI.csproj", "{BC14CE01-9E48-456D-BEF8-ED9F2E96DE37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExForms.Models", "ExForms.Models\ExForms.Models.csproj", "{72C40F4D-353E-4DDD-BD90-EDCF0837A748}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExForms.DataAccess", "ExForms.DataAccess\ExForms.DataAccess.csproj", "{3337D9BC-8F17-4C11-96B1-25EBD87CD875}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC14CE01-9E48-456D-BEF8-ED9F2E96DE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC14CE01-9E48-456D-BEF8-ED9F2E96DE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC14CE01-9E48-456D-BEF8-ED9F2E96DE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC14CE01-9E48-456D-BEF8-ED9F2E96DE37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72C40F4D-353E-4DDD-BD90-EDCF0837A748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C40F4D-353E-4DDD-BD90-EDCF0837A748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C40F4D-353E-4DDD-BD90-EDCF0837A748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C40F4D-353E-4DDD-BD90-EDCF0837A748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3337D9BC-8F17-4C11-96B1-25EBD87CD875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3337D9BC-8F17-4C11-96B1-25EBD87CD875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3337D9BC-8F17-4C11-96B1-25EBD87CD875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3337D9BC-8F17-4C11-96B1-25EBD87CD875}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
