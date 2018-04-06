@@ -48,7 +48,9 @@ create table produto (
 	nome varchar(100) not null,
 	id_categoria integer not null references categoria (id),
 	preco decimal(15,2),
+	quantidade int not null,
 	descricao varchar(500),
 	constraint [pk_produto] primary key clustered (id)		
 );
 go
+

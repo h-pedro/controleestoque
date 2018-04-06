@@ -126,9 +126,6 @@ namespace ExForms.WinUI
             }
         }
 
-        private void gridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+     
     }
 }

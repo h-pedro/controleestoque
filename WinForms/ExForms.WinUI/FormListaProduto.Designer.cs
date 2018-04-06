@@ -86,7 +86,7 @@
             this.gridView.Size = new System.Drawing.Size(733, 381);
             this.gridView.TabIndex = 1;
             this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
-            this.gridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellContentClick);
+            //this.gridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellContentClick);
             this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
             this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
             // 
