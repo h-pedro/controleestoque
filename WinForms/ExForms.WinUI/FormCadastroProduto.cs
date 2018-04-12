@@ -34,6 +34,7 @@ namespace ExForms.WinUI
             if (obj == null)
                 return;
             txtNome.Text = obj.Nome;
+            txtQtd.Text = string.Format("{0:N0}", obj.Quantidade);
             cboCategoria.SelectedValue = obj.Categoria.Id;
             txtPreco.Text = string.Format("{0:N2}", obj.Preco);
             txtDescricao.Text = obj.Descricao;
@@ -87,6 +88,7 @@ namespace ExForms.WinUI
 
             this.Produto = this.Produto ?? new Produto();
             this.Produto.Nome = txtNome.Text;
+            this.Produto.Quantidade = Convert.ToInt32(txtQtd.Text);
             this.Produto.Categoria = new Categoria() { Id = Convert.ToInt32(cboCategoria.SelectedValue) };
             this.Produto.Preco = Convert.ToDecimal(txtPreco.Text);
             this.Produto.Descricao = txtDescricao.Text;

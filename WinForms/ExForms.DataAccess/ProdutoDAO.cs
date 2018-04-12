@@ -14,8 +14,8 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"INSERT INTO produto (nome, id_categoria, preco, descricao) 
-                                  VALUES (@nome, @id_categoria, @preco, @descricao);";
+                string strSQL = @"INSERT INTO produto (nome, quantidade, id_categoria, preco, descricao) 
+                                  VALUES (@nome, @quantidade, @id_categoria, @preco, @descricao);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -23,6 +23,7 @@ namespace ExForms.DataAccess
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
                     cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@quantidade", SqlDbType.Int).Value = obj.Quantidade;
                     cmd.Parameters.Add("@id_categoria", SqlDbType.Int).Value = obj.Categoria.Id;
                     cmd.Parameters.Add("@preco", SqlDbType.Decimal).Value = obj.Preco;
                     cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = obj.Descricao;
@@ -45,6 +46,7 @@ namespace ExForms.DataAccess
                 //Criando instrução sql para inserir na tabela de produtos
                 string strSQL = @"UPDATE produto SET 
                                     nome = @nome, 
+                                    quantidade = @quantidade,
                                     id_categoria = @id_categoria, 
                                     preco = @preco, 
                                     descricao = @descricao 
@@ -56,6 +58,7 @@ namespace ExForms.DataAccess
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
                     cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@quantidade", SqlDbType.Int).Value = obj.Quantidade;
                     cmd.Parameters.Add("@id_categoria", SqlDbType.Int).Value = obj.Categoria.Id;
                     cmd.Parameters.Add("@preco", SqlDbType.Decimal).Value = obj.Preco;
                     cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = obj.Descricao;
@@ -127,6 +130,7 @@ namespace ExForms.DataAccess
                     {
                         Id = Convert.ToInt32(row["id"]),
                         Nome = row["nome"].ToString(),
+                        Quantidade = Convert.ToInt32(row["quantidade"]),
                         Categoria = new Categoria() { Id = Convert.ToInt32(row["id_categoria"]) },
                         Preco = Convert.ToDecimal(row["preco"]),
                         Descricao = row["descricao"].ToString()
@@ -172,6 +176,7 @@ namespace ExForms.DataAccess
                         {
                             Id = Convert.ToInt32(row["id"]),
                             Nome = row["nome"].ToString(),
+                            Quantidade = Convert.ToInt32(row["quantidade"]),
                             Categoria = new Categoria()
                             {
                                 Id = Convert.ToInt32(row["id_categoria"]),

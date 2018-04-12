@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvEstoque = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstoque)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvEstoque
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 102);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(715, 348);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.UseWaitCursor = true;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvEstoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstoque.Location = new System.Drawing.Point(12, 81);
+            this.dgvEstoque.Name = "dgvEstoque";
+            this.dgvEstoque.Size = new System.Drawing.Size(715, 369);
+            this.dgvEstoque.TabIndex = 0;
+            this.dgvEstoque.UseWaitCursor = true;
             // 
             // FormEstoque
             // 
@@ -48,17 +47,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(739, 462);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvEstoque);
             this.MaximizeBox = false;
             this.Name = "FormEstoque";
             this.Text = "FormEstoque";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstoque)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvEstoque;
     }
 }

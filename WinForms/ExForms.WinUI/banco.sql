@@ -41,7 +41,7 @@ go
 -- criando tabela de produtos
 IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'produto')
    DROP TABLE produto
-GO
+GO	
 
 create table produto (
 	id int identity(1,1) not null,
@@ -54,3 +54,4 @@ create table produto (
 );
 go
 
+select * from produto
