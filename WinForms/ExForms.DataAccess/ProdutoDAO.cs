@@ -230,6 +230,7 @@ namespace ExForms.DataAccess
                         {
                             Id = Convert.ToInt32(row["id"]),
                             Nome = row["nome"].ToString(),
+                            Quantidade = Convert.ToInt32(row["quantidade"]),
                             Categoria = new Categoria()
                             {
                                 Id = Convert.ToInt32(row["id_categoria"]),

@@ -134,5 +134,6 @@ namespace ExForms.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
     }
 }

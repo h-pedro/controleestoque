@@ -35,9 +35,9 @@
             // dgvEstoque
             // 
             this.dgvEstoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstoque.Location = new System.Drawing.Point(12, 81);
+            this.dgvEstoque.Location = new System.Drawing.Point(12, 93);
             this.dgvEstoque.Name = "dgvEstoque";
-            this.dgvEstoque.Size = new System.Drawing.Size(715, 369);
+            this.dgvEstoque.Size = new System.Drawing.Size(715, 357);
             this.dgvEstoque.TabIndex = 0;
             this.dgvEstoque.UseWaitCursor = true;
             // 
