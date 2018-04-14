@@ -12,7 +12,7 @@ namespace ExForms.Models
         public Categoria Categoria { get; set; }
         public decimal Preco { get; set; }
         public string Descricao { get; set; }
-        public int Quantidade { get; set; }
+        public string Quantidade { get; set; }
 
         public string NomeCategoria
         {

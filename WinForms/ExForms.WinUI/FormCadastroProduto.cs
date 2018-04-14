@@ -88,7 +88,7 @@ namespace ExForms.WinUI
 
             this.Produto = this.Produto ?? new Produto();
             this.Produto.Nome = txtNome.Text;
-            this.Produto.Quantidade = Convert.ToInt32(txtQtd.Text);
+            this.Produto.Quantidade = txtQtd.Text;
             this.Produto.Categoria = new Categoria() { Id = Convert.ToInt32(cboCategoria.SelectedValue) };
             this.Produto.Preco = Convert.ToDecimal(txtPreco.Text);
             this.Produto.Descricao = txtDescricao.Text;
