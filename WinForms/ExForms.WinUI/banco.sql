@@ -38,20 +38,57 @@ create table categoria (
 );
 go
 
+Create Table Unidade_Medida(
+	id int identity(1,1) primary key,
+	nome varchar(200),
+	sigla varchar(10)
+)
+
 -- criando tabela de produtos
 IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'produto')
    DROP TABLE produto
 GO	
 
+
 create table produto (
 	id int identity(1,1) not null,
 	nome varchar(100) not null,
 	id_categoria integer not null references categoria (id),
+	id_unidade_medida integer not null references Unidade_Medida(id),
 	preco decimal(15,2),
-	quantidade int not null,
 	descricao varchar(500),
 	constraint [pk_produto] primary key clustered (id)		
 );
 go
 
-select * from produto
+
+
+create table TipoPagamento(
+	Id int identity(1,1) primary key,
+	Nome_Pagamento varchar(100),
+	descricao varchar(600)
+)
+
+create table Venda(
+	Id int identity(1,1) primary key,
+	DataPagamento  datetime,
+	NomeCliente	   varchar(500),
+	Id_Pagamento int references TipoPagamento(id)
+)
+
+
+create table Item_Venda(
+	id int identity(1,1) primary key,
+	Id_Produto int references Produto (id) ,
+	Quantidade	int,
+	Valor_Unitário decimal(9,2),
+	Id_Venda int references Venda
+)
+
+create table movimentacao (
+	Id_Produto int identity(1,1) primary key,
+	Data	   date,
+	Tipo       varchar(1),
+	Quantidade_Recebida varchar
+)
+
