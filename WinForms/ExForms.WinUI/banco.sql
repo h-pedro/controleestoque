@@ -86,7 +86,7 @@ create table Item_Venda(
 )
 
 create table movimentacao (
-	Id_Produto int identity(1,1) primary key,
+		Id_Produto int references Produto (id) ,
 	Data	   datetime,
 	Tipo       varchar(1),
 	Quantidade_Recebida varchar

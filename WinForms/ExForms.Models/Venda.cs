@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExForms.Models
 {
-    class Venda
+ public class Venda
     {
         public int Id { get; set; }
         public DateTime DataPagamento { get; set; }
