@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,8 +42,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtQtd = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +51,6 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.txtQtd);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtPreco);
@@ -69,10 +67,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro de Produto";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(312, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 8;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(312, 86);
+            this.label4.Location = new System.Drawing.Point(20, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 7;
@@ -82,7 +88,7 @@
             // 
             this.txtPreco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPreco.Location = new System.Drawing.Point(315, 103);
+            this.txtPreco.Location = new System.Drawing.Point(23, 102);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(162, 20);
             this.txtPreco.TabIndex = 6;
@@ -90,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 86);
+            this.label3.Location = new System.Drawing.Point(311, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 5;
@@ -99,9 +105,9 @@
             // cboCategoria
             // 
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(20, 103);
+            this.cboCategoria.Location = new System.Drawing.Point(314, 51);
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(273, 21);
+            this.cboCategoria.Size = new System.Drawing.Size(163, 21);
             this.cboCategoria.TabIndex = 4;
             // 
             // txtDescricao
@@ -118,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 139);
+            this.label2.Location = new System.Drawing.Point(20, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 2;
@@ -169,24 +175,6 @@
             this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.error.ContainerControl = this;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(312, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Quantidade no Estoque:";
-            // 
-            // txtQtd
-            // 
-            this.txtQtd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQtd.Location = new System.Drawing.Point(315, 51);
-            this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(162, 20);
-            this.txtQtd.TabIndex = 9;
-            // 
             // FormCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,7 +208,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.ErrorProvider error;
-        private System.Windows.Forms.TextBox txtQtd;
         private System.Windows.Forms.Label label5;
     }
 }
