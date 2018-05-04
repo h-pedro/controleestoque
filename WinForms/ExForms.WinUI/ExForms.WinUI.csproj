@@ -52,6 +52,12 @@
     <Compile Include="FormCadastroCategoria.Designer.cs">
       <DependentUpon>FormCadastroCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCadastroPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastroPagamento.Designer.cs">
+      <DependentUpon>FormCadastroPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,10 +106,19 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTipoPagameno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTipoPagameno.Designer.cs">
+      <DependentUpon>FormTipoPagameno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCadastroCategoria.resx">
       <DependentUpon>FormCadastroCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastroPagamento.resx">
+      <DependentUpon>FormCadastroPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastroProduto.resx">
       <DependentUpon>FormCadastroProduto.cs</DependentUpon>
@@ -128,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTipoPagameno.resx">
+      <DependentUpon>FormTipoPagameno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

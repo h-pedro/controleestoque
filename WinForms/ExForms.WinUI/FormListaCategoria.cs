@@ -27,9 +27,9 @@ namespace ExForms.WinUI
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridView.SelectedRows.Count > 0)
+            if (gridViewP.SelectedRows.Count > 0)
             {
-                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
+                var id = Convert.ToInt32(gridViewP.SelectedRows[0].Cells[0].Value);
                 var obj = new CategoriaDAO().BuscarPorId(id);
                 var frm = new FormCadastroCategoria(obj);
                 if (frm.ShowDialog() != DialogResult.OK)
@@ -77,7 +77,7 @@ namespace ExForms.WinUI
 
         private void gridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            gridView.Rows[e.RowIndex].ReadOnly = true;
+            gridViewP.Rows[e.RowIndex].ReadOnly = true;
         }
 
         private void txtBusca_KeyDown(object sender, KeyEventArgs e)
@@ -90,7 +90,7 @@ namespace ExForms.WinUI
 
         private void gridView_SelectionChanged(object sender, EventArgs e)
         {
-            HabilitarBotoes((gridView.SelectedRows.Count == 1), (gridView.SelectedRows.Count > 1));
+            HabilitarBotoes((gridViewP.SelectedRows.Count == 1), (gridViewP.SelectedRows.Count > 1));
         }
 
         private void HabilitarBotoes(bool oneItemSelected, bool manyItemsSelected)
@@ -102,17 +102,17 @@ namespace ExForms.WinUI
         private void CarregarGridView()
         {
             var lst = new CategoriaDAO().BuscarPorTexto(txtBusca.Text);
-            gridView.AutoGenerateColumns = false;
-            gridView.DataSource = lst;
-            HabilitarBotoes((gridView.SelectedRows.Count == 1), (gridView.SelectedRows.Count > 1));
-            gridView.ClearSelection();
+            gridViewP.AutoGenerateColumns = false;
+            gridViewP.DataSource = lst;
+            HabilitarBotoes((gridViewP.SelectedRows.Count == 1), (gridViewP.SelectedRows.Count > 1));
+            gridViewP.ClearSelection();
         }
 
         private void Editar()
         {
-            if (gridView.SelectedRows.Count > 0)
+            if (gridViewP.SelectedRows.Count > 0)
             {
-                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
+                var id = Convert.ToInt32(gridViewP.SelectedRows[0].Cells[0].Value);
                 var obj = new CategoriaDAO().BuscarPorId(id);
                 var frm = new FormCadastroCategoria(obj);
                 if (frm.ShowDialog() != DialogResult.OK)
@@ -123,11 +123,11 @@ namespace ExForms.WinUI
 
         private void Excluir()
         {
-            if (gridView.SelectedRows.Count > 0)
+            if (gridViewP.SelectedRows.Count > 0)
             {
                 if (MessageBox.Show("Deseja realmente remover o registro selecionado?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
-                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
+                var id = Convert.ToInt32(gridViewP.SelectedRows[0].Cells[0].Value);
                 new CategoriaDAO().Deletar(new Categoria() { Id = id });
                 CarregarGridView();
             }
