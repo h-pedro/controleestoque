@@ -14,11 +14,7 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-<<<<<<< HEAD
-                string strSQL = @"INSERT INTO produto (nome,id_categoria, preco, descricao) 
-=======
                 string strSQL = @"INSERT INTO produto (nome, id_categoria, preco, descricao) 
->>>>>>> 939daf2d6304ad1ed7d2d3d8992cd8c8397852c1
                                   VALUES (@nome, @id_categoria, @preco, @descricao);";
 
                 //Criando um comando sql que será executado na base de dados
@@ -228,11 +224,7 @@ namespace ExForms.DataAccess
                         var produto = new Produto()
                         {
                             Id = Convert.ToInt32(row["id"]),
-<<<<<<< HEAD
-                            Nome = row["nome"].ToString(),                    
-=======
                             Nome = row["nome"].ToString(),
->>>>>>> 939daf2d6304ad1ed7d2d3d8992cd8c8397852c1
                             Categoria = new Categoria()
                             {
                                 Id = Convert.ToInt32(row["id_categoria"]),

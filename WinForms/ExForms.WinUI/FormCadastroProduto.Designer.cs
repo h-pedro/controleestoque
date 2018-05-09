@@ -51,10 +51,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
-=======
             this.groupBox1.Controls.Add(this.label5);
->>>>>>> 939daf2d6304ad1ed7d2d3d8992cd8c8397852c1
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtPreco);
             this.groupBox1.Controls.Add(this.label3);
@@ -81,11 +78,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-<<<<<<< HEAD
-            this.label4.Location = new System.Drawing.Point(312, 34);
-=======
-            this.label4.Location = new System.Drawing.Point(20, 86);
->>>>>>> 939daf2d6304ad1ed7d2d3d8992cd8c8397852c1
+            this.label4.Location = new System.Drawing.Point(311, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 7;
@@ -95,13 +88,9 @@
             // 
             this.txtPreco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
-            this.txtPreco.Location = new System.Drawing.Point(315, 51);
-=======
-            this.txtPreco.Location = new System.Drawing.Point(23, 102);
->>>>>>> 939daf2d6304ad1ed7d2d3d8992cd8c8397852c1
+            this.txtPreco.Location = new System.Drawing.Point(311, 102);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(109, 20);
+            this.txtPreco.Size = new System.Drawing.Size(163, 20);
             this.txtPreco.TabIndex = 6;
             // 
             // label3
@@ -116,7 +105,7 @@
             // cboCategoria
             // 
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(314, 51);
+            this.cboCategoria.Location = new System.Drawing.Point(311, 51);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(163, 21);
             this.cboCategoria.TabIndex = 4;
@@ -219,9 +208,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.ErrorProvider error;
-<<<<<<< HEAD
-=======
         private System.Windows.Forms.Label label5;
->>>>>>> 939daf2d6304ad1ed7d2d3d8992cd8c8397852c1
     }
 }
