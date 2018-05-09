@@ -46,6 +46,7 @@
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoPagamento.cs" />
+    <Compile Include="UnidadeMedida.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Venda.cs" />
   </ItemGroup>

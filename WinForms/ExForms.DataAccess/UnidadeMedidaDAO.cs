@@ -1,34 +1,31 @@
-﻿using ExForms.Models;
-using System;
+﻿using System;
+using ExForms.Models;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ExForms.DataAccess
 {
-    public class ItemVendaDAO
+    public class UnidadeMedidaDAO
     {
-        public void Inserir(ItemVenda obj)
+        public void Inserir(UnidadeMedida obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"INSERT INTO Item_Venda (Id_Produto, Quantidade, Valor_Unitario, Id_Venda) 
-                                  VALUES ( @Id_Produto, @Quantidade, @Valor_Unitario, @Id_Venda);";
+                //Criando instrução sql para inserir na tabela de categorias
+                string strSQL = @"INSERT INTO Unidade_Medida (Nome, Sigla) VALUES (@Nome, @Sigla);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
-                    cmd.Parameters.Add("@Quantidade", SqlDbType.VarChar).Value = obj.Quantidade;
-                    cmd.Parameters.Add("@Valor_Unitario", SqlDbType.Decimal).Value = obj.Valor_Unitario;
-                    cmd.Parameters.Add("@Id_Venda", SqlDbType.Int).Value = obj.Venda.Id;
+                    cmd.Parameters.Add("@Nome", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@Sigla", SqlDbType.VarChar).Value = obj.Sigla;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -39,28 +36,24 @@ namespace ExForms.DataAccess
                 }
             }
         }
-        public void Atualizar(ItemVenda obj)
+
+        public void Atualizar(UnidadeMedida obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"UPDATE Item_Venda SET 
-                                   Id_Produto = @Id_Produto, 
-                                    Quantidade = @Quantidade,
-                                    Valor_Unitario = @Valor_Unitario, 
-                                    Id_Venda = @Id_Venda                                     
-                                WHERE id = @id;";
+                //Criando instrução sql para inserir na tabela de categorias
+                string strSQL = @"UPDATE Unidade_Medida SET nome = @Nome, Sigla = @Sigla WHERE id = @id;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
-                    cmd.Parameters.Add("@Quantidade", SqlDbType.VarChar).Value = obj.Quantidade;
-                    cmd.Parameters.Add("@Valor_Unitario", SqlDbType.Decimal).Value = obj.Valor_Unitario;
-                    cmd.Parameters.Add("@Id_Venda", SqlDbType.Int).Value = obj.Venda.Id;
+                    cmd.Parameters.Add("@Nome", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@Sigla", SqlDbType.VarChar).Value = obj.Sigla;
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = obj.Id;
+
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     //Executando instrução sql
@@ -71,20 +64,20 @@ namespace ExForms.DataAccess
             }
         }
 
-        public void Deletar(ItemVenda obj)
+        public void Deletar(UnidadeMedida obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"DELETE FROM Item_Venda WHERE id = @id;";
+                //Criando instrução sql para inserir na tabela de categorias
+                string strSQL = @"DELETE FROM Unidade_Medida WHERE id = @id;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = obj.Id;
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = obj.Id;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -95,13 +88,14 @@ namespace ExForms.DataAccess
                 }
             }
         }
-        public ItemVenda BuscarPorId(int id)
+
+        public UnidadeMedida BuscarPorId(int id)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                //Criando instrução sql para selecionar todos os registros na tabela de produtos
-                string strSQL = @"SELECT * FROM Item_Venda WHERE id = @id;";
+                //Criando instrução sql para selecionar todos os registros na tabela de Categorias
+                string strSQL = @"SELECT * FROM Unidade_Medida WHERE id = @id;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -122,35 +116,27 @@ namespace ExForms.DataAccess
                         return null;
 
                     var row = dt.Rows[0];
-                    var item_Venda = new ItemVenda()
+                    var obj = new UnidadeMedida()
                     {
                         Id = Convert.ToInt32(row["id"]),
-                        Produto = new Produto() { Id = Convert.ToInt32(row["id_Produto"]) },
-                        Quantidade = Convert.ToInt32(row["Quantidade"]),
-                        Valor_Unitario = Convert.ToDecimal(row["ValorUnitario"]),
-                        Venda = new Venda() { Id = Convert.ToInt32(row["id_venda"]) }
+                        Nome = row["Nome"].ToString(),
+                        Sigla = row["Sigla"].ToString()
                     };
 
-                    return item_Venda;
+                    return obj;
                 }
             }
         }
-        public List<ItemVenda> BuscarPorTexto(string texto)
+
+        public List<UnidadeMedida> BuscarTodos()
         {
-            var lst = new List<ItemVenda>();
+            var lst = new List<UnidadeMedida>();
 
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = string.Format(@"SELECT 
-                                                    iv.*, 
-                                                    p.nome as Nome_Produto,
-                                                    v.NomeCliente
-                                                FROM Item_Venda iv
-                                                INNER JOIN produto p on (p.id = iv.id_produto) 
-                                                INNER JOIN venda   v on (v.id = iv.id_venda)
-                                                WHERE p.nome like '%{0}%';", texto);
+                string strSQL = @"SELECT * FROM Unidade_Medida;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -169,22 +155,53 @@ namespace ExForms.DataAccess
                     //Percorrendo todos os registros encontrados na base de dados e adicionando em uma lista
                     foreach (DataRow row in dt.Rows)
                     {
-                        var obj = new ItemVenda()
+                        var obj = new UnidadeMedida()
                         {
                             Id = Convert.ToInt32(row["id"]),
-                            Produto = new Produto()
-                            {
-                                 
-                                Nome = row["nome"].ToString()
-                            },
-                            Quantidade = Convert.ToInt32(row["Quantidade"]),
-                            Valor_Unitario = Convert.ToDecimal(row["Valor_Unitario"]),
+                            Nome = row["Nome"].ToString(),
+                            Sigla = row["Sigla"].ToString()
+                        };
 
-                            Venda = new Venda()
-                            {
+                        lst.Add(obj);
+                    }
+                }
+            }
 
-                                NomeCliente = row["Nome_Cliente"].ToString()
-                            }
+            return lst;
+        }
+
+        public List<UnidadeMedida> BuscarPorTexto(string texto)
+        {
+            var lst = new List<UnidadeMedida>();
+
+            //Criando uma conexão com o banco de dados
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            {
+                //Criando instrução sql para selecionar todos os registros na tabela de Categorias
+                string strSQL = string.Format(@"SELECT * FROM Unidade_Medida WHERE nome like '%{0}%';", texto);
+
+                //Criando um comando sql que será executado na base de dados
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    //Abrindo conexão com o banco de dados
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = strSQL;
+                    //Executando instrução sql
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    //Fechando conexão com o banco de dados
+                    conn.Close();
+
+                    //Percorrendo todos os registros encontrados na base de dados e adicionando em uma lista
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        var obj = new UnidadeMedida()
+                        {
+                            Id = Convert.ToInt32(row["id"]),
+                            Nome = row["Nome"].ToString(),
+                            Sigla = row["Sigla"].ToString()
                         };
 
                         lst.Add(obj);

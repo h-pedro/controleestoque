@@ -11,7 +11,7 @@ namespace ExForms.Models
         public int Id { get; set; }
         public Produto Produto { get; set; }
         public int Quantidade { get; set; }
-        public decimal Valor_Unitáio { get; set; }
+        public decimal Valor_Unitario { get; set; }
         public Venda Venda { get; set; }
          
     }
