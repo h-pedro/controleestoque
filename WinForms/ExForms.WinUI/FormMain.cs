@@ -135,5 +135,24 @@ namespace ExForms.WinUI
             frm.Show();
         }
 
+        private void unidadeDeMedidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool _found = false;
+            foreach (Form _openForm in Application.OpenForms)
+            {
+                if (_openForm is FormListaUnidadeMedida)
+                {
+                    _openForm.Focus();
+                    _found = true;
+                }
+            }
+
+            if (!_found)
+            {
+                var frm = new FormListaUnidadeMedida();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
     }
 }
