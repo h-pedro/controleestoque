@@ -95,6 +95,7 @@
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(23, 22);
             this.btnNovo.Text = "Novo";
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnEditar
             // 
@@ -104,6 +105,7 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(23, 22);
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -113,6 +115,7 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(23, 22);
             this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnBuscar
             // 
@@ -123,6 +126,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(23, 22);
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBusca
             // 
@@ -133,7 +137,7 @@
             // 
             // colId
             // 
-            this.colId.DataPropertyName = "Tipo de Pagamento";
+            this.colId.DataPropertyName = "Nome_Pagamento";
             this.colId.HeaderText = "Nome_Pagamento";
             this.colId.Name = "colId";
             // 
@@ -151,6 +155,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormTipoPagameno";
             this.Text = "FormTipoPagameno";
+            this.Load += new System.EventHandler(this.FormTipoPagameno_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();

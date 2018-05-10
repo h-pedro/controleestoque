@@ -178,7 +178,7 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = string.Format(@"SELECT * FROM TipoPagamento WHERE nome like '%{0}%';", texto);
+                string strSQL = string.Format(@"SELECT * FROM TipoPagamento WHERE Nome_Pagamento like '%{0}%';", texto);
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
