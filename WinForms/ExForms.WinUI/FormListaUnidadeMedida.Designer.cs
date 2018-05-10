@@ -166,6 +166,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormListaUnidadeMedida";
             this.Text = "FormListaUnidadeMedida";
+            this.Load += new System.EventHandler(this.FormListaUnidadeMedida_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewUm)).EndInit();

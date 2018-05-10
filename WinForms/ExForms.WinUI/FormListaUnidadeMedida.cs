@@ -29,12 +29,16 @@ namespace ExForms.WinUI
             var frm = new FormCadastroUnidadeMedida();
             if (frm.ShowDialog() != DialogResult.OK)
                 return;
-            CarregarGridViewUm();
+            CarregarGridView();
         }
 
         private void CarregarGridView()
         {
-            throw new NotImplementedException();
+            var lst = new UnidadeMedidaDAO().BuscarPorTexto(txtBusca.Text);
+            gridViewUm.AutoGenerateColumns = false;
+            gridViewUm.DataSource = lst;
+            HabilitarBotoes((gridViewUm.SelectedRows.Count == 1), (gridViewUm.SelectedRows.Count > 1));
+            gridViewUm.ClearSelection();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -60,7 +64,7 @@ namespace ExForms.WinUI
         }
 
 
-        private void FormListaCategoria_Load(object sender, EventArgs e)
+        private void FormListaUnidadeMedida_Load(object sender, EventArgs e)
         {
             CarregarGridView();
         }
@@ -112,14 +116,6 @@ namespace ExForms.WinUI
             btnExcluir.Enabled = btnExcluir.Enabled = (oneItemSelected || manyItemsSelected);
         }
 
-        private void CarregarGridViewUm()
-        {
-            var lst = new UnidadeMedidaDAO().BuscarPorTexto(txtBusca.Text);
-            gridViewUm.AutoGenerateColumns = false;
-            gridViewUm.DataSource = lst;
-            HabilitarBotoes((gridViewUm.SelectedRows.Count == 1), (gridViewUm.SelectedRows.Count > 1));
-            gridViewUm.ClearSelection();
-        }
         private void Editar()
         {
             if (gridViewUm.SelectedRows.Count > 0)
