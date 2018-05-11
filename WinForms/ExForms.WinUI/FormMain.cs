@@ -135,6 +135,26 @@ namespace ExForms.WinUI
             frm.Show();
         }
 
+        private void mnuPagamento_Click(object sender, EventArgs e)
+        {
+            bool _found = false;
+            foreach (Form _openForm in Application.OpenForms)
+            {
+                if (_openForm is FormTipoPagameno)
+                {
+                    _openForm.Focus();
+                    _found = true;
+                }
+            }
+
+            if (!_found)
+            {
+                var frm = new FormTipoPagameno();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
         private void unidadeDeMedidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bool _found = false;
@@ -154,5 +174,7 @@ namespace ExForms.WinUI
                 frm.Show();
             }
         }
+
+        
     }
 }

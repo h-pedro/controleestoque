@@ -32,14 +32,14 @@
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridViewUm = new System.Windows.Forms.DataGridView();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewUm)).BeginInit();
             this.mnuAcoes.SuspendLayout();
@@ -53,6 +53,7 @@
             this.btnFechar.TabIndex = 3;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // panel1
             // 
@@ -82,6 +83,18 @@
             this.gridViewUm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridViewUm.Size = new System.Drawing.Size(733, 381);
             this.gridViewUm.TabIndex = 1;
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "Nome";
+            this.colNome.HeaderText = "Nome";
+            this.colNome.Name = "colNome";
+            // 
+            // Sigla
+            // 
+            this.Sigla.DataPropertyName = "Sigla";
+            this.Sigla.HeaderText = "Sigla";
+            this.Sigla.Name = "Sigla";
             // 
             // mnuAcoes
             // 
@@ -144,18 +157,6 @@
             this.txtBusca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(150, 25);
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "Nome";
-            this.colNome.HeaderText = "Nome";
-            this.colNome.Name = "colNome";
-            // 
-            // Sigla
-            // 
-            this.Sigla.DataPropertyName = "Sigla";
-            this.Sigla.HeaderText = "Sigla";
-            this.Sigla.Name = "Sigla";
             // 
             // FormListaUnidadeMedida
             // 

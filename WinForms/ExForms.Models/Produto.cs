@@ -12,6 +12,7 @@ namespace ExForms.Models
         public Categoria Categoria { get; set; }
         public decimal Preco { get; set; }
         public string Descricao { get; set; }
+        public UnidadeMedida UnidadeMedida { get; set; }
 
         public string NomeCategoria
         {
@@ -19,6 +20,16 @@ namespace ExForms.Models
             {
                 if (this.Categoria != null)
                     return this.Categoria.Nome;
+                return string.Empty;
+            }
+        }
+
+        public string SiglaUM
+        {
+            get
+            {
+                if (this.UnidadeMedida != null)
+                    return this.UnidadeMedida.Sigla;
                 return string.Empty;
             }
         }

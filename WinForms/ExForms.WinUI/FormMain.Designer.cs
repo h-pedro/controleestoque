@@ -35,7 +35,8 @@
             this.mnuProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.pagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPagamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUnidadeMedida = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,6 @@
             this.mnuLogoff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.unidadeDeMedidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,8 +74,8 @@
             this.mnuProdutos,
             this.toolStripSeparator1,
             this.mnuUsuarios,
-            this.pagamentoToolStripMenuItem,
-            this.unidadeDeMedidaToolStripMenuItem});
+            this.mnuPagamento,
+            this.mnuUnidadeMedida});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -107,11 +107,19 @@
             this.mnuUsuarios.Text = "Usuários";
             this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
-            // pagamentoToolStripMenuItem
+            // mnuPagamento
             // 
-            this.pagamentoToolStripMenuItem.Name = "pagamentoToolStripMenuItem";
-            this.pagamentoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.pagamentoToolStripMenuItem.Text = "Pagamento";
+            this.mnuPagamento.Name = "mnuPagamento";
+            this.mnuPagamento.Size = new System.Drawing.Size(177, 22);
+            this.mnuPagamento.Text = "Pagamento";
+            this.mnuPagamento.Click += new System.EventHandler(this.mnuPagamento_Click);
+            // 
+            // mnuUnidadeMedida
+            // 
+            this.mnuUnidadeMedida.Name = "mnuUnidadeMedida";
+            this.mnuUnidadeMedida.Size = new System.Drawing.Size(177, 22);
+            this.mnuUnidadeMedida.Text = "Unidade de Medida";
+            this.mnuUnidadeMedida.Click += new System.EventHandler(this.unidadeDeMedidaToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -166,13 +174,6 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // unidadeDeMedidaToolStripMenuItem
-            // 
-            this.unidadeDeMedidaToolStripMenuItem.Name = "unidadeDeMedidaToolStripMenuItem";
-            this.unidadeDeMedidaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.unidadeDeMedidaToolStripMenuItem.Text = "Unidade de Medida";
-            this.unidadeDeMedidaToolStripMenuItem.Click += new System.EventHandler(this.unidadeDeMedidaToolStripMenuItem_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,8 +210,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuLogoff;
         private System.Windows.Forms.ToolStripMenuItem mnuSair;
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pagamentoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unidadeDeMedidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuPagamento;
+        private System.Windows.Forms.ToolStripMenuItem mnuUnidadeMedida;
     }
 }
 
