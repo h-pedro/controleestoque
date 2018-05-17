@@ -175,6 +175,24 @@ namespace ExForms.WinUI
             }
         }
 
-        
+        private void movimentaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool _found = false;
+            foreach (Form _openForm in Application.OpenForms)
+            {
+                if (_openForm is FormListaMovimentacao)
+                {
+                    _openForm.Focus();
+                    _found = true;
+                }
+            }
+
+            if (!_found)
+            {
+                var frm = new FormListaMovimentacao();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
     }
 }

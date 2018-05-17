@@ -30,13 +30,17 @@
         {
             this.lblProduto = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboProduto = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.rdbE = new System.Windows.Forms.RadioButton();
             this.rdbS = new System.Windows.Forms.RadioButton();
             this.txtQtd = new System.Windows.Forms.TextBox();
             this.lblQuantidade = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblProduto
@@ -59,20 +63,13 @@
             this.lblData.TabIndex = 1;
             this.lblData.Text = "Data:";
             // 
-            // comboBox1
+            // cboProduto
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(111, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.cboProduto.FormattingEnabled = true;
+            this.cboProduto.Location = new System.Drawing.Point(111, 24);
+            this.cboProduto.Name = "cboProduto";
+            this.cboProduto.Size = new System.Drawing.Size(121, 21);
+            this.cboProduto.TabIndex = 2;
             // 
             // lblTipo
             // 
@@ -123,22 +120,65 @@
             this.lblQuantidade.TabIndex = 7;
             this.lblQuantidade.Text = "Quantidade:";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Location = new System.Drawing.Point(197, 227);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.Location = new System.Drawing.Point(111, 227);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 9;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dtpData);
+            this.groupBox1.Location = new System.Drawing.Point(0, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(272, 214);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cadastro de Movimentação";
+            // 
+            // dtpData
+            // 
+            this.dtpData.Location = new System.Drawing.Point(72, 62);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(160, 20);
+            this.dtpData.TabIndex = 0;
+            // 
             // FormCadastroMovimentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtQtd);
             this.Controls.Add(this.lblQuantidade);
             this.Controls.Add(this.rdbS);
             this.Controls.Add(this.rdbE);
             this.Controls.Add(this.lblTipo);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboProduto);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblProduto);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormCadastroMovimentacao";
             this.Text = "FormCadastroMovimentacao";
+            this.Load += new System.EventHandler(this.FormCadastroMovimentacao_Load);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,12 +188,15 @@
 
         private System.Windows.Forms.Label lblProduto;
         private System.Windows.Forms.Label lblData;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cboProduto;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.RadioButton rdbE;
         private System.Windows.Forms.RadioButton rdbS;
         private System.Windows.Forms.TextBox txtQtd;
         private System.Windows.Forms.Label lblQuantidade;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker dtpData;
     }
 }

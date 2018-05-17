@@ -25,7 +25,7 @@ namespace ExForms.DataAccess
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Id_Produto.Id;
+                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
                     cmd.Parameters.Add("@Data", SqlDbType.DateTime).Value = obj.Data;
                     cmd.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = obj.Tipo;
                     cmd.Parameters.Add("@Quantidade_Recebida", SqlDbType.Int).Value = obj.Quantidade_Recebida;
@@ -57,7 +57,7 @@ namespace ExForms.DataAccess
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Id_Produto.Id;
+                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
                     cmd.Parameters.Add("@Data", SqlDbType.DateTime).Value = obj.Data;
                     cmd.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = obj.Tipo;
                     cmd.Parameters.Add("@Quantidade_Recebida", SqlDbType.Int).Value = obj.Quantidade_Recebida;
@@ -123,7 +123,7 @@ namespace ExForms.DataAccess
                     var row = dt.Rows[0];
                     var movimentacao = new Movimentacao()
                     {
-                        Id_Produto = new Produto() { Id = Convert.ToInt32(row["id_Produto"]) },
+                        Produto = new Produto() { Id = Convert.ToInt32(row["id_Produto"]) },
                         Data = Convert.ToDateTime(row["Data"]),
                         Tipo = row["Tipo"].ToString(),
                         Quantidade_Recebida = row["Quantidade_Recebida"].ToString()
@@ -169,7 +169,7 @@ namespace ExForms.DataAccess
                         var obj = new Movimentacao()
                         {
 
-                            Id_Produto = new Produto()
+                            Produto = new Produto()
                             {
 
                                 Nome = row["nome"].ToString()
