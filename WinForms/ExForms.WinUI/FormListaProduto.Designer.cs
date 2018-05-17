@@ -44,10 +44,11 @@
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.ctxAcoes.SuspendLayout();
@@ -72,10 +73,11 @@
             this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
+            this.colunMedida,
             this.colNome,
             this.colCategoria,
-            this.colPreco});
+            this.colPreco,
+            this.Medida});
             this.gridView.ContextMenuStrip = this.ctxAcoes;
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(0, 25);
@@ -201,11 +203,11 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // colId
+            // colunMedida
             // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "ID";
-            this.colId.Name = "colId";
+            this.colunMedida.DataPropertyName = "Id";
+            this.colunMedida.HeaderText = "ID";
+            this.colunMedida.Name = "colunMedida";
             // 
             // colNome
             // 
@@ -224,6 +226,12 @@
             this.colPreco.DataPropertyName = "Preco";
             this.colPreco.HeaderText = "Preço";
             this.colPreco.Name = "colPreco";
+            // 
+            // Medida
+            // 
+            this.Medida.DataPropertyName = "SiglaUM";
+            this.Medida.HeaderText = "Unidade de Medida";
+            this.Medida.Name = "Medida";
             // 
             // FormListaProduto
             // 
@@ -262,9 +270,10 @@
         private System.Windows.Forms.ToolStripButton btnBuscar;
         private System.Windows.Forms.ToolStripTextBox txtBusca;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colunMedida;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPreco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Medida;
     }
 }
