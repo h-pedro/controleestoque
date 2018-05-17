@@ -30,11 +30,12 @@ namespace ExForms.WinUI
         private void FormCadastroProduto_Load(object sender, EventArgs e)
         {
             CarregarCategorias();
+            CarregarUnidadeMedida();
             var obj = Produto as Produto;
             if (obj == null)
                 return;
             txtNome.Text = obj.Nome;
-            // txtQtd.Text = string.Format("{0:N0}", obj.Quantidade);
+            cboUnidadeMedida.SelectedValue = obj.UnidadeMedida.Id;
             cboCategoria.SelectedValue = obj.Categoria.Id;
             txtPreco.Text = string.Format("{0:N2}", obj.Preco);
             txtDescricao.Text = obj.Descricao;
@@ -48,6 +49,16 @@ namespace ExForms.WinUI
             cboCategoria.DisplayMember = "Nome";
             cboCategoria.ValueMember = "Id";
             cboCategoria.SelectedIndex = 0;
+        }
+
+        private void CarregarUnidadeMedida()
+        {
+            var lst = new List<UnidadeMedida>() { new UnidadeMedida() { Nome = "-- [SELECIONE] --" } };
+            lst.AddRange(new UnidadeMedidaDAO().BuscarTodos());
+            cboUnidadeMedida.DataSource = lst;
+            cboUnidadeMedida.DisplayMember = "Nome";
+            cboUnidadeMedida.ValueMember = "Id";
+            cboUnidadeMedida.SelectedIndex = 0;
         }
 
         private bool ValidarCampos()
@@ -89,6 +100,7 @@ namespace ExForms.WinUI
             this.Produto = this.Produto ?? new Produto();
             this.Produto.Nome = txtNome.Text;
             this.Produto.Categoria = new Categoria() { Id = Convert.ToInt32(cboCategoria.SelectedValue) };
+            this.Produto.UnidadeMedida = new UnidadeMedida() { Id = Convert.ToInt32(cboUnidadeMedida.SelectedValue) };
             this.Produto.Preco = Convert.ToDecimal(txtPreco.Text);
             this.Produto.Descricao = txtDescricao.Text;
 
@@ -99,6 +111,5 @@ namespace ExForms.WinUI
 
             DialogResult = DialogResult.OK;
         }
-
     }
 }

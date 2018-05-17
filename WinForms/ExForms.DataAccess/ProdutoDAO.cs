@@ -148,9 +148,13 @@ namespace ExForms.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de produtos
                 string strSQL = @"SELECT 
                                       p.*, 
-                                      c.nome as categoria 
+                                      c.nome as categoria,
+                                      u.nome as Unidade_Medida 
                                   FROM produto p
-                                  INNER JOIN categoria c on (c.id = p.id_categoria);";
+                                  INNER JOIN categoria c on (c.id = p.id_categoria)
+                                  INNER JOIN Unidade_Medida u on (p.id_Unidade_Medida = u.id);";
+
+                
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -178,6 +182,11 @@ namespace ExForms.DataAccess
                                 Id = Convert.ToInt32(row["id_categoria"]),
                                 Nome = row["categoria"].ToString()
                             },
+                            UnidadeMedida = new UnidadeMedida()
+                            {
+                                Id = Convert.ToInt32(row["id_Unidade_Medida"]),
+                                Nome = row["Unidade_Medida"].ToString()
+                            },
                             Preco = Convert.ToDecimal(row["preco"]),
                             Descricao = row["descricao"].ToString()
                         };
@@ -200,9 +209,12 @@ namespace ExForms.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = string.Format(@"SELECT 
                                                     p.*, 
-                                                    c.nome as categoria 
+                                                    c.nome as categoria,
+                                                    u.nome as Unidade_Medida,
+                                                    u.sigla
                                                 FROM produto p
                                                 INNER JOIN categoria c on (c.id = p.id_categoria) 
+                                                INNER JOIN Unidade_Medida u on (p.id_Unidade_Medida = u.id)
                                                 WHERE p.nome like '%{0}%';", texto);
 
                 //Criando um comando sql que será executado na base de dados
@@ -230,6 +242,12 @@ namespace ExForms.DataAccess
                             {
                                 Id = Convert.ToInt32(row["id_categoria"]),
                                 Nome = row["categoria"].ToString()
+                            },
+                            UnidadeMedida = new UnidadeMedida()
+                            {
+                                Id = Convert.ToInt32(row["id_Unidade_Medida"]),
+                                Nome = row["Unidade_Medida"].ToString(),
+                                Sigla = row["sigla"].ToString(),
                             },
                             Preco = Convert.ToDecimal(row["preco"]),
                             Descricao = row["descricao"].ToString()
