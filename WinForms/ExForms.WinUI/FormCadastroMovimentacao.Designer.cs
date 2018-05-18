@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblProduto = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.cboProduto = new System.Windows.Forms.ComboBox();
@@ -39,8 +40,10 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.txtData = new System.Windows.Forms.DateTimePicker();
+            this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProduto
@@ -144,7 +147,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dtpData);
+            this.groupBox1.Controls.Add(this.txtData);
             this.groupBox1.Location = new System.Drawing.Point(0, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(272, 214);
@@ -152,12 +155,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro de Movimentação";
             // 
-            // dtpData
+            // txtData
             // 
-            this.dtpData.Location = new System.Drawing.Point(72, 62);
-            this.dtpData.Name = "dtpData";
-            this.dtpData.Size = new System.Drawing.Size(160, 20);
-            this.dtpData.TabIndex = 0;
+            this.txtData.Location = new System.Drawing.Point(72, 62);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(160, 20);
+            this.txtData.TabIndex = 0;
+            // 
+            // error
+            // 
+            this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.error.ContainerControl = this;
             // 
             // FormCadastroMovimentacao
             // 
@@ -179,6 +187,7 @@
             this.Text = "FormCadastroMovimentacao";
             this.Load += new System.EventHandler(this.FormCadastroMovimentacao_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +206,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.DateTimePicker txtData;
+        private System.Windows.Forms.ErrorProvider error;
     }
 }

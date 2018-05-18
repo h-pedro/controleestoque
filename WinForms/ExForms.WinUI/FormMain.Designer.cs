@@ -37,6 +37,7 @@
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPagamento = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUnidadeMedida = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,6 @@
             this.mnuLogoff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,16 +72,15 @@
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCategorias,
+            this.mnuUnidadeMedida,
             this.mnuProdutos,
             this.toolStripSeparator1,
-            this.mnuUsuarios,
+            this.movimentaçãoToolStripMenuItem,
             this.mnuPagamento,
-            this.mnuUnidadeMedida,
-            this.movimentaçãoToolStripMenuItem});
+            this.mnuUsuarios});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
-            this.cadastrosToolStripMenuItem.Click += new System.EventHandler(this.cadastrosToolStripMenuItem_Click);
             // 
             // mnuCategorias
             // 
@@ -122,6 +121,13 @@
             this.mnuUnidadeMedida.Size = new System.Drawing.Size(177, 22);
             this.mnuUnidadeMedida.Text = "Unidade de Medida";
             this.mnuUnidadeMedida.Click += new System.EventHandler(this.unidadeDeMedidaToolStripMenuItem_Click);
+            // 
+            // movimentaçãoToolStripMenuItem
+            // 
+            this.movimentaçãoToolStripMenuItem.Name = "movimentaçãoToolStripMenuItem";
+            this.movimentaçãoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.movimentaçãoToolStripMenuItem.Text = "Movimentação";
+            this.movimentaçãoToolStripMenuItem.Click += new System.EventHandler(this.movimentaçãoToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -175,13 +181,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(642, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // movimentaçãoToolStripMenuItem
-            // 
-            this.movimentaçãoToolStripMenuItem.Name = "movimentaçãoToolStripMenuItem";
-            this.movimentaçãoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.movimentaçãoToolStripMenuItem.Text = "Movimentação";
-            this.movimentaçãoToolStripMenuItem.Click += new System.EventHandler(this.movimentaçãoToolStripMenuItem_Click);
             // 
             // FormMain
             // 

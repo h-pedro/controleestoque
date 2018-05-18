@@ -123,10 +123,6 @@ namespace ExForms.WinUI
 
         }
 
-        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void estoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {

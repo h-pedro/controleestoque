@@ -44,9 +44,9 @@ namespace ExForms.WinUI
             var obj = Movimentacao as Movimentacao;
             if (obj == null)
                 return;
-        
+
             cboProduto.SelectedValue = obj.Produto.Id;
-            dtpData.Value = obj.Data;
+            txtData.Value = obj.Data;
             rdbE.Checked = obj.Tipo == "E";
             rdbS.Checked = obj.Tipo == "S";
             txtQtd.Text = obj.Quantidade_Recebida;
@@ -54,12 +54,31 @@ namespace ExForms.WinUI
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+                return;
 
+            this.Movimentacao = this.Movimentacao ?? new Movimentacao();
+            this.Movimentacao.Produto = new Produto() { Id = (int)cboProduto.SelectedValue };
+            this.Movimentacao.Data = txtData.Value;
+            this.Movimentacao.Tipo = rdbE.Checked ? "E" : "S";
+            this.Movimentacao.Quantidade_Recebida = txtQtd.Text;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private bool ValidarCampos()
+        {
+            error.Clear();
+            var aux = true;
+            if (string.IsNullOrWhiteSpace(cboProduto.Text))
+            {
+                aux = false;
+                error.SetError(cboProduto, "Campo obrigatório!");
+            }
+            return aux;
         }
     }
 }
