@@ -1,6 +1,7 @@
 ﻿using ExForms.DataAccess;
 using ExForms.Models;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -77,7 +78,10 @@ namespace ExForms.WinUI
 
         private void gridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            gridView.Rows[e.RowIndex].ReadOnly = true;
+            if (e.RowIndex >= 0)
+            {
+                gridView.Rows[e.RowIndex].ReadOnly = true;
+            }
         }
 
         private void txtBusca_KeyDown(object sender, KeyEventArgs e)
@@ -97,6 +101,7 @@ namespace ExForms.WinUI
         {
             btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
             btnExcluir.Enabled = mnuExcluir.Enabled = (oneItemSelected || manyItemsSelected);
+            gridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
 
         private void CarregarGridView()

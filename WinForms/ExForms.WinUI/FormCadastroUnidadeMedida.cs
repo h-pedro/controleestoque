@@ -1,13 +1,6 @@
 ﻿using ExForms.DataAccess;
 using ExForms.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -29,7 +22,7 @@ namespace ExForms.WinUI
 
         private void FormCadastroUnidadeMedida_Load(object sender, System.EventArgs e)
         {
-            var obj =  UnidadeMedida as UnidadeMedida;
+            var obj = UnidadeMedida as UnidadeMedida;
             if (obj == null)
                 return;
             txtNome.Text = obj.Nome;
@@ -40,6 +33,7 @@ namespace ExForms.WinUI
         {
             this.Close();
         }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             {
@@ -59,11 +53,11 @@ namespace ExForms.WinUI
             }
         }
 
-
         private bool ValidarCampos()
         {
             error.Clear();
             var aux = true;
+
             if (string.IsNullOrWhiteSpace(txtNome.Text))
             {
                 aux = false;
@@ -73,10 +67,10 @@ namespace ExForms.WinUI
             if (string.IsNullOrWhiteSpace(txtSigla.Text))
             {
                 aux = false;
-                error.SetError(txtNome, "Campo obrigatório!");
+                error.SetError(txtSigla, "Campo obrigatório!");
             }
+
             return aux;
         }
-
     }
 }

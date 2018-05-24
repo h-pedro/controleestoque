@@ -74,9 +74,9 @@
             // cboUnidadeMedida
             // 
             this.cboUnidadeMedida.FormattingEnabled = true;
-            this.cboUnidadeMedida.Location = new System.Drawing.Point(23, 102);
+            this.cboUnidadeMedida.Location = new System.Drawing.Point(20, 102);
             this.cboUnidadeMedida.Name = "cboUnidadeMedida";
-            this.cboUnidadeMedida.Size = new System.Drawing.Size(163, 21);
+            this.cboUnidadeMedida.Size = new System.Drawing.Size(273, 21);
             this.cboUnidadeMedida.TabIndex = 10;
             // 
             // lblUnidadeMedida
@@ -98,8 +98,10 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(311, 86);
+            this.label4.Location = new System.Drawing.Point(312, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 7;
@@ -109,15 +111,17 @@
             // 
             this.txtPreco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPreco.Location = new System.Drawing.Point(311, 102);
+            this.txtPreco.Location = new System.Drawing.Point(312, 102);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(163, 20);
             this.txtPreco.TabIndex = 6;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(311, 34);
+            this.label3.Location = new System.Drawing.Point(312, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 5;
@@ -125,8 +129,10 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(311, 51);
+            this.cboCategoria.Location = new System.Drawing.Point(312, 51);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(163, 21);
             this.cboCategoria.TabIndex = 4;
@@ -153,8 +159,6 @@
             // 
             // txtNome
             // 
-            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNome.Location = new System.Drawing.Point(20, 51);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(273, 20);

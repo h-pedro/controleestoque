@@ -1,20 +1,13 @@
 ﻿using ExForms.DataAccess;
 using ExForms.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
 {
-    public partial class FormTipoPagameno : Form
+    public partial class FormListaTipoPagamento : Form
     {
-        public FormTipoPagameno()
+        public FormListaTipoPagamento()
         {
             InitializeComponent();
         }
@@ -54,7 +47,7 @@ namespace ExForms.WinUI
             CarregarGridView();
         }
 
-        private void FormTipoPagameno_Load(object sender, EventArgs e)
+        private void FormListaTipoPagamento_Load(object sender, EventArgs e)
         {
             CarregarGridView();
         }
@@ -84,7 +77,10 @@ namespace ExForms.WinUI
 
         private void gridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            gridView.Rows[e.RowIndex].ReadOnly = true;
+            if (e.RowIndex >= 0)
+            {
+                gridView.Rows[e.RowIndex].ReadOnly = true;
+            }
         }
 
         private void txtBusca_KeyDown(object sender, KeyEventArgs e)
@@ -138,21 +134,6 @@ namespace ExForms.WinUI
                 new TipoPagamentoDAO().Deletar(new TipoPagamento() { Id = id });
                 CarregarGridView();
             }
-        }
-
-        private void mnuAcoes_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void gridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnFechar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

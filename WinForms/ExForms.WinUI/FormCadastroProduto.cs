@@ -2,12 +2,6 @@
 using ExForms.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -39,6 +33,31 @@ namespace ExForms.WinUI
             cboCategoria.SelectedValue = obj.Categoria.Id;
             txtPreco.Text = string.Format("{0:N2}", obj.Preco);
             txtDescricao.Text = obj.Descricao;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos())
+                return;
+
+            this.Produto = this.Produto ?? new Produto();
+            this.Produto.Nome = txtNome.Text;
+            this.Produto.Categoria = new Categoria() { Id = Convert.ToInt32(cboCategoria.SelectedValue) };
+            this.Produto.UnidadeMedida = new UnidadeMedida() { Id = Convert.ToInt32(cboUnidadeMedida.SelectedValue) };
+            this.Produto.Preco = Convert.ToDecimal(txtPreco.Text);
+            this.Produto.Descricao = txtDescricao.Text;
+
+            if (this.Produto != null && this.Produto.Id > 0)
+                new ProdutoDAO().Atualizar(this.Produto);
+            else
+                new ProdutoDAO().Inserir(this.Produto);
+
+            DialogResult = DialogResult.OK;
         }
 
         private void CarregarCategorias()
@@ -84,32 +103,13 @@ namespace ExForms.WinUI
                 error.SetError(cboCategoria, "Campo obrigatório!");
             }
 
+            if (!(Convert.ToInt32(cboUnidadeMedida.SelectedValue) > 0))
+            {
+                aux = false;
+                error.SetError(cboUnidadeMedida, "Campo obrigatório!");
+            }
+
             return aux;
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            if (!ValidarCampos())
-                return;
-
-            this.Produto = this.Produto ?? new Produto();
-            this.Produto.Nome = txtNome.Text;
-            this.Produto.Categoria = new Categoria() { Id = Convert.ToInt32(cboCategoria.SelectedValue) };
-            this.Produto.UnidadeMedida = new UnidadeMedida() { Id = Convert.ToInt32(cboUnidadeMedida.SelectedValue) };
-            this.Produto.Preco = Convert.ToDecimal(txtPreco.Text);
-            this.Produto.Descricao = txtDescricao.Text;
-
-            if (this.Produto != null && this.Produto.Id > 0)
-                new ProdutoDAO().Atualizar(this.Produto);
-            else
-                new ProdutoDAO().Inserir(this.Produto);
-
-            DialogResult = DialogResult.OK;
         }
     }
 }

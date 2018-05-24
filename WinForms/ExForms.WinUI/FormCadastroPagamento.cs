@@ -32,7 +32,7 @@ namespace ExForms.WinUI
             var obj = TipoPagamento as TipoPagamento;
             if (obj == null)
                 return;
-            txtNome_Pagamento.Text = obj.Nome_Pagamento;
+            txtNome.Text = obj.Nome_Pagamento;
             txtDescricao.Text = obj.descricao;
         }
 
@@ -47,8 +47,8 @@ namespace ExForms.WinUI
                 return;
 
             this.TipoPagamento = this.TipoPagamento ?? new TipoPagamento();
-            this.TipoPagamento.Nome_Pagamento = txtNome_Pagamento.Text;
-            this.TipoPagamento.descricao = textDescricao.Text;
+            this.TipoPagamento.Nome_Pagamento = txtNome.Text;
+            this.TipoPagamento.descricao = txtDescricao.Text;
 
             if (this.TipoPagamento != null && this.TipoPagamento.Id > 0)
                 new TipoPagamentoDAO().Atualizar(this.TipoPagamento);
@@ -62,12 +62,12 @@ namespace ExForms.WinUI
         {
             error.Clear();
             var aux = true;
-            if (string.IsNullOrWhiteSpace(txtNome_Pagamento.Text))
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
             {
                 aux = false;
-                error.SetError(txtNome_Pagamento, "Campo obrigatório!");
+                error.SetError(txtNome, "Campo obrigatório!");
             }
             return aux;
         }
     }
-}   
+}

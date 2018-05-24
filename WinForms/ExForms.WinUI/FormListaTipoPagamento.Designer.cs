@@ -1,6 +1,6 @@
 ﻿namespace ExForms.WinUI
 {
-    partial class FormTipoPagameno
+    partial class FormListaTipoPagamento
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTipoPagameno));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaTipoPagamento));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,12 +47,15 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.gridView);
             this.panel1.Controls.Add(this.mnuAcoes);
-            this.panel1.Location = new System.Drawing.Point(12, 27);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 408);
+            this.panel1.Size = new System.Drawing.Size(735, 415);
             this.panel1.TabIndex = 1;
             // 
             // gridView
@@ -71,7 +74,7 @@
             this.gridView.Name = "gridView";
             this.gridView.RowHeadersVisible = false;
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridView.Size = new System.Drawing.Size(733, 381);
+            this.gridView.Size = new System.Drawing.Size(733, 388);
             this.gridView.TabIndex = 1;
             // 
             // colId
@@ -150,24 +153,25 @@
             // 
             // btnFechar
             // 
-            this.btnFechar.Location = new System.Drawing.Point(672, 440);
+            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFechar.Location = new System.Drawing.Point(671, 433);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
             this.btnFechar.TabIndex = 2;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click_1);
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // FormTipoPagameno
+            // FormListaTipoPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 468);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.panel1);
-            this.Name = "FormTipoPagameno";
-            this.Text = "FormTipoPagameno";
-            this.Load += new System.EventHandler(this.FormTipoPagameno_Load);
+            this.Name = "FormListaTipoPagamento";
+            this.Text = "Lista de Tipos de Pagamento";
+            this.Load += new System.EventHandler(this.FormListaTipoPagamento_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();

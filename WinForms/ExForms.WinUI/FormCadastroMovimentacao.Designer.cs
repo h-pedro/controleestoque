@@ -29,104 +29,64 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblProduto = new System.Windows.Forms.Label();
-            this.lblData = new System.Windows.Forms.Label();
             this.cboProduto = new System.Windows.Forms.ComboBox();
-            this.lblTipo = new System.Windows.Forms.Label();
             this.rdbE = new System.Windows.Forms.RadioButton();
             this.rdbS = new System.Windows.Forms.RadioButton();
-            this.txtQtd = new System.Windows.Forms.TextBox();
-            this.lblQuantidade = new System.Windows.Forms.Label();
+            this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtData = new System.Windows.Forms.DateTimePicker();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblProduto
-            // 
-            this.lblProduto.AutoSize = true;
-            this.lblProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduto.Location = new System.Drawing.Point(26, 29);
-            this.lblProduto.Name = "lblProduto";
-            this.lblProduto.Size = new System.Drawing.Size(58, 16);
-            this.lblProduto.TabIndex = 0;
-            this.lblProduto.Text = "Produto:";
-            // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(26, 69);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(40, 16);
-            this.lblData.TabIndex = 1;
-            this.lblData.Text = "Data:";
-            // 
             // cboProduto
             // 
             this.cboProduto.FormattingEnabled = true;
-            this.cboProduto.Location = new System.Drawing.Point(111, 24);
+            this.cboProduto.Location = new System.Drawing.Point(18, 41);
             this.cboProduto.Name = "cboProduto";
-            this.cboProduto.Size = new System.Drawing.Size(121, 21);
+            this.cboProduto.Size = new System.Drawing.Size(316, 21);
             this.cboProduto.TabIndex = 2;
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(26, 114);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(39, 16);
-            this.lblTipo.TabIndex = 4;
-            this.lblTipo.Text = "Tipo:";
             // 
             // rdbE
             // 
             this.rdbE.AutoSize = true;
-            this.rdbE.Location = new System.Drawing.Point(29, 133);
+            this.rdbE.Checked = true;
+            this.rdbE.Location = new System.Drawing.Point(18, 154);
             this.rdbE.Name = "rdbE";
-            this.rdbE.Size = new System.Drawing.Size(77, 17);
+            this.rdbE.Size = new System.Drawing.Size(62, 17);
             this.rdbE.TabIndex = 5;
             this.rdbE.TabStop = true;
-            this.rdbE.Text = "ENTRADA";
+            this.rdbE.Text = "Entrada";
             this.rdbE.UseVisualStyleBackColor = true;
             // 
             // rdbS
             // 
             this.rdbS.AutoSize = true;
-            this.rdbS.Location = new System.Drawing.Point(113, 133);
+            this.rdbS.Location = new System.Drawing.Point(102, 154);
             this.rdbS.Name = "rdbS";
-            this.rdbS.Size = new System.Drawing.Size(57, 17);
+            this.rdbS.Size = new System.Drawing.Size(54, 17);
             this.rdbS.TabIndex = 6;
-            this.rdbS.TabStop = true;
-            this.rdbS.Text = "SAIDA";
+            this.rdbS.Text = "Saída";
             this.rdbS.UseVisualStyleBackColor = true;
             // 
-            // txtQtd
+            // txtQuantidade
             // 
-            this.txtQtd.Location = new System.Drawing.Point(111, 184);
-            this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(100, 20);
-            this.txtQtd.TabIndex = 8;
-            // 
-            // lblQuantidade
-            // 
-            this.lblQuantidade.AutoSize = true;
-            this.lblQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantidade.Location = new System.Drawing.Point(25, 188);
-            this.lblQuantidade.Name = "lblQuantidade";
-            this.lblQuantidade.Size = new System.Drawing.Size(81, 16);
-            this.lblQuantidade.TabIndex = 7;
-            this.lblQuantidade.Text = "Quantidade:";
+            this.txtQuantidade.Location = new System.Drawing.Point(18, 203);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(160, 20);
+            this.txtQuantidade.TabIndex = 8;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(197, 227);
+            this.btnCancelar.Location = new System.Drawing.Point(297, 271);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
@@ -137,7 +97,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(111, 227);
+            this.btnSalvar.Location = new System.Drawing.Point(211, 271);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 9;
@@ -147,17 +107,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtData);
-            this.groupBox1.Location = new System.Drawing.Point(0, 7);
+            this.groupBox1.Controls.Add(this.cboProduto);
+            this.groupBox1.Controls.Add(this.txtQuantidade);
+            this.groupBox1.Controls.Add(this.rdbE);
+            this.groupBox1.Controls.Add(this.rdbS);
+            this.groupBox1.Location = new System.Drawing.Point(12, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(272, 214);
+            this.groupBox1.Size = new System.Drawing.Size(360, 258);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro de Movimentação";
             // 
             // txtData
             // 
-            this.txtData.Location = new System.Drawing.Point(72, 62);
+            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtData.Location = new System.Drawing.Point(18, 94);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(160, 20);
             this.txtData.TabIndex = 0;
@@ -167,46 +136,74 @@
             this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.error.ContainerControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Produto:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Data:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Tipo de Movimentação:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Quantidade:";
+            // 
             // FormCadastroMovimentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(384, 306);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.txtQtd);
-            this.Controls.Add(this.lblQuantidade);
-            this.Controls.Add(this.rdbS);
-            this.Controls.Add(this.rdbE);
-            this.Controls.Add(this.lblTipo);
-            this.Controls.Add(this.cboProduto);
-            this.Controls.Add(this.lblData);
-            this.Controls.Add(this.lblProduto);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(400, 345);
             this.Name = "FormCadastroMovimentacao";
-            this.Text = "FormCadastroMovimentacao";
+            this.Text = "Cadastro de Movimentação";
             this.Load += new System.EventHandler(this.FormCadastroMovimentacao_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblProduto;
-        private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.ComboBox cboProduto;
-        private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.RadioButton rdbE;
         private System.Windows.Forms.RadioButton rdbS;
-        private System.Windows.Forms.TextBox txtQtd;
-        private System.Windows.Forms.Label lblQuantidade;
+        private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker txtData;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

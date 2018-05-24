@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -118,25 +117,12 @@ namespace ExForms.WinUI
             Application.Exit();
         }
 
-        private void relatórioDeCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void estoqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var frm = new FormEstoque();
-            frm.MdiParent = this;
-            frm.Show();
-        }
-
         private void mnuPagamento_Click(object sender, EventArgs e)
         {
             bool _found = false;
             foreach (Form _openForm in Application.OpenForms)
             {
-                if (_openForm is FormTipoPagameno)
+                if (_openForm is FormListaTipoPagamento)
                 {
                     _openForm.Focus();
                     _found = true;
@@ -145,7 +131,7 @@ namespace ExForms.WinUI
 
             if (!_found)
             {
-                var frm = new FormTipoPagameno();
+                var frm = new FormListaTipoPagamento();
                 frm.MdiParent = this;
                 frm.Show();
             }
@@ -186,6 +172,26 @@ namespace ExForms.WinUI
             if (!_found)
             {
                 var frm = new FormListaMovimentacao();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void mnuVendas_Click(object sender, EventArgs e)
+        {
+            bool _found = false;
+            foreach (Form _openForm in Application.OpenForms)
+            {
+                if (_openForm is FormListaVenda)
+                {
+                    _openForm.Focus();
+                    _found = true;
+                }
+            }
+
+            if (!_found)
+            {
+                var frm = new FormListaVenda();
                 frm.MdiParent = this;
                 frm.Show();
             }

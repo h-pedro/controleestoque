@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExForms.DataAccess
 {
@@ -39,6 +36,7 @@ namespace ExForms.DataAccess
                 }
             }
         }
+
         public void Atualizar(ItemVenda obj)
         {
             //Criando uma conexão com o banco de dados
@@ -95,6 +93,7 @@ namespace ExForms.DataAccess
                 }
             }
         }
+
         public ItemVenda BuscarPorId(int id)
         {
             //Criando uma conexão com o banco de dados
@@ -135,6 +134,7 @@ namespace ExForms.DataAccess
                 }
             }
         }
+
         public List<ItemVenda> BuscarPorTexto(string texto)
         {
             var lst = new List<ItemVenda>();
@@ -174,7 +174,7 @@ namespace ExForms.DataAccess
                             Id = Convert.ToInt32(row["id"]),
                             Produto = new Produto()
                             {
-                                 
+
                                 Nome = row["nome"].ToString()
                             },
                             Quantidade = Convert.ToInt32(row["Quantidade"]),
@@ -194,6 +194,5 @@ namespace ExForms.DataAccess
 
             return lst;
         }
-
     }
 }

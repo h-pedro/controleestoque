@@ -30,13 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaVenda));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridViewVenda = new System.Windows.Forms.DataGridView();
-            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridView = new System.Windows.Forms.DataGridView();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -44,78 +38,52 @@
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewVenda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.mnuAcoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.gridViewVenda);
+            this.panel1.Controls.Add(this.gridView);
             this.panel1.Controls.Add(this.mnuAcoes);
             this.panel1.Location = new System.Drawing.Point(11, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(743, 408);
+            this.panel1.Size = new System.Drawing.Size(736, 408);
             this.panel1.TabIndex = 4;
             // 
-            // gridViewVenda
+            // gridView
             // 
-            this.gridViewVenda.AllowUserToAddRows = false;
-            this.gridViewVenda.AllowUserToDeleteRows = false;
-            this.gridViewVenda.AllowUserToResizeRows = false;
-            this.gridViewVenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridViewVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewVenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridView.AllowUserToAddRows = false;
+            this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.AllowUserToResizeRows = false;
+            this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colunMedida,
             this.colNome,
             this.colCategoria,
             this.colPreco,
             this.Medida,
             this.Valor});
-            this.gridViewVenda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridViewVenda.Location = new System.Drawing.Point(0, 25);
-            this.gridViewVenda.MultiSelect = false;
-            this.gridViewVenda.Name = "gridViewVenda";
-            this.gridViewVenda.RowHeadersVisible = false;
-            this.gridViewVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewVenda.Size = new System.Drawing.Size(741, 381);
-            this.gridViewVenda.TabIndex = 1;
-            // 
-            // colunMedida
-            // 
-            this.colunMedida.DataPropertyName = "Id";
-            this.colunMedida.HeaderText = "ID";
-            this.colunMedida.Name = "colunMedida";
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "Nome";
-            this.colNome.HeaderText = "Cliente";
-            this.colNome.Name = "colNome";
-            // 
-            // colCategoria
-            // 
-            this.colCategoria.DataPropertyName = "NomeCategoria";
-            this.colCategoria.HeaderText = "Data";
-            this.colCategoria.Name = "colCategoria";
-            // 
-            // colPreco
-            // 
-            this.colPreco.DataPropertyName = "Preco";
-            this.colPreco.HeaderText = "Tipo de Pagamento";
-            this.colPreco.Name = "colPreco";
-            // 
-            // Medida
-            // 
-            this.Medida.DataPropertyName = "SiglaUM";
-            this.Medida.HeaderText = "Itens";
-            this.Medida.Name = "Medida";
-            // 
-            // Valor
-            // 
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
+            this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridView.Location = new System.Drawing.Point(0, 25);
+            this.gridView.MultiSelect = false;
+            this.gridView.Name = "gridView";
+            this.gridView.RowHeadersVisible = false;
+            this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridView.Size = new System.Drawing.Size(734, 381);
+            this.gridView.TabIndex = 1;
             // 
             // mnuAcoes
             // 
@@ -127,7 +95,7 @@
             this.txtBusca});
             this.mnuAcoes.Location = new System.Drawing.Point(0, 0);
             this.mnuAcoes.Name = "mnuAcoes";
-            this.mnuAcoes.Size = new System.Drawing.Size(741, 25);
+            this.mnuAcoes.Size = new System.Drawing.Size(734, 25);
             this.mnuAcoes.TabIndex = 0;
             this.mnuAcoes.Text = "toolStrip1";
             // 
@@ -178,6 +146,7 @@
             // 
             // btnFechar
             // 
+            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.Location = new System.Drawing.Point(672, 427);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
@@ -185,18 +154,60 @@
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             // 
+            // colunMedida
+            // 
+            this.colunMedida.DataPropertyName = "Id";
+            this.colunMedida.FillWeight = 60.9137F;
+            this.colunMedida.HeaderText = "ID";
+            this.colunMedida.Name = "colunMedida";
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "Nome";
+            this.colNome.FillWeight = 107.8173F;
+            this.colNome.HeaderText = "Cliente";
+            this.colNome.Name = "colNome";
+            // 
+            // colCategoria
+            // 
+            this.colCategoria.DataPropertyName = "NomeCategoria";
+            this.colCategoria.FillWeight = 107.8173F;
+            this.colCategoria.HeaderText = "Data";
+            this.colCategoria.Name = "colCategoria";
+            // 
+            // colPreco
+            // 
+            this.colPreco.DataPropertyName = "Preco";
+            this.colPreco.FillWeight = 107.8173F;
+            this.colPreco.HeaderText = "Tipo de Pagamento";
+            this.colPreco.Name = "colPreco";
+            // 
+            // Medida
+            // 
+            this.Medida.DataPropertyName = "SiglaUM";
+            this.Medida.FillWeight = 107.8173F;
+            this.Medida.HeaderText = "Itens";
+            this.Medida.Name = "Medida";
+            // 
+            // Valor
+            // 
+            this.Valor.FillWeight = 107.8173F;
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            // 
             // FormListaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 460);
+            this.ClientSize = new System.Drawing.Size(759, 461);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnFechar);
+            this.MinimumSize = new System.Drawing.Size(775, 500);
             this.Name = "FormListaVenda";
-            this.Text = "FormListVenda";
+            this.Text = "Lista de Vendas";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewVenda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.mnuAcoes.ResumeLayout(false);
             this.mnuAcoes.PerformLayout();
             this.ResumeLayout(false);
@@ -206,7 +217,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView gridViewVenda;
+        private System.Windows.Forms.DataGridView gridView;
         private System.Windows.Forms.ToolStrip mnuAcoes;
         private System.Windows.Forms.ToolStripButton btnNovo;
         private System.Windows.Forms.ToolStripButton btnEditar;

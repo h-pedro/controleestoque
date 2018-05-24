@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaCategoria));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridViewP = new System.Windows.Forms.DataGridView();
+            this.gridView = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctxAcoes = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -47,44 +47,46 @@
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.ctxAcoes.SuspendLayout();
             this.mnuAcoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.gridViewP);
+            this.panel1.Controls.Add(this.gridView);
             this.panel1.Controls.Add(this.mnuAcoes);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(735, 408);
             this.panel1.TabIndex = 0;
             // 
-            // gridViewP
+            // gridView
             // 
-            this.gridViewP.AllowUserToAddRows = false;
-            this.gridViewP.AllowUserToDeleteRows = false;
-            this.gridViewP.AllowUserToResizeRows = false;
-            this.gridViewP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridViewP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridView.AllowUserToAddRows = false;
+            this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.AllowUserToResizeRows = false;
+            this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colNome});
-            this.gridViewP.ContextMenuStrip = this.ctxAcoes;
-            this.gridViewP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridViewP.Location = new System.Drawing.Point(0, 25);
-            this.gridViewP.MultiSelect = false;
-            this.gridViewP.Name = "gridViewP";
-            this.gridViewP.RowHeadersVisible = false;
-            this.gridViewP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewP.Size = new System.Drawing.Size(733, 381);
-            this.gridViewP.TabIndex = 1;
-            this.gridViewP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
-            this.gridViewP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellContentClick);
-            this.gridViewP.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
-            this.gridViewP.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
+            this.gridView.ContextMenuStrip = this.ctxAcoes;
+            this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridView.Location = new System.Drawing.Point(0, 25);
+            this.gridView.MultiSelect = false;
+            this.gridView.Name = "gridView";
+            this.gridView.RowHeadersVisible = false;
+            this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridView.Size = new System.Drawing.Size(733, 381);
+            this.gridView.TabIndex = 1;
+            this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
+            this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
+            this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
             // 
             // colId
             // 
@@ -149,8 +151,7 @@
             this.mnuAcoes.Name = "mnuAcoes";
             this.mnuAcoes.Size = new System.Drawing.Size(733, 25);
             this.mnuAcoes.TabIndex = 0;
-            this.mnuAcoes.Text = "toolStrip1";
-            this.mnuAcoes.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnuAcoes_ItemClicked);
+            this.mnuAcoes.Text = "Ações";
             // 
             // btnNovo
             // 
@@ -203,6 +204,7 @@
             // 
             // btnFechar
             // 
+            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.Location = new System.Drawing.Point(673, 426);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
@@ -215,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 462);
+            this.ClientSize = new System.Drawing.Size(759, 461);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(775, 500);
@@ -224,7 +226,7 @@
             this.Load += new System.EventHandler(this.FormListaCategoria_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ctxAcoes.ResumeLayout(false);
             this.mnuAcoes.ResumeLayout(false);
             this.mnuAcoes.PerformLayout();
@@ -242,7 +244,7 @@
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripTextBox txtBusca;
         private System.Windows.Forms.ToolStripButton btnBuscar;
-        private System.Windows.Forms.DataGridView gridViewP;
+        private System.Windows.Forms.DataGridView gridView;
         private System.Windows.Forms.ContextMenuStrip ctxAcoes;
         private System.Windows.Forms.ToolStripMenuItem mnuNovo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

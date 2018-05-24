@@ -49,6 +49,7 @@
             // 
             // btnFechar
             // 
+            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.Location = new System.Drawing.Point(672, 427);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
@@ -58,6 +59,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.gridView);
             this.panel1.Controls.Add(this.mnuAcoes);
@@ -150,7 +154,7 @@
             // 
             // colId
             // 
-            this.colId.DataPropertyName = "Produto";
+            this.colId.DataPropertyName = "NomeProduto";
             this.colId.HeaderText = "Produto";
             this.colId.Name = "colId";
             // 
@@ -162,11 +166,13 @@
             // 
             // Tipo
             // 
+            this.Tipo.DataPropertyName = "Tipo";
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
             // 
             // Quantidade
             // 
+            this.Quantidade.DataPropertyName = "Quantidade";
             this.Quantidade.HeaderText = "Quantidade";
             this.Quantidade.Name = "Quantidade";
             // 
@@ -174,11 +180,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 462);
+            this.ClientSize = new System.Drawing.Size(759, 461);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(775, 500);
             this.Name = "FormListaMovimentacao";
-            this.Text = "FormListaMovimentacao";
+            this.Text = "Lista de Movimentações";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();

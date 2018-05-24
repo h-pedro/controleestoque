@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExForms.DataAccess
 {
@@ -17,8 +14,8 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"INSERT INTO movimentacao (Id_Produto, Data, Tipo, Quantidade_Recebida) 
-                                  VALUES ( @Id_Produto, @Data, @Tipo, @Quantidade_Recebida);";
+                string strSQL = @"INSERT INTO MOVIMENTACAO (ID_PRODUTO, DATA, TIPO, QUANTIDADE) 
+                                  VALUES ( @ID_PRODUTO, @DATA, @TIPO, @QUANTIDADE);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -28,7 +25,7 @@ namespace ExForms.DataAccess
                     cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
                     cmd.Parameters.Add("@Data", SqlDbType.DateTime).Value = obj.Data;
                     cmd.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = obj.Tipo;
-                    cmd.Parameters.Add("@Quantidade_Recebida", SqlDbType.Int).Value = obj.Quantidade_Recebida;
+                    cmd.Parameters.Add("@QUANTIDADE", SqlDbType.Int).Value = obj.Quantidade;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -39,18 +36,19 @@ namespace ExForms.DataAccess
                 }
             }
         }
+
         public void Atualizar(Movimentacao obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"UPDATE movimentacao SET 
-                                   Id_Produto = @Id_Produto, 
-                                   Data = @Data,
-                                   Tipo = @Tipo, 
-                                   Quanitdade_Recebida = @Quantidade_Recebida                                     
-                                WHERE id = @id;";
+                string strSQL = @"UPDATE MOVIMENTACAO SET 
+                                     ID_PRODUTO = @ID_PRODUTO, 
+                                     DATA = @DATA,
+                                     TIPO = @TIPO, 
+                                     QUANITDADE_RECEBIDA = @QUANTIDADE                                     
+                                  WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -60,7 +58,7 @@ namespace ExForms.DataAccess
                     cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
                     cmd.Parameters.Add("@Data", SqlDbType.DateTime).Value = obj.Data;
                     cmd.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = obj.Tipo;
-                    cmd.Parameters.Add("@Quantidade_Recebida", SqlDbType.Int).Value = obj.Quantidade_Recebida;
+                    cmd.Parameters.Add("@QUANTIDADE", SqlDbType.Int).Value = obj.Quantidade;
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     //Executando instrução sql
@@ -70,13 +68,14 @@ namespace ExForms.DataAccess
                 }
             }
         }
+
         public void Deletar(Movimentacao obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"DELETE FROM movimentacao WHERE id = @id;";
+                string strSQL = @"DELETE FROM MOVIMENTACAO WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -94,13 +93,14 @@ namespace ExForms.DataAccess
                 }
             }
         }
+
         public Movimentacao BuscarPorId(int id)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de produtos
-                string strSQL = @"SELECT * FROM movimentacao WHERE id = @id;";
+                string strSQL = @"SELECT * FROM MOVIMENTACAO WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -123,16 +123,17 @@ namespace ExForms.DataAccess
                     var row = dt.Rows[0];
                     var movimentacao = new Movimentacao()
                     {
-                        Produto = new Produto() { Id = Convert.ToInt32(row["id_Produto"]) },
-                        Data = Convert.ToDateTime(row["Data"]),
-                        Tipo = row["Tipo"].ToString(),
-                        Quantidade_Recebida = row["Quantidade_Recebida"].ToString()
+                        Produto = new Produto() { Id = Convert.ToInt32(row["ID_PRODUTO"]) },
+                        Data = Convert.ToDateTime(row["DATA"]),
+                        Tipo = row["TIPO"].ToString(),
+                        Quantidade = Convert.ToInt32(row["QUANTIDADE"])
                     };
 
                     return movimentacao;
                 }
             }
         }
+
         public List<Movimentacao> BuscarPorTexto(string texto)
         {
             var lst = new List<Movimentacao>();
@@ -142,12 +143,11 @@ namespace ExForms.DataAccess
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = string.Format(@"SELECT 
-                                                    m.*, 
-                                                    p.id_produto as Produto,
-                                                    m.NomeCliente
-                                                FROM movimentacao m
-                                                INNER JOIN produto p on (p.id = iv.id_produto) 
-                                                WHERE p.nome like '%{0}%';", texto);
+                                                    M.*, 
+                                                    P.NOME AS PRODUTO
+                                                FROM MOVIMENTACAO M
+                                                INNER JOIN PRODUTO P ON (P.ID = M.ID_PRODUTO) 
+                                                WHERE P.NOME LIKE '%{0}%';", texto);
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -168,15 +168,14 @@ namespace ExForms.DataAccess
                     {
                         var obj = new Movimentacao()
                         {
-
                             Produto = new Produto()
                             {
-
-                                Nome = row["nome"].ToString()
+                                Id = Convert.ToInt32(row["ID_PRODUTO"]),
+                                Nome = row["PRODUTO"].ToString()
                             },
-                            Data = Convert.ToDateTime(row["Data"])
-                            //Tipo = row["Tipo"].ToString();
-                            //Quantidade_Recebida = row["Quantidade_Recebida"]                  
+                            Data = Convert.ToDateTime(row["DATA"]),
+                            Tipo = row["TIPO"].ToString(),
+                            Quantidade = Convert.ToInt32(row["QUANTIDADE"])
                         };
 
                         lst.Add(obj);

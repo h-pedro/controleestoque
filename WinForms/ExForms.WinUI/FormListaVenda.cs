@@ -1,6 +1,7 @@
 ﻿using ExForms.DataAccess;
 using ExForms.Models;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -27,9 +28,9 @@ namespace ExForms.WinUI
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridViewVenda.SelectedRows.Count > 0)
+            if (gridView.SelectedRows.Count > 0)
             {
-                var id = Convert.ToInt32(gridViewVenda.SelectedRows[0].Cells[0].Value);
+                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 var obj = new VendaDAO().BuscarPorId(id);
                 //var frm = new FormCadastroVenda(obj);
                 //if (frm.ShowDialog() != DialogResult.OK)
@@ -77,7 +78,10 @@ namespace ExForms.WinUI
 
         private void gridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            gridViewVenda.Rows[e.RowIndex].ReadOnly = true;
+            if (e.RowIndex >= 0)
+            {
+                gridView.Rows[e.RowIndex].ReadOnly = true;
+            }
         }
 
         private void txtBusca_KeyDown(object sender, KeyEventArgs e)
@@ -90,29 +94,30 @@ namespace ExForms.WinUI
 
         private void gridView_SelectionChanged(object sender, EventArgs e)
         {
-            HabilitarBotoes((gridViewVenda.SelectedRows.Count == 1), (gridViewVenda.SelectedRows.Count > 1));
+            HabilitarBotoes((gridView.SelectedRows.Count == 1), (gridView.SelectedRows.Count > 1));
         }
 
         private void HabilitarBotoes(bool oneItemSelected, bool manyItemsSelected)
         {
             //btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
             //btnExcluir.Enabled = mnuExcluir.Enabled = (oneItemSelected || manyItemsSelected);
+            gridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
 
         private void CarregarGridView()
         {
             var lst = new VendaDAO().BuscarPorTexto(txtBusca.Text);
-            gridViewVenda.AutoGenerateColumns = false;
-            gridViewVenda.DataSource = lst;
-            HabilitarBotoes((gridViewVenda.SelectedRows.Count == 1), (gridViewVenda.SelectedRows.Count > 1));
-            gridViewVenda.ClearSelection();
+            gridView.AutoGenerateColumns = false;
+            gridView.DataSource = lst;
+            HabilitarBotoes((gridView.SelectedRows.Count == 1), (gridView.SelectedRows.Count > 1));
+            gridView.ClearSelection();
         }
 
         private void Editar()
         {
-            if (gridViewVenda.SelectedRows.Count > 0)
+            if (gridView.SelectedRows.Count > 0)
             {
-                var id = Convert.ToInt32(gridViewVenda.SelectedRows[0].Cells[0].Value);
+                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 var obj = new VendaDAO().BuscarPorId(id);
                 //var frm = new FormCadastroVenda(obj);
                 //if (frm.ShowDialog() != DialogResult.OK)
@@ -123,25 +128,14 @@ namespace ExForms.WinUI
 
         private void Excluir()
         {
-            if (gridViewVenda.SelectedRows.Count > 0)
+            if (gridView.SelectedRows.Count > 0)
             {
                 if (MessageBox.Show("Deseja realmente remover o registro selecionado?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
-                var id = Convert.ToInt32(gridViewVenda.SelectedRows[0].Cells[0].Value);
+                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 new VendaDAO().Deletar(new Venda() { Id = id });
                 CarregarGridView();
             }
         }
-
-        private void mnuAcoes_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void gridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
-
 }

@@ -12,6 +12,16 @@ namespace ExForms.Models
         public Produto Produto { get; set; }
         public DateTime Data { get; set; }
         public string Tipo { get; set; }
-        public string Quantidade_Recebida { get; set; }
+        public int Quantidade { get; set; }
+
+        public string NomeProduto
+        {
+            get
+            {
+                if (this.Produto != null)
+                    return this.Produto.Nome;
+                return string.Empty;
+            }
+        }
     }
 }

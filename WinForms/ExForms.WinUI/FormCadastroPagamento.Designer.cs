@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textDescricao = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnCancelarr = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.txtNome_Pagamento = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblTipoPagamento = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
@@ -43,30 +43,28 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textDescricao);
-            this.groupBox1.Controls.Add(this.btnCancelarr);
-            this.groupBox1.Controls.Add(this.btnSalvar);
+            this.groupBox1.Controls.Add(this.txtDescricao);
             this.groupBox1.Controls.Add(this.lblDescricao);
-            this.groupBox1.Controls.Add(this.txtNome_Pagamento);
+            this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.lblTipoPagamento);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 238);
+            this.groupBox1.Size = new System.Drawing.Size(388, 268);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro  de Pagamento";
             // 
-            // textDescricao
+            // txtDescricao
             // 
-            this.textDescricao.Location = new System.Drawing.Point(25, 87);
-            this.textDescricao.Multiline = true;
-            this.textDescricao.Name = "textDescricao";
-            this.textDescricao.Size = new System.Drawing.Size(213, 117);
-            this.textDescricao.TabIndex = 10;
+            this.txtDescricao.Location = new System.Drawing.Point(25, 87);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(339, 162);
+            this.txtDescricao.TabIndex = 10;
             // 
             // btnCancelarr
             // 
-            this.btnCancelarr.Location = new System.Drawing.Point(163, 210);
+            this.btnCancelarr.Location = new System.Drawing.Point(325, 286);
             this.btnCancelarr.Name = "btnCancelarr";
             this.btnCancelarr.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarr.TabIndex = 9;
@@ -76,7 +74,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(82, 210);
+            this.btnSalvar.Location = new System.Drawing.Point(244, 286);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 8;
@@ -93,21 +91,21 @@
             this.lblDescricao.TabIndex = 7;
             this.lblDescricao.Text = "Descrição:";
             // 
-            // txtNome_Pagamento
+            // txtNome
             // 
-            this.txtNome_Pagamento.Location = new System.Drawing.Point(25, 35);
-            this.txtNome_Pagamento.Name = "txtNome_Pagamento";
-            this.txtNome_Pagamento.Size = new System.Drawing.Size(213, 20);
-            this.txtNome_Pagamento.TabIndex = 6;
+            this.txtNome.Location = new System.Drawing.Point(25, 35);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(339, 20);
+            this.txtNome.TabIndex = 6;
             // 
             // lblTipoPagamento
             // 
             this.lblTipoPagamento.AutoSize = true;
             this.lblTipoPagamento.Location = new System.Drawing.Point(22, 19);
             this.lblTipoPagamento.Name = "lblTipoPagamento";
-            this.lblTipoPagamento.Size = new System.Drawing.Size(88, 13);
+            this.lblTipoPagamento.Size = new System.Drawing.Size(38, 13);
             this.lblTipoPagamento.TabIndex = 5;
-            this.lblTipoPagamento.Text = "Tipo Pagamento:";
+            this.lblTipoPagamento.Text = "Nome:";
             // 
             // error
             // 
@@ -116,9 +114,12 @@
             // 
             // FormCadastroPagamento
             // 
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(412, 321);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnCancelarr);
+            this.Controls.Add(this.btnSalvar);
             this.Name = "FormCadastroPagamento";
+            this.Text = "Cadastro de Tipo de Pagamento";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
@@ -128,20 +129,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSalvarCPagamento;
-        private System.Windows.Forms.TextBox txtTipoPagamento;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCancelarr;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label lblDescricao;
-        private System.Windows.Forms.TextBox txtNome_Pagamento;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblTipoPagamento;
-        private System.Windows.Forms.TextBox textDescricao;
+        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.ErrorProvider error;
     }
 }

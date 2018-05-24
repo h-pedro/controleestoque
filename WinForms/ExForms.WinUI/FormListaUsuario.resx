@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="mnuAcoes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>117, 17</value>
+  </metadata>
   <metadata name="colId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -131,9 +134,6 @@
   </metadata>
   <metadata name="ctxAcoes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="mnuAcoes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>117, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="mnuNovo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -181,6 +181,9 @@
         RBCY4AOBJUQK8ODROISJCgMEloDCgEUQsVMsHAhSAYWDgSVSrMiBdYoHCxEGvDbIm2BAADs=
 </value>
   </data>
+  <metadata name="mnuAcoes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>117, 17</value>
+  </metadata>
   <data name="btnNovo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -227,18 +230,18 @@
   <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ0SURBVDhPlY9tSFNRHMZXUUmZ9aEg+9YXy4QRSKAppFD5
-        8qFAcymKpZLNLU10vi3tipuKNZ0EvrCaIwodibaWiNWQ0ASVUbrRlBJDB5GUphPW5Nx7n45xvlwksh88
-        HDj//+8598o24Thup/FBT4q+4/WYxjKxrrF41uu7J5bumwbMBoPl5J+lv5GW9mxXdZ25pqBlmr815MMd
-        5wbqpjdQM0Wgm1yD/umol+M6L7L1rdwuMVzKa3wrlo0L6PxK8GSFwETPJo8fxnke7V4Crs0+p1Y3HWOK
-        lByNyaEa9KHNy2NYEDAtCuheIrCu8ej6TtBLRJjcCygoalAyRcrVip6fVU4BFro8ReXZAI/eFVpGBAzS
-        Qge9e0V43Cy995wpUpK4Ib/ORWCcC6DLuwHrMsEIlZ1UHqd5T+MSReSq6t8wRcrlYvOKfkaEwRPAI/rv
-        dj+PCfrqpviZZmHzpF+gyND0MkXK2eTil9qxVTR6CNoWCGwBASO0wEPFbzQifd02PImoqKxspkiJCEuK
-        Sax86G9fEtH1Q0T/LwHvWIGPyt7lVeQX6JGQoI5jylbk8pS89OrHvo55H+xUGqWZoXG456AsbICqsBm6
-        8gqHLXPfXfOV4CNMkxIRlngmNkFpTVXrvmSVtyym5FS5omMyaxUZlclFKm1fT1ksXDWh6E4NsnPnDh5i
-        2vYoiT+eO9keB3FGg9m6ULReCBrIjww+zMb/plQu26+ND2l191+DOKuBmzsKbfTeFxlh/1FC2XHjdIjR
-        ab0O8VMpPtaGQikPsrHZ9siPlO1WhAc3f+jPw6JNAVX8CbDR9kk7JduTHn6gT518Zv18XPbIb99fir1w
-        78RHAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ0SURBVDhPlY9vSFNRGMZXUUmZ9aEg+9YXy4QRiKAppFDN
+        /FCguRTFUsnmliY6/y3tipuGNZsE/mE1RxQ6Em0tEathoAkqo3SjKSWGDiIpTSesybn3Ph3jfLlIZD94
+        OHDe9/ece2UbcBy33fSgO9XQ/npUax1f01q9aw1d44v3zP0Wo9F6/M/S30hPf7ajpt5SW9g8xd8Y9OOW
+        ax31U+uonSTQT6zC8HTEx3Ed59j6Zm6WGi/kN74Vy8cEdHwleLJMYKZnkzcA0xyPNh8B1+qY1WiajjBF
+        Sq7W7FQP+NHq4zEkCJgSBXQtEthWeXR+J+ghIsyeeRQWN6qYIuVyZffPapcAK12epPJMkEfPMi0jAgZo
+        oZPevSI8rpfdfc4UKcncYEDvJjDNBtHpW4dtiWCYyi4qj9G8p3GLIvLUDW+YIuViiWXZMC3C6A3iEf13
+        R4DHOH11Q/xMM79x0i9QZmp7mCLlVErJS93oCu54CVrnCexBAcO0wEvFbzQifd0+NIHY2OwcpkiJijgf
+        r6h6GGhbFNH5Q0TfLwHvWIGfyr6lFRQUGqBQaBKZshm5PDU/o+axv33ODweVRmimaZyeWaiKGqEuaoa+
+        otJpz9pz23Ip9BDTpERFJMckKFS2NI3+S3bF/YXU3Gp3XHxWnTKzKqVYrevtLk+AuzYcXWkhDu70/gNM
+        2xqlSUfzJtoSIU5rMVMfjpazIf0F0aEH2fjflMlle3VJYS2evisQZ7TwcIehi9v9IjPiP0oo266dDDO5
+        bFchfirDx7pwqOQhdjbbGgXRsp3KyNDmD335WLAroU46BjbaOuknZLsyIvf1alJi1s4k5gz/Bs++irhl
+        2rp+AAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

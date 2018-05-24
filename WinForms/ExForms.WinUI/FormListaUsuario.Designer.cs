@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaUsuario));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctxAcoes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -44,10 +48,6 @@
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.ctxAcoes.SuspendLayout();
@@ -56,6 +56,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.gridView);
             this.panel1.Controls.Add(this.mnuAcoes);
@@ -88,6 +89,30 @@
             this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
             this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
             this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "ID";
+            this.colId.Name = "colId";
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "Nome";
+            this.colNome.HeaderText = "Nome";
+            this.colNome.Name = "colNome";
+            // 
+            // colLogin
+            // 
+            this.colLogin.DataPropertyName = "Login";
+            this.colLogin.HeaderText = "Login";
+            this.colLogin.Name = "colLogin";
+            // 
+            // colEmail
+            // 
+            this.colEmail.DataPropertyName = "Email";
+            this.colEmail.HeaderText = "E-mail";
+            this.colEmail.Name = "colEmail";
             // 
             // ctxAcoes
             // 
@@ -193,6 +218,7 @@
             // 
             // btnFechar
             // 
+            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.Location = new System.Drawing.Point(672, 426);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
@@ -200,30 +226,6 @@
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "ID";
-            this.colId.Name = "colId";
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "Nome";
-            this.colNome.HeaderText = "Nome";
-            this.colNome.Name = "colNome";
-            // 
-            // colLogin
-            // 
-            this.colLogin.DataPropertyName = "Login";
-            this.colLogin.HeaderText = "Login";
-            this.colLogin.Name = "colLogin";
-            // 
-            // colEmail
-            // 
-            this.colEmail.DataPropertyName = "Email";
-            this.colEmail.HeaderText = "E-mail";
-            this.colEmail.Name = "colEmail";
             // 
             // FormListaUsuario
             // 

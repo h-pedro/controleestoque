@@ -129,6 +129,7 @@ namespace ExForms.DataAccess
                         Id = Convert.ToInt32(row["id"]),
                         Nome = row["nome"].ToString(),
                         Categoria = new Categoria() { Id = Convert.ToInt32(row["id_categoria"]) },
+                        UnidadeMedida = new UnidadeMedida() { Id = Convert.ToInt32(row["id_unidade_medida"]) },
                         Preco = Convert.ToDecimal(row["preco"]),
                         Descricao = row["descricao"].ToString()
                     };
@@ -149,12 +150,10 @@ namespace ExForms.DataAccess
                 string strSQL = @"SELECT 
                                       p.*, 
                                       c.nome as categoria,
-                                      u.nome as Unidade_Medida 
+                                      u.nome as unidade_medida 
                                   FROM produto p
                                   INNER JOIN categoria c on (c.id = p.id_categoria)
-                                  INNER JOIN Unidade_Medida u on (p.id_Unidade_Medida = u.id);";
-
-                
+                                  INNER JOIN unidade_medida u on (p.id_unidade_medida = u.id);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -184,8 +183,8 @@ namespace ExForms.DataAccess
                             },
                             UnidadeMedida = new UnidadeMedida()
                             {
-                                Id = Convert.ToInt32(row["id_Unidade_Medida"]),
-                                Nome = row["Unidade_Medida"].ToString()
+                                Id = Convert.ToInt32(row["id_unidade_medida"]),
+                                Nome = row["unidade_medida"].ToString()
                             },
                             Preco = Convert.ToDecimal(row["preco"]),
                             Descricao = row["descricao"].ToString()
@@ -210,11 +209,11 @@ namespace ExForms.DataAccess
                 string strSQL = string.Format(@"SELECT 
                                                     p.*, 
                                                     c.nome as categoria,
-                                                    u.nome as Unidade_Medida,
+                                                    u.nome as unidade_medida,
                                                     u.sigla
                                                 FROM produto p
                                                 INNER JOIN categoria c on (c.id = p.id_categoria) 
-                                                INNER JOIN Unidade_Medida u on (p.id_Unidade_Medida = u.id)
+                                                INNER JOIN unidade_medida u on (p.id_unidade_medida = u.id)
                                                 WHERE p.nome like '%{0}%';", texto);
 
                 //Criando um comando sql que será executado na base de dados
@@ -245,8 +244,8 @@ namespace ExForms.DataAccess
                             },
                             UnidadeMedida = new UnidadeMedida()
                             {
-                                Id = Convert.ToInt32(row["id_Unidade_Medida"]),
-                                Nome = row["Unidade_Medida"].ToString(),
+                                Id = Convert.ToInt32(row["id_unidade_medida"]),
+                                Nome = row["unidade_medida"].ToString(),
                                 Sigla = row["sigla"].ToString(),
                             },
                             Preco = Convert.ToDecimal(row["preco"]),
