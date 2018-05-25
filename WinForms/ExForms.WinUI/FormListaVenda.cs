@@ -20,9 +20,9 @@ namespace ExForms.WinUI
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            //var frm = new FormCadastroVenda();
-            //if (frm.ShowDialog() != DialogResult.OK)
-            //    return;
+            var frm = new FormCadastroVenda();
+            if (frm.ShowDialog() != DialogResult.OK)
+                return;
             CarregarGridView();
         }
 
