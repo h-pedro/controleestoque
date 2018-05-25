@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaMovimentacao));
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -38,6 +39,11 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
+            this.ctxAcoes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.Id_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +52,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.mnuAcoes.SuspendLayout();
+            this.ctxAcoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnFechar
@@ -93,6 +100,9 @@
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridView.Size = new System.Drawing.Size(733, 381);
             this.gridView.TabIndex = 1;
+            this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
+            this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
+            this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
             // 
             // mnuAcoes
             // 
@@ -147,6 +157,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(23, 22);
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBusca
             // 
@@ -155,10 +166,49 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(150, 25);
             // 
+            // ctxAcoes
+            // 
+            this.ctxAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuNovo,
+            this.toolStripSeparator1,
+            this.mnuEditar,
+            this.mnuExcluir});
+            this.ctxAcoes.Name = "ctxAcoes";
+            this.ctxAcoes.Size = new System.Drawing.Size(109, 76);
+            // 
+            // mnuNovo
+            // 
+            this.mnuNovo.Image = ((System.Drawing.Image)(resources.GetObject("mnuNovo.Image")));
+            this.mnuNovo.Name = "mnuNovo";
+            this.mnuNovo.Size = new System.Drawing.Size(108, 22);
+            this.mnuNovo.Text = "Novo";
+            this.mnuNovo.Click += new System.EventHandler(this.mnuNovo_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
+            // 
+            // mnuEditar
+            // 
+            this.mnuEditar.Image = ((System.Drawing.Image)(resources.GetObject("mnuEditar.Image")));
+            this.mnuEditar.Name = "mnuEditar";
+            this.mnuEditar.Size = new System.Drawing.Size(108, 22);
+            this.mnuEditar.Text = "Editar";
+            this.mnuEditar.Click += new System.EventHandler(this.mnuEditar_Click);
+            // 
+            // mnuExcluir
+            // 
+            this.mnuExcluir.Image = ((System.Drawing.Image)(resources.GetObject("mnuExcluir.Image")));
+            this.mnuExcluir.Name = "mnuExcluir";
+            this.mnuExcluir.Size = new System.Drawing.Size(108, 22);
+            this.mnuExcluir.Text = "Excluir";
+            this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
+            // 
             // Id_Produto
             // 
             this.Id_Produto.DataPropertyName = "Id";
-            this.Id_Produto.HeaderText = "Id";
+            this.Id_Produto.HeaderText = "ID";
             this.Id_Produto.Name = "Id_Produto";
             // 
             // colId
@@ -201,6 +251,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.mnuAcoes.ResumeLayout(false);
             this.mnuAcoes.PerformLayout();
+            this.ctxAcoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -216,6 +267,11 @@
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripButton btnBuscar;
         private System.Windows.Forms.ToolStripTextBox txtBusca;
+        private System.Windows.Forms.ContextMenuStrip ctxAcoes;
+        private System.Windows.Forms.ToolStripMenuItem mnuNovo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditar;
+        private System.Windows.Forms.ToolStripMenuItem mnuExcluir;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;

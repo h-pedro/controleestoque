@@ -29,11 +29,12 @@ namespace ExForms.WinUI
         {
             if (gridView.SelectedRows.Count > 0)
             {
-                var Id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
-                var obj = new TipoPagamentoDAO().BuscarPorId(Id);
+                var idd = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
+                var obj = new TipoPagamentoDAO().BuscarPorId(idd);
                 var frm = new FormCadastroPagamento(obj);
                 if (frm.ShowDialog() != DialogResult.OK)
                     return;
+                CarregarGridView();
             }
         }
 
@@ -54,10 +55,7 @@ namespace ExForms.WinUI
 
         private void mnuNovo_Click(object sender, EventArgs e)
         {
-            var frm = new FormCadastroPagamento();
-            if (frm.ShowDialog() != DialogResult.OK)
-                return;
-            CarregarGridView();
+
         }
 
         private void mnuEditar_Click(object sender, EventArgs e)

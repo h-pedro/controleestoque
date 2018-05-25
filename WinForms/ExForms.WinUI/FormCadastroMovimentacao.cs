@@ -2,12 +2,6 @@
 using ExForms.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -33,7 +27,7 @@ namespace ExForms.WinUI
             lst.AddRange(new ProdutoDAO().BuscarTodos());
             cboProduto.DataSource = lst;
             cboProduto.DisplayMember = "Nome";
-            //cboProduto.ValueMember = "Id";
+            cboProduto.ValueMember = "Id";
             cboProduto.SelectedIndex = 0;
         }
 

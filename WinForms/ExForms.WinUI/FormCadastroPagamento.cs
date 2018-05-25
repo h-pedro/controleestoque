@@ -1,13 +1,5 @@
 ﻿using ExForms.DataAccess;
 using ExForms.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -32,8 +24,8 @@ namespace ExForms.WinUI
             var obj = TipoPagamento as TipoPagamento;
             if (obj == null)
                 return;
-            txtNome.Text = obj.Nome_Pagamento;
-            txtDescricao.Text = obj.descricao;
+            txtNome.Text = obj.Nome;
+            txtDescricao.Text = obj.Descricao;
         }
 
         private void btnCancelarr_Click(object sender, System.EventArgs e)
@@ -47,8 +39,8 @@ namespace ExForms.WinUI
                 return;
 
             this.TipoPagamento = this.TipoPagamento ?? new TipoPagamento();
-            this.TipoPagamento.Nome_Pagamento = txtNome.Text;
-            this.TipoPagamento.descricao = txtDescricao.Text;
+            this.TipoPagamento.Nome = txtNome.Text;
+            this.TipoPagamento.Descricao = txtDescricao.Text;
 
             if (this.TipoPagamento != null && this.TipoPagamento.Id > 0)
                 new TipoPagamentoDAO().Atualizar(this.TipoPagamento);

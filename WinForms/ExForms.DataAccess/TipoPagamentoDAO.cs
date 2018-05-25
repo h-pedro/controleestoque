@@ -21,8 +21,8 @@ namespace ExForms.DataAccess
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Nome_Pagamento", SqlDbType.VarChar).Value = obj.Nome_Pagamento;
-                    cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = obj.descricao;
+                    cmd.Parameters.Add("@Nome_Pagamento", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = obj.Descricao;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -47,8 +47,8 @@ namespace ExForms.DataAccess
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome_Pagamento;
-                    cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = obj.descricao;
+                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = obj.Descricao;
                     cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = obj.Id;
 
                     //Abrindo conexão com o banco de dados
@@ -116,8 +116,8 @@ namespace ExForms.DataAccess
                     var obj = new TipoPagamento()
                     {
                         Id = Convert.ToInt32(row["Id"]),
-                        Nome_Pagamento = row["Nome_Pagamento"].ToString(),
-                        descricao = row["descricao"].ToString()
+                        Nome = row["Nome_Pagamento"].ToString(),
+                        Descricao = row["descricao"].ToString()
                     };
 
                     return obj;
@@ -155,8 +155,8 @@ namespace ExForms.DataAccess
                         var obj = new TipoPagamento()
                         {
                             Id = Convert.ToInt32(row["Id"]),
-                            Nome_Pagamento = row["Nome_Pagamento"].ToString(),
-                            descricao = row["descricao"].ToString()
+                            Nome = row["Nome_Pagamento"].ToString(),
+                            Descricao = row["descricao"].ToString()
                         };
 
                         lst.Add(obj);
@@ -197,8 +197,8 @@ namespace ExForms.DataAccess
                         var obj = new TipoPagamento()
                         {
                             Id = Convert.ToInt32(row["Id"]),
-                            Nome_Pagamento = row["Nome_Pagamento"].ToString(),
-                            descricao = row["descricao"].ToString()
+                            Nome = row["Nome_Pagamento"].ToString(),
+                            Descricao = row["descricao"].ToString()
                         };
 
                         lst.Add(obj);

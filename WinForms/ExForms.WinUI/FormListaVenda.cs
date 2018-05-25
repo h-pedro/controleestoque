@@ -32,9 +32,9 @@ namespace ExForms.WinUI
             {
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 var obj = new VendaDAO().BuscarPorId(id);
-                //var frm = new FormCadastroVenda(obj);
-                //if (frm.ShowDialog() != DialogResult.OK)
-                //    return;
+                var frm = new FormCadastroVenda(obj);
+                if (frm.ShowDialog() != DialogResult.OK)
+                    return;
             }
         }
 
@@ -55,9 +55,9 @@ namespace ExForms.WinUI
 
         private void mnuNovo_Click(object sender, EventArgs e)
         {
-            //var frm = new FormCadastroVenda();
-            //if (frm.ShowDialog() != DialogResult.OK)
-            //    return;
+            var frm = new FormCadastroVenda();
+            if (frm.ShowDialog() != DialogResult.OK)
+                return;
             CarregarGridView();
         }
 
@@ -99,8 +99,8 @@ namespace ExForms.WinUI
 
         private void HabilitarBotoes(bool oneItemSelected, bool manyItemsSelected)
         {
-            //btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
-            //btnExcluir.Enabled = mnuExcluir.Enabled = (oneItemSelected || manyItemsSelected);
+            btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
+            btnExcluir.Enabled = mnuExcluir.Enabled = (oneItemSelected || manyItemsSelected);
             gridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
 
@@ -119,9 +119,9 @@ namespace ExForms.WinUI
             {
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 var obj = new VendaDAO().BuscarPorId(id);
-                //var frm = new FormCadastroVenda(obj);
-                //if (frm.ShowDialog() != DialogResult.OK)
-                //    return;
+                var frm = new FormCadastroVenda(obj);
+                if (frm.ShowDialog() != DialogResult.OK)
+                    return;
                 CarregarGridView();
             }
         }

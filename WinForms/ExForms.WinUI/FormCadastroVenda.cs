@@ -30,7 +30,7 @@ namespace ExForms.WinUI
 
         private void CarregarTipoDePagamento()
         {
-            var lst = new List<TipoPagamento>() { new TipoPagamento() { Nome_Pagamento = "-- [SELECIONE] --" } };
+            var lst = new List<TipoPagamento>() { new TipoPagamento() { Nome = "-- [SELECIONE] --" } };
             lst.AddRange(new TipoPagamentoDAO().BuscarTodos());
             cboPagamento.DataSource = lst;
             cboPagamento.DisplayMember = "Nome";

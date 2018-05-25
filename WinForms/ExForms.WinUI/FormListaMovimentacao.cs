@@ -35,7 +35,7 @@ namespace ExForms.WinUI
                 var obj = new MovimentacaoDAO().BuscarPorId(id);
                 var frm = new FormCadastroMovimentacao(obj);
                 if (frm.ShowDialog() != DialogResult.OK)
-                return;
+                    return;
                 CarregarGridView();
             }
         }
@@ -44,7 +44,6 @@ namespace ExForms.WinUI
         {
             Excluir();
         }
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -102,8 +101,8 @@ namespace ExForms.WinUI
 
         private void HabilitarBotoes(bool oneItemSelected, bool manyItemsSelected)
         {
-            //btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
-            //btnExcluir.Enabled = mnuExcluir.Enabled = (oneItemSelected || manyItemsSelected);
+            btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
+            btnExcluir.Enabled = mnuExcluir.Enabled = (oneItemSelected || manyItemsSelected);
             gridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
 
@@ -122,13 +121,12 @@ namespace ExForms.WinUI
             {
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 var obj = new MovimentacaoDAO().BuscarPorId(id);
-                //var frm = new FormCadastroMovimentacao(obj);
-                //if (frm.ShowDialog() != DialogResult.OK)
-                //    return;
+                var frm = new FormCadastroMovimentacao(obj);
+                if (frm.ShowDialog() != DialogResult.OK)
+                    return;
                 CarregarGridView();
             }
         }
-
 
         private void Excluir()
         {
@@ -141,17 +139,5 @@ namespace ExForms.WinUI
                 CarregarGridView();
             }
         }
-
-        private void mnuAcoes_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void gridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-  
     }
 }

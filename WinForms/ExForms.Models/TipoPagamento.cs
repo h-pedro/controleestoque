@@ -9,7 +9,7 @@ namespace ExForms.Models
     public class TipoPagamento
     {
         public int Id { get; set; }
-        public string Nome_Pagamento { get; set; }
-        public string descricao { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
     }
 }
