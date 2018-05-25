@@ -29,12 +29,20 @@ namespace ExForms.WinUI
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Excluir();
+            if (gridView.SelectedRows.Count > 0)
+            {
+                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
+                var obj = new MovimentacaoDAO().BuscarPorId(id);
+                var frm = new FormCadastroMovimentacao(obj);
+                if (frm.ShowDialog() != DialogResult.OK)
+                return;
+                CarregarGridView();
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            Excluir();
         }
 
 
@@ -143,5 +151,7 @@ namespace ExForms.WinUI
         {
 
         }
+
+  
     }
 }

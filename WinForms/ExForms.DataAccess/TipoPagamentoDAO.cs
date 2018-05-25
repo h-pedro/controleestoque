@@ -92,7 +92,7 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = @"SELECT * FROM categoria WHERE id = @id;";
+                string strSQL = @"SELECT * FROM categoria WHERE Id = @Id;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -100,7 +100,7 @@ namespace ExForms.DataAccess
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = id;
                     cmd.CommandText = strSQL;
                     //Executando instrução sql
                     var dataReader = cmd.ExecuteReader();
@@ -115,7 +115,7 @@ namespace ExForms.DataAccess
                     var row = dt.Rows[0];
                     var obj = new TipoPagamento()
                     {
-                        Id = Convert.ToInt32(row["id"]),
+                        Id = Convert.ToInt32(row["Id"]),
                         Nome_Pagamento = row["Nome_Pagamento"].ToString(),
                         descricao = row["descricao"].ToString()
                     };
@@ -154,7 +154,7 @@ namespace ExForms.DataAccess
                     {
                         var obj = new TipoPagamento()
                         {
-                            Id = Convert.ToInt32(row["id"]),
+                            Id = Convert.ToInt32(row["Id"]),
                             Nome_Pagamento = row["Nome_Pagamento"].ToString(),
                             descricao = row["descricao"].ToString()
                         };
@@ -196,7 +196,7 @@ namespace ExForms.DataAccess
                     {
                         var obj = new TipoPagamento()
                         {
-                            Id = Convert.ToInt32(row["id"]),
+                            Id = Convert.ToInt32(row["Id"]),
                             Nome_Pagamento = row["Nome_Pagamento"].ToString(),
                             descricao = row["descricao"].ToString()
                         };

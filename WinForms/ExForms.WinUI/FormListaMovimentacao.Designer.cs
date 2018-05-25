@@ -38,6 +38,7 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
+            this.Id_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +57,7 @@
             this.btnFechar.TabIndex = 3;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // panel1
             // 
@@ -78,6 +80,7 @@
             this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_Produto,
             this.colId,
             this.colNome,
             this.Tipo,
@@ -152,6 +155,12 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(150, 25);
             // 
+            // Id_Produto
+            // 
+            this.Id_Produto.DataPropertyName = "Id";
+            this.Id_Produto.HeaderText = "Id";
+            this.Id_Produto.Name = "Id_Produto";
+            // 
             // colId
             // 
             this.colId.DataPropertyName = "NomeProduto";
@@ -180,12 +189,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 461);
+            this.ClientSize = new System.Drawing.Size(759, 462);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(775, 500);
             this.Name = "FormListaMovimentacao";
             this.Text = "Lista de Movimentações";
+            this.Load += new System.EventHandler(this.FormListaMovimentacao_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -206,6 +216,7 @@
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripButton btnBuscar;
         private System.Windows.Forms.ToolStripTextBox txtBusca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;

@@ -186,35 +186,17 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ0SURBVDhPlY9fSFNRHMdXUUmZ9VCQvfVimTACETSFFErL
-        hwLNpSiWSja3NNH5b2lXtmlYs0ngH1ZzRKEj0eYSsRo+aILKKN1oSomhg0hK0wlrcu69345xXi4S2Qe+
-        HDi/3+d77pVtwnHcTtOj7jRD+5sxjXViXWP1rjd0TSw9MA9YjEbryT9LfyMj48WuWp2lrkg3zd8a8uOO
-        awO66Q3UTRHoJ9dgeD7q47iOZLa+ldtlxksF3IBYMS6g4yvBsxUCMz2bvAGY5nm0+Qi4VsecWt10jClS
-        8jRmp2rQj1Yfj2FBwLQooGuJwLbGo/M7QQ8RYfYsoKikUckUKVerun/WuARY6fIUlWeDPHpWaBkRMEgL
-        nfTuNeFxs/z+S6ZISeaGAno3gWkuiE7fBmzLBCNUdlF5nOY9jVsUka9qeMsUKZdLLSuGGRFGbxBP6L87
-        Ajwm6Kub4meahc2TfoEiS9PDFClnUktfacdWcc9L0LpAYA8KGKEFXip+oxHp6/bhScTG5uQyRUpUxMX4
-        5OrHgbYlEZ0/RPT9EvCOFfip7FteRWGRASkp6kSmbEUuTyvIrH3qb5/3w0GlUZoZGqdnDsriRqiKm6Gv
-        rHLas/fdtVwJPcI0KVERF2ISUpS2dLX+S07lw8W0vBp3XHx2vSKrOrVEpe3trkiAuy4cXekhDu7swUNM
-        2x5lScfzJ9sSIc5oMKsLR8v5kIHC6NDDbPxvyuWy/dqksBZP3zWIsxp4uKPQxu3tz4r4jxLKjhunw0wu
-        23WIn8rxsT4cSnmInc22R2G0bLciMrT5Q18BFu0KqJJOgI22T8Yp2Z7MyAO96tSY9XOJuSO/AV8ripiJ
-        akLVAAAAAElFTkSuQmCC
+        hwLNpSiWSja3NNH5b2nX3DSs2STwD6s5otCRqGuKWA0fNEFllG40pcTQQSSl6YQ1Offeb8c4LxeJ7ANf
+        Dpzf7/M998o24Thup/FxV4q+7c2YxjKxrrF41us7J5YemgbMBoPl5J+lv5GW9nJXdZ25puDeNH9ryIc7
+        zg3UTW+gZopAN7kG/YtRL8e1J7L1rdwuMVzK4/rFsnEB7V8Jnq8QmOjZ6PHDOM+j1UvAtdjn1OrGY0yR
+        kqMxOVSDPrR4eQwLAqZFAZ1LBNY1Hh3fCbqJCJN7AQVFDUqmSLla0fWzyinAQpenqDwb4NG9QsuIgEFa
+        6KB3rwmPm6UP+pgiJZEb8utcBMa5ADq8G7AuE4xQ2UnlcZr3NC5RRK6q/i1TpFwuNq/oZ0QYPAE8pf9u
+        9/OYoK9uip9pFjZP+gWKDE03U6ScSS7u146t4r6HoGWBwBYQMEILPFT8RiPS123Dk4iOzspmipSIsIux
+        iZVP/K1LIjp+iOj9JeAdK/BR2bu8ivwCPZKS1PFM2YpcnpKXXv3M1zbvg51KozQzNA73HJSFDVAVNkFX
+        XuGwZe67a74SfIRpUiLCLkTFJSmtqWrdl6zyR4spOVWumNjMWkVGZXKRStvTVRYHV00oOlOD7NzZg4eY
+        tj1KEo7nTrbGQ5zRYLYuFM3ngwbyI4MPs/G/KZXL9msTQprdvdcgzmrg5o5CG7P3VUbYf5RQdtw4HWJ0
+        Wq9D/FSKj7WhUMqDbGy2PfIjZbsV4cFNH3rzsGhTQJVwAmy0fdJOyfakhx/oUSdHrZ+Lzx75DVffipZv
+        IY/eAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="colunMedida.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colNome.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colCategoria.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colPreco.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Medida.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Valor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

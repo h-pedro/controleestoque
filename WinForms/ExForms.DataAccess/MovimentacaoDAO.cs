@@ -14,8 +14,8 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"INSERT INTO MOVIMENTACAO (ID_PRODUTO, DATA, TIPO, QUANTIDADE) 
-                                  VALUES ( @ID_PRODUTO, @DATA, @TIPO, @QUANTIDADE);";
+                string strSQL = @"INSERT INTO MOVIMENTACAO ( ID_PRODUTO, DATA, TIPO, QUANTIDADE) 
+                                  VALUES (@ID_PRODUTO, @DATA, @TIPO, @QUANTIDADE);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -47,7 +47,7 @@ namespace ExForms.DataAccess
                                      ID_PRODUTO = @ID_PRODUTO, 
                                      DATA = @DATA,
                                      TIPO = @TIPO, 
-                                     QUANITDADE_RECEBIDA = @QUANTIDADE                                     
+                                     QUANTIDADE = @QUANTIDADE                                     
                                   WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
@@ -55,6 +55,7 @@ namespace ExForms.DataAccess
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
+                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = obj.Id;
                     cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
                     cmd.Parameters.Add("@Data", SqlDbType.DateTime).Value = obj.Data;
                     cmd.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = obj.Tipo;
@@ -123,6 +124,7 @@ namespace ExForms.DataAccess
                     var row = dt.Rows[0];
                     var movimentacao = new Movimentacao()
                     {
+                        Id = Convert.ToInt32(row["Id"]),
                         Produto = new Produto() { Id = Convert.ToInt32(row["ID_PRODUTO"]) },
                         Data = Convert.ToDateTime(row["DATA"]),
                         Tipo = row["TIPO"].ToString(),
@@ -168,6 +170,7 @@ namespace ExForms.DataAccess
                     {
                         var obj = new Movimentacao()
                         {
+                            Id = Convert.ToInt32(row["Id"]),
                             Produto = new Produto()
                             {
                                 Id = Convert.ToInt32(row["ID_PRODUTO"]),

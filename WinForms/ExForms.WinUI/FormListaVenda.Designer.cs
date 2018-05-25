@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaVenda));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -38,12 +44,6 @@
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.mnuAcoes.SuspendLayout();
@@ -84,6 +84,47 @@
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridView.Size = new System.Drawing.Size(734, 381);
             this.gridView.TabIndex = 1;
+            // 
+            // colunMedida
+            // 
+            this.colunMedida.DataPropertyName = "Id";
+            this.colunMedida.FillWeight = 60.9137F;
+            this.colunMedida.HeaderText = "ID";
+            this.colunMedida.Name = "colunMedida";
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "Nome";
+            this.colNome.FillWeight = 107.8173F;
+            this.colNome.HeaderText = "Cliente";
+            this.colNome.Name = "colNome";
+            // 
+            // colCategoria
+            // 
+            this.colCategoria.DataPropertyName = "NomeCategoria";
+            this.colCategoria.FillWeight = 107.8173F;
+            this.colCategoria.HeaderText = "Data";
+            this.colCategoria.Name = "colCategoria";
+            // 
+            // colPreco
+            // 
+            this.colPreco.DataPropertyName = "Preco";
+            this.colPreco.FillWeight = 107.8173F;
+            this.colPreco.HeaderText = "Tipo de Pagamento";
+            this.colPreco.Name = "colPreco";
+            // 
+            // Medida
+            // 
+            this.Medida.DataPropertyName = "SiglaUM";
+            this.Medida.FillWeight = 107.8173F;
+            this.Medida.HeaderText = "Itens";
+            this.Medida.Name = "Medida";
+            // 
+            // Valor
+            // 
+            this.Valor.FillWeight = 107.8173F;
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
             // 
             // mnuAcoes
             // 
@@ -153,53 +194,13 @@
             this.btnFechar.TabIndex = 5;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
-            // 
-            // colunMedida
-            // 
-            this.colunMedida.DataPropertyName = "Id";
-            this.colunMedida.FillWeight = 60.9137F;
-            this.colunMedida.HeaderText = "ID";
-            this.colunMedida.Name = "colunMedida";
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "Nome";
-            this.colNome.FillWeight = 107.8173F;
-            this.colNome.HeaderText = "Cliente";
-            this.colNome.Name = "colNome";
-            // 
-            // colCategoria
-            // 
-            this.colCategoria.DataPropertyName = "NomeCategoria";
-            this.colCategoria.FillWeight = 107.8173F;
-            this.colCategoria.HeaderText = "Data";
-            this.colCategoria.Name = "colCategoria";
-            // 
-            // colPreco
-            // 
-            this.colPreco.DataPropertyName = "Preco";
-            this.colPreco.FillWeight = 107.8173F;
-            this.colPreco.HeaderText = "Tipo de Pagamento";
-            this.colPreco.Name = "colPreco";
-            // 
-            // Medida
-            // 
-            this.Medida.DataPropertyName = "SiglaUM";
-            this.Medida.FillWeight = 107.8173F;
-            this.Medida.HeaderText = "Itens";
-            this.Medida.Name = "Medida";
-            // 
-            // Valor
-            // 
-            this.Valor.FillWeight = 107.8173F;
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // FormListaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 461);
+            this.ClientSize = new System.Drawing.Size(759, 462);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnFechar);
             this.MinimumSize = new System.Drawing.Size(775, 500);

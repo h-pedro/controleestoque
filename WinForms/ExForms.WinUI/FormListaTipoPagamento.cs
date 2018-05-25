@@ -29,8 +29,8 @@ namespace ExForms.WinUI
         {
             if (gridView.SelectedRows.Count > 0)
             {
-                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
-                var obj = new TipoPagamentoDAO().BuscarPorId(id);
+                var Id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
+                var obj = new TipoPagamentoDAO().BuscarPorId(Id);
                 var frm = new FormCadastroPagamento(obj);
                 if (frm.ShowDialog() != DialogResult.OK)
                     return;
