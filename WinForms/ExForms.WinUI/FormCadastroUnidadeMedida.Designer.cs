@@ -35,10 +35,10 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbUnidade = new System.Windows.Forms.GroupBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtSigla = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.gbUnidade.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(211, 183);
+            this.btnSalvar.Location = new System.Drawing.Point(270, 196);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 6;
@@ -60,7 +60,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(292, 183);
+            this.btnCancelar.Location = new System.Drawing.Point(351, 196);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -81,28 +81,10 @@
             this.gbUnidade.Controls.Add(this.label1);
             this.gbUnidade.Location = new System.Drawing.Point(12, 12);
             this.gbUnidade.Name = "gbUnidade";
-            this.gbUnidade.Size = new System.Drawing.Size(355, 165);
+            this.gbUnidade.Size = new System.Drawing.Size(414, 178);
             this.gbUnidade.TabIndex = 5;
             this.gbUnidade.TabStop = false;
             this.gbUnidade.Text = "Cadastro Unidade Medida";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNome.Location = new System.Drawing.Point(17, 45);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(316, 20);
-            this.txtNome.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nome:";
             // 
             // txtSigla
             // 
@@ -110,7 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSigla.Location = new System.Drawing.Point(17, 98);
             this.txtSigla.Name = "txtSigla";
-            this.txtSigla.Size = new System.Drawing.Size(139, 20);
+            this.txtSigla.Size = new System.Drawing.Size(198, 20);
             this.txtSigla.TabIndex = 5;
             // 
             // label2
@@ -122,11 +104,29 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Sigla:";
             // 
+            // txtNome
+            // 
+            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNome.Location = new System.Drawing.Point(17, 45);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(375, 20);
+            this.txtNome.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nome:";
+            // 
             // FormCadastroUnidadeMedida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 216);
+            this.ClientSize = new System.Drawing.Size(444, 232);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.gbUnidade);

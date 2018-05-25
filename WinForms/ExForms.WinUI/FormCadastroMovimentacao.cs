@@ -33,7 +33,7 @@ namespace ExForms.WinUI
             lst.AddRange(new ProdutoDAO().BuscarTodos());
             cboProduto.DataSource = lst;
             cboProduto.DisplayMember = "Nome";
-            cboProduto.ValueMember = "Id";
+            //cboProduto.ValueMember = "Id";
             cboProduto.SelectedIndex = 0;
         }
 
