@@ -93,3 +93,21 @@ create table movimentacao (
 	Quantidade int not null
 );
 go
+
+-- campo calculado que retorna a quantidade em estoque de produto
+IF OBJECT_ID(N'dbo.get_estoque', N'FN') IS NOT NULL
+    DROP FUNCTION [dbo].[get_estoque]
+GO
+
+create function [dbo].[get_estoque](@id_produto int) returns int
+as
+begin
+    return (
+		select sum(coalesce(case when tipo = 'E'then quantidade else quantidade * -1 end, 0)) as quantidade from movimentacao where id_produto = @id_produto
+    );
+end
+go
+
+-- criando campo de quantidade em estoque calculado
+alter table produto add qtd_estoque as dbo.[get_estoque](id);
+go

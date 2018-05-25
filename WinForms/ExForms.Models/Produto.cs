@@ -13,6 +13,7 @@ namespace ExForms.Models
         public decimal Preco { get; set; }
         public string Descricao { get; set; }
         public UnidadeMedida UnidadeMedida { get; set; }
+        public int QtdEmEstoque { get; set; }
 
         public string NomeCategoria
         {

@@ -131,7 +131,8 @@ namespace ExForms.DataAccess
                         Categoria = new Categoria() { Id = Convert.ToInt32(row["id_categoria"]) },
                         UnidadeMedida = new UnidadeMedida() { Id = Convert.ToInt32(row["id_unidade_medida"]) },
                         Preco = Convert.ToDecimal(row["preco"]),
-                        Descricao = row["descricao"].ToString()
+                        Descricao = row["descricao"].ToString(),
+                        QtdEmEstoque = Convert.ToInt32(row["qtd_estoque"])
                     };
 
                     return produto;
@@ -187,7 +188,8 @@ namespace ExForms.DataAccess
                                 Nome = row["unidade_medida"].ToString()
                             },
                             Preco = Convert.ToDecimal(row["preco"]),
-                            Descricao = row["descricao"].ToString()
+                            Descricao = row["descricao"].ToString(),
+                            QtdEmEstoque = Convert.ToInt32(row["qtd_estoque"])
                         };
 
                         lst.Add(produto);
@@ -249,7 +251,8 @@ namespace ExForms.DataAccess
                                 Sigla = row["sigla"].ToString(),
                             },
                             Preco = Convert.ToDecimal(row["preco"]),
-                            Descricao = row["descricao"].ToString()
+                            Descricao = row["descricao"].ToString(),
+                            QtdEmEstoque = Convert.ToInt32(row["qtd_estoque"])
                         };
 
                         lst.Add(produto);
