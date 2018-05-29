@@ -69,6 +69,7 @@
             // rdbS
             // 
             this.rdbS.AutoSize = true;
+            this.rdbS.Enabled = false;
             this.rdbS.Location = new System.Drawing.Point(102, 154);
             this.rdbS.Name = "rdbS";
             this.rdbS.Size = new System.Drawing.Size(54, 17);
@@ -78,15 +79,15 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(18, 203);
+            this.txtQuantidade.Location = new System.Drawing.Point(201, 93);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(160, 20);
+            this.txtQuantidade.Size = new System.Drawing.Size(133, 20);
             this.txtQuantidade.TabIndex = 8;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(357, 271);
+            this.btnCancelar.Location = new System.Drawing.Point(299, 206);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
@@ -97,7 +98,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(271, 271);
+            this.btnSalvar.Location = new System.Drawing.Point(213, 206);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 9;
@@ -118,7 +119,7 @@
             this.groupBox1.Controls.Add(this.rdbS);
             this.groupBox1.Location = new System.Drawing.Point(12, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(420, 258);
+            this.groupBox1.Size = new System.Drawing.Size(362, 189);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro de Movimentação";
@@ -126,7 +127,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 187);
+            this.label4.Location = new System.Drawing.Point(201, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 12;
@@ -144,7 +145,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 78);
+            this.label2.Location = new System.Drawing.Point(18, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 10;
@@ -162,7 +163,7 @@
             // txtData
             // 
             this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtData.Location = new System.Drawing.Point(18, 94);
+            this.txtData.Location = new System.Drawing.Point(18, 93);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(160, 20);
             this.txtData.TabIndex = 0;
@@ -176,11 +177,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 307);
+            this.ClientSize = new System.Drawing.Size(386, 241);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(460, 345);
+            this.MinimumSize = new System.Drawing.Size(402, 280);
             this.Name = "FormCadastroMovimentacao";
             this.Text = "Cadastro de Movimentação";
             this.Load += new System.EventHandler(this.FormCadastroMovimentacao_Load);
