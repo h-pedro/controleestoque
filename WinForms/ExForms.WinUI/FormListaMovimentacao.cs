@@ -63,19 +63,9 @@ namespace ExForms.WinUI
             CarregarGridView();
         }
 
-        private void mnuEditar_Click(object sender, EventArgs e)
-        {
-            Editar();
-        }
-
         private void mnuExcluir_Click(object sender, EventArgs e)
         {
             Excluir();
-        }
-
-        private void gridView_DoubleClick(object sender, EventArgs e)
-        {
-            Editar();
         }
 
         private void gridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -101,7 +91,6 @@ namespace ExForms.WinUI
 
         private void HabilitarBotoes(bool oneItemSelected, bool manyItemsSelected)
         {
-            btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
             btnExcluir.Enabled = mnuExcluir.Enabled = (oneItemSelected || manyItemsSelected);
             gridView.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
@@ -113,19 +102,6 @@ namespace ExForms.WinUI
             gridView.DataSource = lst;
             HabilitarBotoes((gridView.SelectedRows.Count == 1), (gridView.SelectedRows.Count > 1));
             gridView.ClearSelection();
-        }
-
-        private void Editar()
-        {
-            if (gridView.SelectedRows.Count > 0)
-            {
-                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
-                var obj = new MovimentacaoDAO().BuscarPorId(id);
-                var frm = new FormCadastroMovimentacao(obj);
-                if (frm.ShowDialog() != DialogResult.OK)
-                    return;
-                CarregarGridView();
-            }
         }
 
         private void Excluir()

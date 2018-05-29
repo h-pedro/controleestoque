@@ -33,22 +33,20 @@
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.Id_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.ctxAcoes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
-            this.Id_Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.mnuAcoes.SuspendLayout();
@@ -92,6 +90,7 @@
             this.colNome,
             this.Tipo,
             this.Quantidade});
+            this.gridView.ContextMenuStrip = this.ctxAcoes;
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(0, 25);
             this.gridView.MultiSelect = false;
@@ -102,13 +101,41 @@
             this.gridView.TabIndex = 1;
             this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
             this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
-            this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
+            // 
+            // Id_Produto
+            // 
+            this.Id_Produto.DataPropertyName = "Id";
+            this.Id_Produto.HeaderText = "ID";
+            this.Id_Produto.Name = "Id_Produto";
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "NomeProduto";
+            this.colId.HeaderText = "Produto";
+            this.colId.Name = "colId";
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "Data";
+            this.colNome.HeaderText = "Data";
+            this.colNome.Name = "colNome";
+            // 
+            // Tipo
+            // 
+            this.Tipo.DataPropertyName = "Tipo";
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.DataPropertyName = "Quantidade";
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
             // 
             // mnuAcoes
             // 
             this.mnuAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNovo,
-            this.btnEditar,
             this.btnExcluir,
             this.btnBuscar,
             this.txtBusca});
@@ -127,16 +154,6 @@
             this.btnNovo.Size = new System.Drawing.Size(23, 22);
             this.btnNovo.Text = "Novo";
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(23, 22);
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -171,10 +188,9 @@
             this.ctxAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNovo,
             this.toolStripSeparator1,
-            this.mnuEditar,
             this.mnuExcluir});
             this.ctxAcoes.Name = "ctxAcoes";
-            this.ctxAcoes.Size = new System.Drawing.Size(109, 76);
+            this.ctxAcoes.Size = new System.Drawing.Size(109, 54);
             // 
             // mnuNovo
             // 
@@ -189,14 +205,6 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
             // 
-            // mnuEditar
-            // 
-            this.mnuEditar.Image = ((System.Drawing.Image)(resources.GetObject("mnuEditar.Image")));
-            this.mnuEditar.Name = "mnuEditar";
-            this.mnuEditar.Size = new System.Drawing.Size(108, 22);
-            this.mnuEditar.Text = "Editar";
-            this.mnuEditar.Click += new System.EventHandler(this.mnuEditar_Click);
-            // 
             // mnuExcluir
             // 
             this.mnuExcluir.Image = ((System.Drawing.Image)(resources.GetObject("mnuExcluir.Image")));
@@ -204,36 +212,6 @@
             this.mnuExcluir.Size = new System.Drawing.Size(108, 22);
             this.mnuExcluir.Text = "Excluir";
             this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
-            // 
-            // Id_Produto
-            // 
-            this.Id_Produto.DataPropertyName = "Id";
-            this.Id_Produto.HeaderText = "ID";
-            this.Id_Produto.Name = "Id_Produto";
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "NomeProduto";
-            this.colId.HeaderText = "Produto";
-            this.colId.Name = "colId";
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "Data";
-            this.colNome.HeaderText = "Data";
-            this.colNome.Name = "colNome";
-            // 
-            // Tipo
-            // 
-            this.Tipo.DataPropertyName = "Tipo";
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.DataPropertyName = "Quantidade";
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
             // 
             // FormListaMovimentacao
             // 
@@ -263,14 +241,12 @@
         private System.Windows.Forms.DataGridView gridView;
         private System.Windows.Forms.ToolStrip mnuAcoes;
         private System.Windows.Forms.ToolStripButton btnNovo;
-        private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripButton btnBuscar;
         private System.Windows.Forms.ToolStripTextBox txtBusca;
         private System.Windows.Forms.ContextMenuStrip ctxAcoes;
         private System.Windows.Forms.ToolStripMenuItem mnuNovo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem mnuEditar;
         private System.Windows.Forms.ToolStripMenuItem mnuExcluir;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
