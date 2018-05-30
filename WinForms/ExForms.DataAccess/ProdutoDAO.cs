@@ -236,6 +236,7 @@ namespace ExForms.DataAccess
                     foreach (DataRow row in dt.Rows)
                     {
                         var produto = new Produto()
+                            var produto = new Produto()
                         {
                             Id = Convert.ToInt32(row["id"]),
                             Nome = row["nome"].ToString(),

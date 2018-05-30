@@ -32,12 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaVenda));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
-            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -50,6 +44,12 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.mnuAcoes.SuspendLayout();
@@ -58,8 +58,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.gridView);
@@ -94,47 +94,6 @@
             this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
             this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
             this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
-            // 
-            // colunMedida
-            // 
-            this.colunMedida.DataPropertyName = "Id";
-            this.colunMedida.FillWeight = 60.9137F;
-            this.colunMedida.HeaderText = "ID";
-            this.colunMedida.Name = "colunMedida";
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "Nome";
-            this.colNome.FillWeight = 107.8173F;
-            this.colNome.HeaderText = "Cliente";
-            this.colNome.Name = "colNome";
-            // 
-            // colCategoria
-            // 
-            this.colCategoria.DataPropertyName = "NomeCategoria";
-            this.colCategoria.FillWeight = 107.8173F;
-            this.colCategoria.HeaderText = "Data";
-            this.colCategoria.Name = "colCategoria";
-            // 
-            // colPreco
-            // 
-            this.colPreco.DataPropertyName = "Preco";
-            this.colPreco.FillWeight = 107.8173F;
-            this.colPreco.HeaderText = "Tipo de Pagamento";
-            this.colPreco.Name = "colPreco";
-            // 
-            // Medida
-            // 
-            this.Medida.DataPropertyName = "SiglaUM";
-            this.Medida.FillWeight = 107.8173F;
-            this.Medida.HeaderText = "Itens";
-            this.Medida.Name = "Medida";
-            // 
-            // Valor
-            // 
-            this.Valor.FillWeight = 107.8173F;
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
             // 
             // mnuAcoes
             // 
@@ -214,26 +173,26 @@
             this.mnuEditar,
             this.mnuExcluir});
             this.ctxAcoes.Name = "ctxAcoes";
-            this.ctxAcoes.Size = new System.Drawing.Size(153, 98);
+            this.ctxAcoes.Size = new System.Drawing.Size(109, 76);
             // 
             // mnuNovo
             // 
             this.mnuNovo.Image = ((System.Drawing.Image)(resources.GetObject("mnuNovo.Image")));
             this.mnuNovo.Name = "mnuNovo";
-            this.mnuNovo.Size = new System.Drawing.Size(152, 22);
+            this.mnuNovo.Size = new System.Drawing.Size(108, 22);
             this.mnuNovo.Text = "Novo";
             this.mnuNovo.Click += new System.EventHandler(this.mnuNovo_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
             // 
             // mnuEditar
             // 
             this.mnuEditar.Image = ((System.Drawing.Image)(resources.GetObject("mnuEditar.Image")));
             this.mnuEditar.Name = "mnuEditar";
-            this.mnuEditar.Size = new System.Drawing.Size(152, 22);
+            this.mnuEditar.Size = new System.Drawing.Size(108, 22);
             this.mnuEditar.Text = "Editar";
             this.mnuEditar.Click += new System.EventHandler(this.mnuEditar_Click);
             // 
@@ -241,9 +200,49 @@
             // 
             this.mnuExcluir.Image = ((System.Drawing.Image)(resources.GetObject("mnuExcluir.Image")));
             this.mnuExcluir.Name = "mnuExcluir";
-            this.mnuExcluir.Size = new System.Drawing.Size(152, 22);
+            this.mnuExcluir.Size = new System.Drawing.Size(108, 22);
             this.mnuExcluir.Text = "Excluir";
             this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
+            // 
+            // colunMedida
+            // 
+            this.colunMedida.DataPropertyName = "Id";
+            this.colunMedida.FillWeight = 60.9137F;
+            this.colunMedida.HeaderText = "ID";
+            this.colunMedida.Name = "colunMedida";
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "NomeCliente";
+            this.colNome.FillWeight = 107.8173F;
+            this.colNome.HeaderText = "Cliente";
+            this.colNome.Name = "colNome";
+            // 
+            // colCategoria
+            // 
+            this.colCategoria.DataPropertyName = "DataPagamento";
+            this.colCategoria.FillWeight = 107.8173F;
+            this.colCategoria.HeaderText = "Data";
+            this.colCategoria.Name = "colCategoria";
+            // 
+            // colPreco
+            // 
+            this.colPreco.DataPropertyName = "Nome_Pagamento";
+            this.colPreco.FillWeight = 107.8173F;
+            this.colPreco.HeaderText = "Tipo de Pagamento";
+            this.colPreco.Name = "colPreco";
+            // 
+            // Medida
+            // 
+            this.Medida.FillWeight = 107.8173F;
+            this.Medida.HeaderText = "Itens";
+            this.Medida.Name = "Medida";
+            // 
+            // Valor
+            // 
+            this.Valor.FillWeight = 107.8173F;
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
             // 
             // FormListaVenda
             // 
@@ -276,16 +275,16 @@
         private System.Windows.Forms.ToolStripButton btnBuscar;
         private System.Windows.Forms.ToolStripTextBox txtBusca;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.ContextMenuStrip ctxAcoes;
+        private System.Windows.Forms.ToolStripMenuItem mnuNovo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditar;
+        private System.Windows.Forms.ToolStripMenuItem mnuExcluir;
         private System.Windows.Forms.DataGridViewTextBoxColumn colunMedida;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPreco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Medida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
-        private System.Windows.Forms.ContextMenuStrip ctxAcoes;
-        private System.Windows.Forms.ToolStripMenuItem mnuNovo;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem mnuEditar;
-        private System.Windows.Forms.ToolStripMenuItem mnuExcluir;
     }
 }

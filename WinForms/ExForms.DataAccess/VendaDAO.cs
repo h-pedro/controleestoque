@@ -14,16 +14,16 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de categorias
-                string strSQL = @"INSERT INTO Venda (DataPagamento, NomeCliente, Id_Pagamento) VALUES (@Data_Pagamento, @NomeCliente, @Id_Pagamento);";
+                string strSQL = @"INSERT INTO Venda (DataPagamento, NomeCliente, Id_Pagamento) VALUES (@DataPagamento, @NomeCliente, @Id_Pagamento);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@DataPagamento", SqlDbType.VarChar).Value = obj.DataPagamento;
+                    cmd.Parameters.Add("@DataPagamento", SqlDbType.DateTime).Value = obj.DataPagamento;
                     cmd.Parameters.Add("@NomeCliente", SqlDbType.VarChar).Value = obj.NomeCliente;
-                    cmd.Parameters.Add("@Id_Pagamento", SqlDbType.Int).Value = obj.TipoPagamento;
+                    cmd.Parameters.Add("@Id_Pagamento", SqlDbType.Int).Value = obj.TipoPagamento.Id;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();

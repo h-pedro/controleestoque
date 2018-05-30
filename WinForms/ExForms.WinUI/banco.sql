@@ -103,7 +103,7 @@ create function [dbo].[get_estoque](@id_produto int) returns int
 as
 begin
     return (
-		select sum(coalesce(case when tipo = 'E' then quantidade else quantidade * -1 end, 0)) as quantidade from movimentacao where id_produto = @id_produto
+		select coalesce(sum(coalesce(case when tipo = 'E' then quantidade else quantidade * -1 end, 0)), 0) as quantidade from movimentacao where id_produto = @id_produto
     );
 end
 go
