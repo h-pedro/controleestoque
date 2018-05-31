@@ -134,7 +134,12 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = @"SELECT * FROM Venda;";
+                string strSQL = @"SELECT 
+                                     v.*,
+                                     t.nome_pagamento as TipoPagamento,
+                                     FROM Venda v 
+                                     INNER JOIN TipoPagamento t on (t.id = v.id_TipoPagamento);";
+
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -176,7 +181,12 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = string.Format(@"SELECT * FROM Venda WHERE NomeCliente like '%{0}%';", texto);
+                string strSQL = string.Format (@"SELECT 
+                                     v.*,
+                                     t.Nome_Pagamento as TipoPagamento
+                                     FROM Venda v
+                                     INNER JOIN TipoPagamento t on (t.id = v.Id_Pagamento)
+                                     WHERE v.NomeCliente like '%{0}%';", texto);
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))

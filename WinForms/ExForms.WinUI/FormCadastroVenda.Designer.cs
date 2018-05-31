@@ -73,6 +73,7 @@
             this.btnCancelarCadastroVenda.TabIndex = 12;
             this.btnCancelarCadastroVenda.Text = "Cancelar";
             this.btnCancelarCadastroVenda.UseVisualStyleBackColor = true;
+            this.btnCancelarCadastroVenda.Click += new System.EventHandler(this.btnCancelarCadastroVenda_Click);
             // 
             // btnSalvarCadastroVenda
             // 

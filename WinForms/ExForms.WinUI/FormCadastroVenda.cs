@@ -87,5 +87,9 @@ namespace ExForms.WinUI
             return aux;
         }
 
+        private void btnCancelarCadastroVenda_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
