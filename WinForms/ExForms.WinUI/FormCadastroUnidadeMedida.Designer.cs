@@ -50,7 +50,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(270, 196);
+            this.btnSalvar.Location = new System.Drawing.Point(168, 149);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 6;
@@ -60,7 +60,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(351, 196);
+            this.btnCancelar.Location = new System.Drawing.Point(249, 149);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -76,12 +76,14 @@
             // gbUnidade
             // 
             this.gbUnidade.Controls.Add(this.txtSigla);
+            this.gbUnidade.Controls.Add(this.btnCancelar);
             this.gbUnidade.Controls.Add(this.label2);
+            this.gbUnidade.Controls.Add(this.btnSalvar);
             this.gbUnidade.Controls.Add(this.txtNome);
             this.gbUnidade.Controls.Add(this.label1);
             this.gbUnidade.Location = new System.Drawing.Point(12, 12);
             this.gbUnidade.Name = "gbUnidade";
-            this.gbUnidade.Size = new System.Drawing.Size(414, 178);
+            this.gbUnidade.Size = new System.Drawing.Size(346, 178);
             this.gbUnidade.TabIndex = 5;
             this.gbUnidade.TabStop = false;
             this.gbUnidade.Text = "Cadastro Unidade Medida";
@@ -92,7 +94,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSigla.Location = new System.Drawing.Point(17, 98);
             this.txtSigla.Name = "txtSigla";
-            this.txtSigla.Size = new System.Drawing.Size(198, 20);
+            this.txtSigla.Size = new System.Drawing.Size(200, 20);
             this.txtSigla.TabIndex = 5;
             // 
             // label2
@@ -110,7 +112,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNome.Location = new System.Drawing.Point(17, 45);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(375, 20);
+            this.txtNome.Size = new System.Drawing.Size(307, 20);
             this.txtNome.TabIndex = 3;
             // 
             // label1
@@ -126,9 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 232);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnSalvar);
+            this.ClientSize = new System.Drawing.Size(379, 217);
             this.Controls.Add(this.gbUnidade);
             this.MinimumSize = new System.Drawing.Size(395, 255);
             this.Name = "FormCadastroUnidadeMedida";

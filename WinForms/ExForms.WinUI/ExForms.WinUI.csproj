@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddProduto.Designer.cs">
+      <DependentUpon>FormAddProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastroCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddProduto.resx">
+      <DependentUpon>FormAddProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCadastroCategoria.resx">
       <DependentUpon>FormCadastroCategoria.cs</DependentUpon>
     </EmbeddedResource>
