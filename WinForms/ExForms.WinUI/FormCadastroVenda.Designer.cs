@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gpbVendas = new System.Windows.Forms.GroupBox();
+            this.gridView = new System.Windows.Forms.DataGridView();
+            this.btnAddProduto = new System.Windows.Forms.Button();
             this.btnCancelarCadastroVenda = new System.Windows.Forms.Button();
             this.btnSalvarCadastroVenda = new System.Windows.Forms.Button();
-            this.txtIensCadastroVenda = new System.Windows.Forms.TextBox();
-            this.lblItensCdastroVenda = new System.Windows.Forms.Label();
             this.cboPagamento = new System.Windows.Forms.ComboBox();
             this.lblTipoPagamentoCadastroVenda = new System.Windows.Forms.Label();
             this.txtClienteCadastroVenda = new System.Windows.Forms.TextBox();
@@ -41,16 +41,19 @@
             this.txtDataCadastroVenda = new System.Windows.Forms.DateTimePicker();
             this.lblCadastroVenda = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbVendas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbVendas
             // 
+            this.gpbVendas.Controls.Add(this.gridView);
+            this.gpbVendas.Controls.Add(this.btnAddProduto);
             this.gpbVendas.Controls.Add(this.btnCancelarCadastroVenda);
             this.gpbVendas.Controls.Add(this.btnSalvarCadastroVenda);
-            this.gpbVendas.Controls.Add(this.txtIensCadastroVenda);
-            this.gpbVendas.Controls.Add(this.lblItensCdastroVenda);
             this.gpbVendas.Controls.Add(this.cboPagamento);
             this.gpbVendas.Controls.Add(this.lblTipoPagamentoCadastroVenda);
             this.gpbVendas.Controls.Add(this.txtClienteCadastroVenda);
@@ -59,15 +62,44 @@
             this.gpbVendas.Controls.Add(this.lblCadastroVenda);
             this.gpbVendas.Location = new System.Drawing.Point(12, 12);
             this.gpbVendas.Name = "gpbVendas";
-            this.gpbVendas.Size = new System.Drawing.Size(366, 318);
+            this.gpbVendas.Size = new System.Drawing.Size(366, 363);
             this.gpbVendas.TabIndex = 0;
             this.gpbVendas.TabStop = false;
             this.gpbVendas.Text = "Cadastro de vendas";
             // 
+            // gridView
+            // 
+            this.gridView.AllowUserToAddRows = false;
+            this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.AllowUserToResizeRows = false;
+            this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProduto,
+            this.colQtd});
+            this.gridView.Location = new System.Drawing.Point(29, 206);
+            this.gridView.MultiSelect = false;
+            this.gridView.Name = "gridView";
+            this.gridView.ReadOnly = true;
+            this.gridView.RowHeadersVisible = false;
+            this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridView.Size = new System.Drawing.Size(302, 116);
+            this.gridView.TabIndex = 14;
+            // 
+            // btnAddProduto
+            // 
+            this.btnAddProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddProduto.Location = new System.Drawing.Point(29, 177);
+            this.btnAddProduto.Name = "btnAddProduto";
+            this.btnAddProduto.Size = new System.Drawing.Size(100, 23);
+            this.btnAddProduto.TabIndex = 13;
+            this.btnAddProduto.Text = "Adicionar Produto";
+            this.btnAddProduto.UseVisualStyleBackColor = true;
+            // 
             // btnCancelarCadastroVenda
             // 
             this.btnCancelarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(256, 283);
+            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(256, 328);
             this.btnCancelarCadastroVenda.Name = "btnCancelarCadastroVenda";
             this.btnCancelarCadastroVenda.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarCadastroVenda.TabIndex = 12;
@@ -78,30 +110,13 @@
             // btnSalvarCadastroVenda
             // 
             this.btnSalvarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(170, 283);
+            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(170, 328);
             this.btnSalvarCadastroVenda.Name = "btnSalvarCadastroVenda";
             this.btnSalvarCadastroVenda.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarCadastroVenda.TabIndex = 11;
             this.btnSalvarCadastroVenda.Text = "Salvar";
             this.btnSalvarCadastroVenda.UseVisualStyleBackColor = true;
             this.btnSalvarCadastroVenda.Click += new System.EventHandler(this.btnSalvarCadastroVenda_Click);
-            // 
-            // txtIensCadastroVenda
-            // 
-            this.txtIensCadastroVenda.Location = new System.Drawing.Point(29, 201);
-            this.txtIensCadastroVenda.Multiline = true;
-            this.txtIensCadastroVenda.Name = "txtIensCadastroVenda";
-            this.txtIensCadastroVenda.Size = new System.Drawing.Size(302, 76);
-            this.txtIensCadastroVenda.TabIndex = 8;
-            // 
-            // lblItensCdastroVenda
-            // 
-            this.lblItensCdastroVenda.AutoSize = true;
-            this.lblItensCdastroVenda.Location = new System.Drawing.Point(26, 185);
-            this.lblItensCdastroVenda.Name = "lblItensCdastroVenda";
-            this.lblItensCdastroVenda.Size = new System.Drawing.Size(89, 13);
-            this.lblItensCdastroVenda.TabIndex = 7;
-            this.lblItensCdastroVenda.Text = "Itens Comprados:";
             // 
             // cboPagamento
             // 
@@ -158,17 +173,33 @@
             this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.error.ContainerControl = this;
             // 
+            // colProduto
+            // 
+            this.colProduto.FillWeight = 164.1888F;
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
+            // 
+            // colQtd
+            // 
+            this.colQtd.FillWeight = 51.44582F;
+            this.colQtd.HeaderText = "Quantidade";
+            this.colQtd.Name = "colQtd";
+            this.colQtd.ReadOnly = true;
+            // 
             // FormCadastroVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 343);
+            this.ClientSize = new System.Drawing.Size(395, 387);
             this.Controls.Add(this.gpbVendas);
             this.Name = "FormCadastroVenda";
-            this.Text = "FormCadastroVenda";
+            this.Text = "                                                                                 " +
+    "      ";
             this.Load += new System.EventHandler(this.FormCadastroVenda_Load);
             this.gpbVendas.ResumeLayout(false);
             this.gpbVendas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
 
@@ -182,11 +213,13 @@
         private System.Windows.Forms.Label lblTipoPagamentoCadastroVenda;
         private System.Windows.Forms.TextBox txtClienteCadastroVenda;
         private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.TextBox txtIensCadastroVenda;
-        private System.Windows.Forms.Label lblItensCdastroVenda;
         private System.Windows.Forms.ComboBox cboPagamento;
         private System.Windows.Forms.Button btnCancelarCadastroVenda;
         private System.Windows.Forms.Button btnSalvarCadastroVenda;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.Button btnAddProduto;
+        private System.Windows.Forms.DataGridView gridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQtd;
     }
 }
