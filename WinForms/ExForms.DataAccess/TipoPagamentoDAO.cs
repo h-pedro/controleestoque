@@ -1,6 +1,7 @@
 ﻿using ExForms.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,7 +12,7 @@ namespace ExForms.DataAccess
         public void Inserir(TipoPagamento obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"INSERT INTO TipoPagamento (Nome_Pagamento, descricao) VALUES (@Nome_Pagamento, @descricao);";
@@ -37,7 +38,7 @@ namespace ExForms.DataAccess
         public void Atualizar(TipoPagamento obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"UPDATE TipoPagamento SET nome = @nome, descricao = @descricao WHERE id = @id;";
@@ -64,7 +65,7 @@ namespace ExForms.DataAccess
         public void Deletar(TipoPagamento obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"DELETE FROM categoria WHERE id = @id;";
@@ -89,7 +90,7 @@ namespace ExForms.DataAccess
         public TipoPagamento BuscarPorId(int id)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT * FROM categoria WHERE Id = @Id;";
@@ -130,7 +131,7 @@ namespace ExForms.DataAccess
             var lst = new List<TipoPagamento>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT * FROM TipoPagamento;";
@@ -172,7 +173,7 @@ namespace ExForms.DataAccess
             var lst = new List<TipoPagamento>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = string.Format(@"SELECT * FROM TipoPagamento WHERE Nome_Pagamento like '%{0}%';", texto);

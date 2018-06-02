@@ -89,6 +89,7 @@
             // 
             // btnCancelarr
             // 
+            this.btnCancelarr.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelarr.Location = new System.Drawing.Point(325, 286);
             this.btnCancelarr.Name = "btnCancelarr";
             this.btnCancelarr.Size = new System.Drawing.Size(75, 23);
@@ -114,6 +115,7 @@
             // 
             // FormCadastroPagamento
             // 
+            this.CancelButton = this.btnCancelarr;
             this.ClientSize = new System.Drawing.Size(444, 314);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelarr);

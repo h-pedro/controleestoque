@@ -33,45 +33,43 @@
             this.txtAddProduto = new System.Windows.Forms.TextBox();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.lblProduto = new System.Windows.Forms.Label();
-            this.btnCancelarADD = new System.Windows.Forms.Button();
-            this.btnSalvarADD = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnCancelarADD);
-            this.groupBox1.Controls.Add(this.btnSalvarADD);
             this.groupBox1.Controls.Add(this.txtAddQTD);
             this.groupBox1.Controls.Add(this.txtAddProduto);
             this.groupBox1.Controls.Add(this.lblQuantidade);
             this.groupBox1.Controls.Add(this.lblProduto);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 119);
+            this.groupBox1.Size = new System.Drawing.Size(330, 151);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insira os campos abaixo";
             // 
             // txtAddQTD
             // 
-            this.txtAddQTD.Location = new System.Drawing.Point(118, 58);
+            this.txtAddQTD.Location = new System.Drawing.Point(9, 93);
             this.txtAddQTD.Name = "txtAddQTD";
             this.txtAddQTD.Size = new System.Drawing.Size(60, 20);
             this.txtAddQTD.TabIndex = 3;
             // 
             // txtAddProduto
             // 
-            this.txtAddProduto.Location = new System.Drawing.Point(118, 32);
+            this.txtAddProduto.Location = new System.Drawing.Point(9, 47);
             this.txtAddProduto.Name = "txtAddProduto";
-            this.txtAddProduto.Size = new System.Drawing.Size(120, 20);
+            this.txtAddProduto.Size = new System.Drawing.Size(294, 20);
             this.txtAddProduto.TabIndex = 2;
             // 
             // lblQuantidade
             // 
             this.lblQuantidade.AutoSize = true;
             this.lblQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantidade.Location = new System.Drawing.Point(6, 55);
+            this.lblQuantidade.Location = new System.Drawing.Point(6, 73);
             this.lblQuantidade.Name = "lblQuantidade";
             this.lblQuantidade.Size = new System.Drawing.Size(86, 17);
             this.lblQuantidade.TabIndex = 1;
@@ -81,40 +79,44 @@
             // 
             this.lblProduto.AutoSize = true;
             this.lblProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduto.Location = new System.Drawing.Point(6, 32);
+            this.lblProduto.Location = new System.Drawing.Point(6, 27);
             this.lblProduto.Name = "lblProduto";
             this.lblProduto.Size = new System.Drawing.Size(62, 17);
             this.lblProduto.TabIndex = 0;
             this.lblProduto.Text = "Produto:";
             // 
-            // btnCancelarADD
+            // btnCancelar
             // 
-            this.btnCancelarADD.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
-            this.btnCancelarADD.Location = new System.Drawing.Point(124, 86);
-            this.btnCancelarADD.Name = "btnCancelarADD";
-            this.btnCancelarADD.Size = new System.Drawing.Size(60, 22);
-            this.btnCancelarADD.TabIndex = 7;
-            this.btnCancelarADD.Text = "Cancelar";
-            this.btnCancelarADD.UseVisualStyleBackColor = true;
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Location = new System.Drawing.Point(267, 171);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // btnSalvarADD
+            // btnSalvar
             // 
-            this.btnSalvarADD.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
-            this.btnSalvarADD.Location = new System.Drawing.Point(190, 86);
-            this.btnSalvarADD.Name = "btnSalvarADD";
-            this.btnSalvarADD.Size = new System.Drawing.Size(48, 22);
-            this.btnSalvarADD.TabIndex = 6;
-            this.btnSalvarADD.Text = "Salvar";
-            this.btnSalvarADD.UseVisualStyleBackColor = true;
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.Location = new System.Drawing.Point(186, 171);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
             // 
             // FormAddProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 143);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(354, 206);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(370, 245);
             this.Name = "FormAddProduto";
-            this.Text = "FormAddProduto";
+            this.Text = "Adicionar produto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -128,7 +130,7 @@
         private System.Windows.Forms.Label lblProduto;
         private System.Windows.Forms.TextBox txtAddQTD;
         private System.Windows.Forms.TextBox txtAddProduto;
-        private System.Windows.Forms.Button btnCancelarADD;
-        private System.Windows.Forms.Button btnSalvarADD;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }

@@ -38,24 +38,25 @@
             this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ctxAcoes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
-            this.ctxAcoes = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuNovo = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-            this.mnuAcoes.SuspendLayout();
             this.ctxAcoes.SuspendLayout();
+            this.mnuAcoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnFechar.Location = new System.Drawing.Point(672, 427);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
@@ -132,6 +133,36 @@
             this.Quantidade.HeaderText = "Quantidade";
             this.Quantidade.Name = "Quantidade";
             // 
+            // ctxAcoes
+            // 
+            this.ctxAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuNovo,
+            this.toolStripSeparator1,
+            this.mnuExcluir});
+            this.ctxAcoes.Name = "ctxAcoes";
+            this.ctxAcoes.Size = new System.Drawing.Size(109, 54);
+            // 
+            // mnuNovo
+            // 
+            this.mnuNovo.Image = ((System.Drawing.Image)(resources.GetObject("mnuNovo.Image")));
+            this.mnuNovo.Name = "mnuNovo";
+            this.mnuNovo.Size = new System.Drawing.Size(108, 22);
+            this.mnuNovo.Text = "Novo";
+            this.mnuNovo.Click += new System.EventHandler(this.mnuNovo_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
+            // 
+            // mnuExcluir
+            // 
+            this.mnuExcluir.Image = ((System.Drawing.Image)(resources.GetObject("mnuExcluir.Image")));
+            this.mnuExcluir.Name = "mnuExcluir";
+            this.mnuExcluir.Size = new System.Drawing.Size(108, 22);
+            this.mnuExcluir.Text = "Excluir";
+            this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
+            // 
             // mnuAcoes
             // 
             this.mnuAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -183,40 +214,11 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(150, 25);
             // 
-            // ctxAcoes
-            // 
-            this.ctxAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuNovo,
-            this.toolStripSeparator1,
-            this.mnuExcluir});
-            this.ctxAcoes.Name = "ctxAcoes";
-            this.ctxAcoes.Size = new System.Drawing.Size(109, 54);
-            // 
-            // mnuNovo
-            // 
-            this.mnuNovo.Image = ((System.Drawing.Image)(resources.GetObject("mnuNovo.Image")));
-            this.mnuNovo.Name = "mnuNovo";
-            this.mnuNovo.Size = new System.Drawing.Size(108, 22);
-            this.mnuNovo.Text = "Novo";
-            this.mnuNovo.Click += new System.EventHandler(this.mnuNovo_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
-            // 
-            // mnuExcluir
-            // 
-            this.mnuExcluir.Image = ((System.Drawing.Image)(resources.GetObject("mnuExcluir.Image")));
-            this.mnuExcluir.Name = "mnuExcluir";
-            this.mnuExcluir.Size = new System.Drawing.Size(108, 22);
-            this.mnuExcluir.Text = "Excluir";
-            this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
-            // 
             // FormListaMovimentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnFechar;
             this.ClientSize = new System.Drawing.Size(759, 462);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.panel1);
@@ -227,9 +229,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            this.ctxAcoes.ResumeLayout(false);
             this.mnuAcoes.ResumeLayout(false);
             this.mnuAcoes.PerformLayout();
-            this.ctxAcoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

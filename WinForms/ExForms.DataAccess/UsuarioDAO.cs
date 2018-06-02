@@ -1,6 +1,7 @@
 ﻿using ExForms.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,7 +12,7 @@ namespace ExForms.DataAccess
         public void Inserir(Usuario obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de Usuarios
                 string strSQL = @"INSERT INTO usuario (nome, email, [login], senha) VALUES (@nome, @email, @login, @senha);";
@@ -39,7 +40,7 @@ namespace ExForms.DataAccess
         public void Atualizar(Usuario obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de Usuarios
                 string strSQL = @"UPDATE usuario SET 
@@ -73,7 +74,7 @@ namespace ExForms.DataAccess
         public void Deletar(Usuario obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de Usuarios
                 string strSQL = @"DELETE FROM usuario WHERE id = @id;";
@@ -98,7 +99,7 @@ namespace ExForms.DataAccess
         public Usuario BuscarPorId(int id)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Usuarios
                 string strSQL = @"SELECT * FROM usuario WHERE id = @id;";
@@ -139,7 +140,7 @@ namespace ExForms.DataAccess
         public Usuario Logar(Usuario obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Usuarios
                 string strSQL = @"SELECT * FROM usuario WHERE [login] = @login and senha = @senha;";
@@ -183,7 +184,7 @@ namespace ExForms.DataAccess
             var lst = new List<Usuario>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Usuarios
                 string strSQL = @"SELECT * FROM usuario;";
@@ -227,7 +228,7 @@ namespace ExForms.DataAccess
             var lst = new List<Usuario>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Usuarios
                 string strSQL = string.Format(@"SELECT * FROM Usuario WHERE nome like '%{0}%';", texto);

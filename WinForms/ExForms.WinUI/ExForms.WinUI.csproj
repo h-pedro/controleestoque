@@ -94,12 +94,6 @@
     <Compile Include="FormCadastroVenda.Designer.cs">
       <DependentUpon>FormCadastroVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEstoque.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEstoque.Designer.cs">
-      <DependentUpon>FormEstoque.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormListaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,9 +173,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastroVenda.resx">
       <DependentUpon>FormCadastroVenda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEstoque.resx">
-      <DependentUpon>FormEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListaCategoria.resx">
       <DependentUpon>FormListaCategoria.cs</DependentUpon>

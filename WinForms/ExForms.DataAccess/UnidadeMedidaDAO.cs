@@ -1,6 +1,7 @@
 ﻿using ExForms.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,7 +12,7 @@ namespace ExForms.DataAccess
         public void Inserir(UnidadeMedida obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"INSERT INTO Unidade_Medida (Nome, Sigla) VALUES (@Nome, @Sigla);";
@@ -37,7 +38,7 @@ namespace ExForms.DataAccess
         public void Atualizar(UnidadeMedida obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"UPDATE Unidade_Medida SET nome = @Nome, Sigla = @Sigla WHERE id = @id;";
@@ -64,7 +65,7 @@ namespace ExForms.DataAccess
         public void Deletar(UnidadeMedida obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"DELETE FROM Unidade_Medida WHERE id = @id;";
@@ -89,7 +90,7 @@ namespace ExForms.DataAccess
         public UnidadeMedida BuscarPorId(int id)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT * FROM Unidade_Medida WHERE id = @id;";
@@ -130,7 +131,7 @@ namespace ExForms.DataAccess
             var lst = new List<UnidadeMedida>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT * FROM Unidade_Medida;";
@@ -172,7 +173,7 @@ namespace ExForms.DataAccess
             var lst = new List<UnidadeMedida>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=ExWinForms; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = string.Format(@"SELECT * FROM Unidade_Medida WHERE nome like '%{0}%';", texto);

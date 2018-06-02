@@ -32,6 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaVenda));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -44,12 +50,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
-            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.mnuAcoes.SuspendLayout();
@@ -94,6 +94,46 @@
             this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
             this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
             this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
+            // 
+            // colunMedida
+            // 
+            this.colunMedida.DataPropertyName = "Id";
+            this.colunMedida.FillWeight = 60.9137F;
+            this.colunMedida.HeaderText = "ID";
+            this.colunMedida.Name = "colunMedida";
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "NomeCliente";
+            this.colNome.FillWeight = 107.8173F;
+            this.colNome.HeaderText = "Cliente";
+            this.colNome.Name = "colNome";
+            // 
+            // colCategoria
+            // 
+            this.colCategoria.DataPropertyName = "DataPagamento";
+            this.colCategoria.FillWeight = 107.8173F;
+            this.colCategoria.HeaderText = "Data";
+            this.colCategoria.Name = "colCategoria";
+            // 
+            // colPreco
+            // 
+            this.colPreco.DataPropertyName = "Nome_Pagamento";
+            this.colPreco.FillWeight = 107.8173F;
+            this.colPreco.HeaderText = "Tipo de Pagamento";
+            this.colPreco.Name = "colPreco";
+            // 
+            // Medida
+            // 
+            this.Medida.FillWeight = 107.8173F;
+            this.Medida.HeaderText = "Itens";
+            this.Medida.Name = "Medida";
+            // 
+            // Valor
+            // 
+            this.Valor.FillWeight = 107.8173F;
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
             // 
             // mnuAcoes
             // 
@@ -157,6 +197,7 @@
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnFechar.Location = new System.Drawing.Point(672, 427);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
@@ -204,50 +245,11 @@
             this.mnuExcluir.Text = "Excluir";
             this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
             // 
-            // colunMedida
-            // 
-            this.colunMedida.DataPropertyName = "Id";
-            this.colunMedida.FillWeight = 60.9137F;
-            this.colunMedida.HeaderText = "ID";
-            this.colunMedida.Name = "colunMedida";
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "NomeCliente";
-            this.colNome.FillWeight = 107.8173F;
-            this.colNome.HeaderText = "Cliente";
-            this.colNome.Name = "colNome";
-            // 
-            // colCategoria
-            // 
-            this.colCategoria.DataPropertyName = "DataPagamento";
-            this.colCategoria.FillWeight = 107.8173F;
-            this.colCategoria.HeaderText = "Data";
-            this.colCategoria.Name = "colCategoria";
-            // 
-            // colPreco
-            // 
-            this.colPreco.DataPropertyName = "Nome_Pagamento";
-            this.colPreco.FillWeight = 107.8173F;
-            this.colPreco.HeaderText = "Tipo de Pagamento";
-            this.colPreco.Name = "colPreco";
-            // 
-            // Medida
-            // 
-            this.Medida.FillWeight = 107.8173F;
-            this.Medida.HeaderText = "Itens";
-            this.Medida.Name = "Medida";
-            // 
-            // Valor
-            // 
-            this.Valor.FillWeight = 107.8173F;
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            // 
             // FormListaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnFechar;
             this.ClientSize = new System.Drawing.Size(759, 462);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnFechar);

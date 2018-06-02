@@ -56,6 +56,7 @@
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnFechar.Location = new System.Drawing.Point(672, 427);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
@@ -66,8 +67,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.gridView);
@@ -188,26 +189,26 @@
             this.mnuEditar,
             this.mnuExcluir});
             this.ctxAcoes.Name = "ctxAcoes";
-            this.ctxAcoes.Size = new System.Drawing.Size(153, 98);
+            this.ctxAcoes.Size = new System.Drawing.Size(109, 76);
             // 
             // mnuNovo
             // 
             this.mnuNovo.Image = ((System.Drawing.Image)(resources.GetObject("mnuNovo.Image")));
             this.mnuNovo.Name = "mnuNovo";
-            this.mnuNovo.Size = new System.Drawing.Size(152, 22);
+            this.mnuNovo.Size = new System.Drawing.Size(108, 22);
             this.mnuNovo.Text = "Novo";
             this.mnuNovo.Click += new System.EventHandler(this.mnuNovo_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
             // 
             // mnuEditar
             // 
             this.mnuEditar.Image = ((System.Drawing.Image)(resources.GetObject("mnuEditar.Image")));
             this.mnuEditar.Name = "mnuEditar";
-            this.mnuEditar.Size = new System.Drawing.Size(152, 22);
+            this.mnuEditar.Size = new System.Drawing.Size(108, 22);
             this.mnuEditar.Text = "Editar";
             this.mnuEditar.Click += new System.EventHandler(this.mnuEditar_Click);
             // 
@@ -215,7 +216,7 @@
             // 
             this.mnuExcluir.Image = ((System.Drawing.Image)(resources.GetObject("mnuExcluir.Image")));
             this.mnuExcluir.Name = "mnuExcluir";
-            this.mnuExcluir.Size = new System.Drawing.Size(152, 22);
+            this.mnuExcluir.Size = new System.Drawing.Size(108, 22);
             this.mnuExcluir.Text = "Excluir";
             this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
             // 
@@ -223,6 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnFechar;
             this.ClientSize = new System.Drawing.Size(759, 461);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.panel1);
