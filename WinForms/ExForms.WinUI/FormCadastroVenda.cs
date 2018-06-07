@@ -1,5 +1,4 @@
-﻿
-using ExForms.DataAccess;
+﻿using ExForms.DataAccess;
 using ExForms.Models;
 using System;
 using System.Collections.Generic;
@@ -90,6 +89,21 @@ namespace ExForms.WinUI
         private void btnCancelarCadastroVenda_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnAddProduto_Click(object sender, EventArgs e)
+        {
+            var frm = new FormAddProduto();
+            if (frm.ShowDialog() != DialogResult.OK)
+                return;
+            CarregarGridView();
+        }
+        private void CarregarGridView()
+        {
+            var lst = new ProdutoDAO();
+            gridView.AutoGenerateColumns = false;
+            gridView.DataSource = lst;
+            gridView.ClearSelection();
         }
     }
 }

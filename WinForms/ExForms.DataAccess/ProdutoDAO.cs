@@ -15,8 +15,8 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"INSERT INTO produto (nome, id_categoria, id_unidade_medida, preco, descricao) 
-                                  VALUES (@nome, @id_categoria, @id_unidade_medida, @preco, @descricao);";
+                string strSQL = @"INSERT INTO produto (nome, id_unidade_medida, preco, descricao) 
+                                  VALUES (@nome, @id_unidade_medida, @preco, @descricao);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -24,7 +24,7 @@ namespace ExForms.DataAccess
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
                     cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
-                    cmd.Parameters.Add("@id_categoria", SqlDbType.Int).Value = obj.Categoria.Id;
+                   // cmd.Parameters.Add("@id_categoria", SqlDbType.Int, 18).Value = obj.Categoria.Id;
                     cmd.Parameters.Add("@id_unidade_medida", SqlDbType.Int).Value = obj.UnidadeMedida.Id;
                     cmd.Parameters.Add("@preco", SqlDbType.Decimal).Value = obj.Preco;
                     cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = obj.Descricao;
@@ -36,6 +36,7 @@ namespace ExForms.DataAccess
                     //Fechando conexão com o banco de dados
                     conn.Close();
                 }
+
             }
         }
 

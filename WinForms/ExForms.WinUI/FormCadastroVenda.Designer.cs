@@ -31,18 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.gpbVendas = new System.Windows.Forms.GroupBox();
             this.gridView = new System.Windows.Forms.DataGridView();
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddProduto = new System.Windows.Forms.Button();
-            this.btnCancelarCadastroVenda = new System.Windows.Forms.Button();
-            this.btnSalvarCadastroVenda = new System.Windows.Forms.Button();
             this.cboPagamento = new System.Windows.Forms.ComboBox();
             this.lblTipoPagamentoCadastroVenda = new System.Windows.Forms.Label();
             this.txtClienteCadastroVenda = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.txtDataCadastroVenda = new System.Windows.Forms.DateTimePicker();
             this.lblCadastroVenda = new System.Windows.Forms.Label();
+            this.btnCancelarCadastroVenda = new System.Windows.Forms.Button();
+            this.btnSalvarCadastroVenda = new System.Windows.Forms.Button();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
@@ -84,20 +84,6 @@
             this.gridView.Size = new System.Drawing.Size(316, 141);
             this.gridView.TabIndex = 14;
             // 
-            // colProduto
-            // 
-            this.colProduto.FillWeight = 164.1888F;
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            // 
-            // colQtd
-            // 
-            this.colQtd.FillWeight = 51.44582F;
-            this.colQtd.HeaderText = "Quantidade";
-            this.colQtd.Name = "colQtd";
-            this.colQtd.ReadOnly = true;
-            // 
             // btnAddProduto
             // 
             this.btnAddProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -107,28 +93,7 @@
             this.btnAddProduto.TabIndex = 13;
             this.btnAddProduto.Text = "Adicionar Produto";
             this.btnAddProduto.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelarCadastroVenda
-            // 
-            this.btnCancelarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(308, 384);
-            this.btnCancelarCadastroVenda.Name = "btnCancelarCadastroVenda";
-            this.btnCancelarCadastroVenda.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarCadastroVenda.TabIndex = 12;
-            this.btnCancelarCadastroVenda.Text = "Cancelar";
-            this.btnCancelarCadastroVenda.UseVisualStyleBackColor = true;
-            this.btnCancelarCadastroVenda.Click += new System.EventHandler(this.btnCancelarCadastroVenda_Click);
-            // 
-            // btnSalvarCadastroVenda
-            // 
-            this.btnSalvarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(222, 384);
-            this.btnSalvarCadastroVenda.Name = "btnSalvarCadastroVenda";
-            this.btnSalvarCadastroVenda.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvarCadastroVenda.TabIndex = 11;
-            this.btnSalvarCadastroVenda.Text = "Salvar";
-            this.btnSalvarCadastroVenda.UseVisualStyleBackColor = true;
-            this.btnSalvarCadastroVenda.Click += new System.EventHandler(this.btnSalvarCadastroVenda_Click);
+            this.btnAddProduto.Click += new System.EventHandler(this.btnAddProduto_Click);
             // 
             // cboPagamento
             // 
@@ -180,10 +145,49 @@
             this.lblCadastroVenda.TabIndex = 1;
             this.lblCadastroVenda.Text = "Data:";
             // 
+            // btnCancelarCadastroVenda
+            // 
+            this.btnCancelarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarCadastroVenda.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(308, 384);
+            this.btnCancelarCadastroVenda.Name = "btnCancelarCadastroVenda";
+            this.btnCancelarCadastroVenda.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarCadastroVenda.TabIndex = 12;
+            this.btnCancelarCadastroVenda.Text = "Cancelar";
+            this.btnCancelarCadastroVenda.UseVisualStyleBackColor = true;
+            this.btnCancelarCadastroVenda.Click += new System.EventHandler(this.btnCancelarCadastroVenda_Click);
+            // 
+            // btnSalvarCadastroVenda
+            // 
+            this.btnSalvarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(222, 384);
+            this.btnSalvarCadastroVenda.Name = "btnSalvarCadastroVenda";
+            this.btnSalvarCadastroVenda.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarCadastroVenda.TabIndex = 11;
+            this.btnSalvarCadastroVenda.Text = "Salvar";
+            this.btnSalvarCadastroVenda.UseVisualStyleBackColor = true;
+            this.btnSalvarCadastroVenda.Click += new System.EventHandler(this.btnSalvarCadastroVenda_Click);
+            // 
             // error
             // 
             this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.error.ContainerControl = this;
+            // 
+            // colProduto
+            // 
+            this.colProduto.DataPropertyName = "Nome";
+            this.colProduto.FillWeight = 164.1888F;
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
+            // 
+            // colQtd
+            // 
+            this.colQtd.DataPropertyName = "QtdEmEstoque";
+            this.colQtd.FillWeight = 51.44582F;
+            this.colQtd.HeaderText = "Quantidade";
+            this.colQtd.Name = "colQtd";
+            this.colQtd.ReadOnly = true;
             // 
             // FormCadastroVenda
             // 
