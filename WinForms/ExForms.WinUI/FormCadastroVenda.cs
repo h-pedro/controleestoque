@@ -2,6 +2,7 @@
 using ExForms.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -21,7 +22,7 @@ namespace ExForms.WinUI
             this.Venda = obj;
         }
 
-        private void FormCadastroVenda_Load(object sender, System.EventArgs e)
+        private void FormCadastroVenda_Load(object sender, EventArgs e)
         {
             CarregarTipoDePagamento();
             var obj = Venda as Venda;
@@ -51,6 +52,8 @@ namespace ExForms.WinUI
             //gravando todos os itens da venda no banco de dados
             foreach (var item in this.Venda.Itens)
             {
+                item.Venda = this.Venda;
+
                 if (item != null && item.Id > 0)
                     new ItemVendaDAO().Atualizar(item);
                 else
@@ -76,7 +79,7 @@ namespace ExForms.WinUI
             this.Close();
         }
 
-        private void btnAddProduto_Click(object sender, EventArgs e)
+        private void btnNovo_Click(object sender, EventArgs e)
         {
             var frm = new FormAddProduto();
             if (frm.ShowDialog() != DialogResult.OK)
@@ -94,11 +97,49 @@ namespace ExForms.WinUI
                         Quantidade = item.Quantidade
                     });
                 }
+                CarregarGridView();
             }
+        }
 
-            gridView.AutoGenerateColumns = false;
-            gridView.DataSource = this.Venda.Itens;
+        private void CarregarGridView()
+        {
+            gridView.Columns.Clear();
+            adicionarColunas();
+            gridView.Rows.Clear();
+            foreach (var itemVenda in this.Venda.Itens)
+                inserirLinha(itemVenda);
             gridView.ClearSelection();
+        }
+
+        private void adicionarColunas()
+        {
+            gridView.Columns.Add("colProduto", "Produto", "Produto.Nome", 70, true);
+            gridView.Columns.Add("colQuantidade", "Quantidade", "Quantidade", 30, true);
+
+            gridView.Columns["colProduto"].FillWeight = 70;
+            gridView.Columns["colQuantidade"].FillWeight = 30;
+
+            gridView.Columns["colQuantidade"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            foreach (DataGridViewColumn col in gridView.Columns)
+                gridView.Columns[col.Index].ReadOnly = true;
+        }
+
+        private void inserirLinha(ItemVenda itemVenda)
+        {
+            gridView.EndEdit();
+            gridView.Rows.Add(1);
+            inserirLinha(itemVenda, gridView.Rows[gridView.Rows.Count - 1].Index);
+        }
+
+        private void inserirLinha(ItemVenda itemVenda, Int32 rowIndex)
+        {
+            if (itemVenda == null)
+                return;
+
+            gridView["colProduto", rowIndex].Value = itemVenda.Produto.Nome;
+            gridView["colQuantidade", rowIndex].Value = itemVenda.Quantidade.ToString("N0");
+            gridView.Rows[rowIndex].Tag = itemVenda;
         }
 
         private void CarregarTipoDePagamento()

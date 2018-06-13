@@ -80,7 +80,7 @@ create table Item_Venda(
 	id int identity(1,1) primary key,
 	Id_Produto int references Produto (id) ,
 	Quantidade	int,
-	Valor_Unitário decimal(9,2),
+	Valor_Unitario decimal(9,2),
 	Id_Venda int references Venda
 );
 go

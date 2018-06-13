@@ -15,21 +15,22 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
-                string strSQL = @"INSERT INTO Venda (DataPagamento, NomeCliente, Id_Pagamento) VALUES (@DataPagamento, @NomeCliente, @Id_Pagamento);";
+                string strSQL = @"INSERT INTO VENDA (DATAPAGAMENTO, NOMECLIENTE, ID_PAGAMENTO) VALUES (@DATAPAGAMENTO, @NOMECLIENTE, @ID_PAGAMENTO);
+                                  SELECT SCOPE_IDENTITY();";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@DataPagamento", SqlDbType.DateTime).Value = obj.DataPagamento;
-                    cmd.Parameters.Add("@NomeCliente", SqlDbType.VarChar).Value = obj.NomeCliente;
-                    cmd.Parameters.Add("@Id_Pagamento", SqlDbType.Int).Value = obj.TipoPagamento.Id;
+                    cmd.Parameters.Add("@DATAPAGAMENTO", SqlDbType.DateTime).Value = obj.DataPagamento;
+                    cmd.Parameters.Add("@NOMECLIENTE", SqlDbType.VarChar).Value = obj.NomeCliente;
+                    cmd.Parameters.Add("@ID_PAGAMENTO", SqlDbType.Int).Value = obj.TipoPagamento.Id;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     //Executando instrução sql
-                    cmd.ExecuteNonQuery();
+                    obj.Id = Convert.ToInt32(cmd.ExecuteScalar());
                     //Fechando conexão com o banco de dados
                     conn.Close();
                 }

@@ -1,4 +1,4 @@
-﻿                                          using ExForms.DataAccess;
+﻿using ExForms.DataAccess;
 using ExForms.Models;
 using System;
 using System.Linq;
@@ -137,6 +137,5 @@ namespace ExForms.WinUI
                 CarregarGridView();
             }
         }
-
     }
 }

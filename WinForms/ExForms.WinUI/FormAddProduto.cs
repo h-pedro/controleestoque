@@ -26,8 +26,7 @@ namespace ExForms.WinUI
                 return;
 
             var p = new ProdutoDAO().BuscarPorId(Convert.ToInt32(cboProduto.SelectedValue));
-
-            this.Venda = this.Venda ?? new Venda();
+            this.Venda = new Venda();
             this.Venda.Itens.Add(new ItemVenda()
             {
                 Produto = p,
@@ -35,7 +34,8 @@ namespace ExForms.WinUI
                 Quantidade = Convert.ToInt32(txtQuantidade.Text)
             });
 
-            DialogResult = DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
