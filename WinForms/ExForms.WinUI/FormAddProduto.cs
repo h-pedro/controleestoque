@@ -2,60 +2,81 @@
 using ExForms.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
 {
     public partial class FormAddProduto : Form
     {
-        private Produto Produto { get; set; }
+        public Venda Venda { get; set; }
 
         public FormAddProduto()
         {
             InitializeComponent();
         }
-        
+
         private void FormAddProduto_Load(object sender, System.EventArgs e)
         {
-            var obj = Produto as Produto;
-            if (obj == null)
-                return;
-            txtAddProduto.Text = obj.Nome;
-            txtAddQTD.Text = string.Format("{0:N0}", obj.QtdEmEstoque);
+            CarregarProdutos();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnAdicionar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
                 return;
 
-            this.Produto = this.Produto ?? new Produto();
-            this.Produto.Nome = txtAddProduto.Text;
-            this.Produto.QtdEmEstoque = !string.IsNullOrWhiteSpace(txtAddQTD.Text) ? Convert.ToInt32(txtAddQTD.Text) : 0;
-            if (this.Produto != null && this.Produto.Id > 0)
-                new ProdutoDAO().Atualizar(this.Produto);
-            else
-                new ProdutoDAO().Inserir(this.Produto);
+            var p = new ProdutoDAO().BuscarPorId(Convert.ToInt32(cboProduto.SelectedValue));
+
+            this.Venda = this.Venda ?? new Venda();
+            this.Venda.Itens.Add(new ItemVenda()
+            {
+                Produto = p,
+                Valor_Unitario = p.Preco,
+                Quantidade = Convert.ToInt32(txtQuantidade.Text)
+            });
 
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private bool ValidarCampos()
         {
             error.Clear();
             var aux = true;
-            if (string.IsNullOrWhiteSpace(txtAddProduto.Text))
+
+            if (!(Convert.ToInt32(cboProduto.SelectedValue) > 0))
             {
                 aux = false;
-                error.SetError(txtAddProduto, "Campo obrigatório!");
+                error.SetError(cboProduto, "Campo obrigatório!");
             }
+
+            if (string.IsNullOrWhiteSpace(txtQuantidade.Text))
+            {
+                aux = false;
+                error.SetError(txtQuantidade, "Campo obrigatório!");
+            }
+
+            if (!(Convert.ToInt32(txtQuantidade.Text) > 0))
+            {
+                aux = false;
+                error.SetError(txtQuantidade, "Campo quantidade deve ser maior que zero!");
+            }
+
             return aux;
+        }
+
+        private void CarregarProdutos()
+        {
+            var lst = new List<Produto>() { new Produto() { Nome = "-- [SELECIONE] --" } };
+            lst.AddRange(new ProdutoDAO().BuscarTodos());
+            cboProduto.DataSource = lst;
+            cboProduto.DisplayMember = "Nome";
+            cboProduto.ValueMember = "Id";
+            cboProduto.SelectedIndex = 0;
         }
     }
 }

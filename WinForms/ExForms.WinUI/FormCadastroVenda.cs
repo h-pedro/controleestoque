@@ -2,19 +2,13 @@
 using ExForms.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
 {
     public partial class FormCadastroVenda : Form
     {
-        public Venda Venda { get; set; }
+        private Venda Venda { get; set; }
 
         public FormCadastroVenda()
         {
@@ -25,16 +19,6 @@ namespace ExForms.WinUI
         {
             InitializeComponent();
             this.Venda = obj;
-        }
-
-        private void CarregarTipoDePagamento()
-        {
-            var lst = new List<TipoPagamento>() { new TipoPagamento() { Nome = "-- [SELECIONE] --" } };
-            lst.AddRange(new TipoPagamentoDAO().BuscarTodos());
-            cboPagamento.DataSource = lst;
-            cboPagamento.DisplayMember = "Nome";
-            cboPagamento.ValueMember = "Id";
-            cboPagamento.SelectedIndex = 0;
         }
 
         private void FormCadastroVenda_Load(object sender, System.EventArgs e)
@@ -66,6 +50,46 @@ namespace ExForms.WinUI
             DialogResult = DialogResult.OK;
         }
 
+        private void btnCancelarCadastroVenda_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAddProduto_Click(object sender, EventArgs e)
+        {
+            var frm = new FormAddProduto();
+            if (frm.ShowDialog() != DialogResult.OK)
+                return;
+
+            if (frm.Venda != null)
+            {
+                foreach (var item in frm.Venda.Itens)
+                {
+                    this.Venda = this.Venda ?? new Venda();
+                    this.Venda.Itens.Add(new ItemVenda()
+                    {
+                        Produto = item.Produto,
+                        Valor_Unitario = item.Produto.Preco,
+                        Quantidade = item.Quantidade
+                    });
+                }
+            }
+
+            gridView.AutoGenerateColumns = false;
+            gridView.DataSource = this.Venda.Itens;
+            gridView.ClearSelection();
+        }
+
+        private void CarregarTipoDePagamento()
+        {
+            var lst = new List<TipoPagamento>() { new TipoPagamento() { Nome = "-- [SELECIONE] --" } };
+            lst.AddRange(new TipoPagamentoDAO().BuscarTodos());
+            cboPagamento.DataSource = lst;
+            cboPagamento.DisplayMember = "Nome";
+            cboPagamento.ValueMember = "Id";
+            cboPagamento.SelectedIndex = 0;
+        }
+
         private bool ValidarCampos()
         {
             error.Clear();
@@ -84,26 +108,6 @@ namespace ExForms.WinUI
             }
 
             return aux;
-        }
-
-        private void btnCancelarCadastroVenda_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnAddProduto_Click(object sender, EventArgs e)
-        {
-            var frm = new FormAddProduto();
-            if (frm.ShowDialog() != DialogResult.OK)
-                return;
-            CarregarGridView();
-        }
-        private void CarregarGridView()
-        {
-            var lst = new ProdutoDAO();
-            gridView.AutoGenerateColumns = false;
-            gridView.DataSource = lst;
-            gridView.ClearSelection();
         }
     }
 }

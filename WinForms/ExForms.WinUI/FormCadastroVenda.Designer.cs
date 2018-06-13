@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.gpbVendas = new System.Windows.Forms.GroupBox();
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddProduto = new System.Windows.Forms.Button();
             this.cboPagamento = new System.Windows.Forms.ComboBox();
             this.lblTipoPagamentoCadastroVenda = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@
             this.btnCancelarCadastroVenda = new System.Windows.Forms.Button();
             this.btnSalvarCadastroVenda = new System.Windows.Forms.Button();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.colProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
@@ -84,6 +84,22 @@
             this.gridView.Size = new System.Drawing.Size(316, 141);
             this.gridView.TabIndex = 14;
             // 
+            // colProduto
+            // 
+            this.colProduto.DataPropertyName = "NomeProduto";
+            this.colProduto.FillWeight = 164.1888F;
+            this.colProduto.HeaderText = "Produto";
+            this.colProduto.Name = "colProduto";
+            this.colProduto.ReadOnly = true;
+            // 
+            // colQtd
+            // 
+            this.colQtd.DataPropertyName = "Quantidade";
+            this.colQtd.FillWeight = 51.44582F;
+            this.colQtd.HeaderText = "Quantidade";
+            this.colQtd.Name = "colQtd";
+            this.colQtd.ReadOnly = true;
+            // 
             // btnAddProduto
             // 
             this.btnAddProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -98,7 +114,7 @@
             // cboPagamento
             // 
             this.cboPagamento.FormattingEnabled = true;
-            this.cboPagamento.Location = new System.Drawing.Point(29, 150);
+            this.cboPagamento.Location = new System.Drawing.Point(29, 139);
             this.cboPagamento.Name = "cboPagamento";
             this.cboPagamento.Size = new System.Drawing.Size(302, 21);
             this.cboPagamento.TabIndex = 6;
@@ -106,7 +122,7 @@
             // lblTipoPagamentoCadastroVenda
             // 
             this.lblTipoPagamentoCadastroVenda.AutoSize = true;
-            this.lblTipoPagamentoCadastroVenda.Location = new System.Drawing.Point(26, 134);
+            this.lblTipoPagamentoCadastroVenda.Location = new System.Drawing.Point(26, 123);
             this.lblTipoPagamentoCadastroVenda.Name = "lblTipoPagamentoCadastroVenda";
             this.lblTipoPagamentoCadastroVenda.Size = new System.Drawing.Size(103, 13);
             this.lblTipoPagamentoCadastroVenda.TabIndex = 5;
@@ -114,7 +130,7 @@
             // 
             // txtClienteCadastroVenda
             // 
-            this.txtClienteCadastroVenda.Location = new System.Drawing.Point(29, 99);
+            this.txtClienteCadastroVenda.Location = new System.Drawing.Point(29, 92);
             this.txtClienteCadastroVenda.Name = "txtClienteCadastroVenda";
             this.txtClienteCadastroVenda.Size = new System.Drawing.Size(302, 20);
             this.txtClienteCadastroVenda.TabIndex = 4;
@@ -122,7 +138,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(26, 82);
+            this.lblCliente.Location = new System.Drawing.Point(26, 75);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(42, 13);
             this.lblCliente.TabIndex = 3;
@@ -131,15 +147,15 @@
             // txtDataCadastroVenda
             // 
             this.txtDataCadastroVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataCadastroVenda.Location = new System.Drawing.Point(29, 48);
+            this.txtDataCadastroVenda.Location = new System.Drawing.Point(29, 44);
             this.txtDataCadastroVenda.Name = "txtDataCadastroVenda";
-            this.txtDataCadastroVenda.Size = new System.Drawing.Size(302, 20);
+            this.txtDataCadastroVenda.Size = new System.Drawing.Size(140, 20);
             this.txtDataCadastroVenda.TabIndex = 2;
             // 
             // lblCadastroVenda
             // 
             this.lblCadastroVenda.AutoSize = true;
-            this.lblCadastroVenda.Location = new System.Drawing.Point(26, 32);
+            this.lblCadastroVenda.Location = new System.Drawing.Point(26, 28);
             this.lblCadastroVenda.Name = "lblCadastroVenda";
             this.lblCadastroVenda.Size = new System.Drawing.Size(33, 13);
             this.lblCadastroVenda.TabIndex = 1;
@@ -172,22 +188,6 @@
             // 
             this.error.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.error.ContainerControl = this;
-            // 
-            // colProduto
-            // 
-            this.colProduto.DataPropertyName = "Nome";
-            this.colProduto.FillWeight = 164.1888F;
-            this.colProduto.HeaderText = "Produto";
-            this.colProduto.Name = "colProduto";
-            this.colProduto.ReadOnly = true;
-            // 
-            // colQtd
-            // 
-            this.colQtd.DataPropertyName = "QtdEmEstoque";
-            this.colQtd.FillWeight = 51.44582F;
-            this.colQtd.HeaderText = "Quantidade";
-            this.colQtd.Name = "colQtd";
-            this.colQtd.ReadOnly = true;
             // 
             // FormCadastroVenda
             // 

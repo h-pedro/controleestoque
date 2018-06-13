@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ExForms.Models
 {
@@ -13,6 +12,15 @@ namespace ExForms.Models
         public int Quantidade { get; set; }
         public decimal Valor_Unitario { get; set; }
         public Venda Venda { get; set; }
-         
+
+        public string NomeProduto
+        {
+            get
+            {
+                if (this.Produto != null)
+                    return this.Produto.Nome;
+                return string.Empty;
+            }
+        }
     }
 }
