@@ -32,12 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaProduto));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
-            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctxAcoes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -50,6 +44,13 @@
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.txtBusca = new System.Windows.Forms.ToolStripTextBox();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.ctxAcoes.SuspendLayout();
@@ -66,7 +67,7 @@
             this.panel1.Controls.Add(this.mnuAcoes);
             this.panel1.Location = new System.Drawing.Point(11, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(736, 408);
+            this.panel1.Size = new System.Drawing.Size(945, 408);
             this.panel1.TabIndex = 2;
             // 
             // gridView
@@ -82,7 +83,8 @@
             this.colCategoria,
             this.colPreco,
             this.Medida,
-            this.colQtdEstoque});
+            this.colQtdEstoque,
+            this.colDescricao});
             this.gridView.ContextMenuStrip = this.ctxAcoes;
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(0, 25);
@@ -90,47 +92,12 @@
             this.gridView.Name = "gridView";
             this.gridView.RowHeadersVisible = false;
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridView.Size = new System.Drawing.Size(734, 381);
+            this.gridView.Size = new System.Drawing.Size(943, 381);
             this.gridView.TabIndex = 1;
             this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
+            this.gridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridView_CellFormatting);
             this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
             this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
-            // 
-            // colunMedida
-            // 
-            this.colunMedida.DataPropertyName = "Id";
-            this.colunMedida.HeaderText = "ID";
-            this.colunMedida.Name = "colunMedida";
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "Nome";
-            this.colNome.HeaderText = "Nome";
-            this.colNome.Name = "colNome";
-            // 
-            // colCategoria
-            // 
-            this.colCategoria.DataPropertyName = "NomeCategoria";
-            this.colCategoria.HeaderText = "Categoria";
-            this.colCategoria.Name = "colCategoria";
-            // 
-            // colPreco
-            // 
-            this.colPreco.DataPropertyName = "Preco";
-            this.colPreco.HeaderText = "Preço";
-            this.colPreco.Name = "colPreco";
-            // 
-            // Medida
-            // 
-            this.Medida.DataPropertyName = "SiglaUM";
-            this.Medida.HeaderText = "Unidade de Medida";
-            this.Medida.Name = "Medida";
-            // 
-            // colQtdEstoque
-            // 
-            this.colQtdEstoque.DataPropertyName = "QtdEmEstoque";
-            this.colQtdEstoque.HeaderText = "Qtd Estoque";
-            this.colQtdEstoque.Name = "colQtdEstoque";
             // 
             // ctxAcoes
             // 
@@ -181,7 +148,7 @@
             this.txtBusca});
             this.mnuAcoes.Location = new System.Drawing.Point(0, 0);
             this.mnuAcoes.Name = "mnuAcoes";
-            this.mnuAcoes.Size = new System.Drawing.Size(734, 25);
+            this.mnuAcoes.Size = new System.Drawing.Size(943, 25);
             this.mnuAcoes.TabIndex = 0;
             this.mnuAcoes.Text = "toolStrip1";
             // 
@@ -238,7 +205,7 @@
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnFechar.Location = new System.Drawing.Point(672, 426);
+            this.btnFechar.Location = new System.Drawing.Point(881, 426);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
             this.btnFechar.TabIndex = 3;
@@ -246,12 +213,54 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // colunMedida
+            // 
+            this.colunMedida.DataPropertyName = "Id";
+            this.colunMedida.HeaderText = "ID";
+            this.colunMedida.Name = "colunMedida";
+            // 
+            // colNome
+            // 
+            this.colNome.DataPropertyName = "Nome";
+            this.colNome.HeaderText = "Nome";
+            this.colNome.Name = "colNome";
+            // 
+            // colCategoria
+            // 
+            this.colCategoria.DataPropertyName = "NomeCategoria";
+            this.colCategoria.HeaderText = "Categoria";
+            this.colCategoria.Name = "colCategoria";
+            // 
+            // colPreco
+            // 
+            this.colPreco.DataPropertyName = "Preco";
+            this.colPreco.HeaderText = "Preço";
+            this.colPreco.Name = "colPreco";
+            // 
+            // Medida
+            // 
+            this.Medida.DataPropertyName = "SiglaUM";
+            this.Medida.HeaderText = "Unidade de Medida";
+            this.Medida.Name = "Medida";
+            // 
+            // colQtdEstoque
+            // 
+            this.colQtdEstoque.DataPropertyName = "QtdEmEstoque";
+            this.colQtdEstoque.HeaderText = "Qtd Estoque";
+            this.colQtdEstoque.Name = "colQtdEstoque";
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.DataPropertyName = "Descricao";
+            this.colDescricao.HeaderText = "Descrição";
+            this.colDescricao.Name = "colDescricao";
+            // 
             // FormListaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnFechar;
-            this.ClientSize = new System.Drawing.Size(759, 462);
+            this.ClientSize = new System.Drawing.Size(968, 462);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnFechar);
             this.MinimumSize = new System.Drawing.Size(775, 500);
@@ -290,5 +299,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPreco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Medida;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQtdEstoque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescricao;
     }
 }

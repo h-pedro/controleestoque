@@ -130,5 +130,16 @@ namespace ExForms.WinUI
                 CarregarGridView();
             }
         }
+
+        private void gridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.gridView.Columns[e.ColumnIndex].Name == "colPreco")
+            {
+                if (e.Value != null)
+                {
+                    e.Value = string.Format("{0:C2}", e.Value);
+                }
+            }
+        }
     }
 }
