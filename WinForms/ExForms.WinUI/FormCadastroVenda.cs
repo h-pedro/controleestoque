@@ -42,10 +42,31 @@ namespace ExForms.WinUI
             this.Venda.DataPagamento = txtDataCadastroVenda.Value;
             this.Venda.NomeCliente = txtClienteCadastroVenda.Text;
 
+            //gravando a venda no banco de dados
             if (this.Venda != null && this.Venda.Id > 0)
                 new VendaDAO().Atualizar(this.Venda);
             else
                 new VendaDAO().Inserir(this.Venda);
+
+            //gravando todos os itens da venda no banco de dados
+            foreach (var item in this.Venda.Itens)
+            {
+                if (item != null && item.Id > 0)
+                    new ItemVendaDAO().Atualizar(item);
+                else
+                    new ItemVendaDAO().Inserir(item);
+
+                //fazendo movimentação de estoque de saída do produto
+                var movEstoque = new Movimentacao()
+                {
+                    Data = DateTime.Now,
+                    Tipo = "S",
+                    Produto = item.Produto,
+                    Quantidade = item.Quantidade
+                };
+
+                new MovimentacaoDAO().Inserir(movEstoque);
+            }
 
             DialogResult = DialogResult.OK;
         }
