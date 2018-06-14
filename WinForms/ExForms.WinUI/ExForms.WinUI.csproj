@@ -149,6 +149,12 @@
     <Compile Include="FormListaTipoPagamento.Designer.cs">
       <DependentUpon>FormListaTipoPagamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRelatorioCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRelatorioCliente.Designer.cs">
+      <DependentUpon>FormRelatorioCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAddProduto.resx">
@@ -202,6 +208,9 @@
     <EmbeddedResource Include="FormListaTipoPagamento.resx">
       <DependentUpon>FormListaTipoPagamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRelatorioCliente.resx">
+      <DependentUpon>FormRelatorioCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -236,12 +245,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="banco.sql" />
+    <Content Include="Images\adicionar16x16.png" />
     <Content Include="Images\avatar_100px.png" />
     <Content Include="Images\avatar_2x.png" />
     <Content Include="Images\buscar16x16.png" />
     <Content Include="Images\editar16x16.png" />
+    <Content Include="Images\fundo1.jpg" />
     <Content Include="Images\novo16x16.gif" />
     <Content Include="Images\remover16x16.gif" />
+    <Content Include="Images\senai.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,18 +15,27 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"INSERT INTO MOVIMENTACAO ( ID_PRODUTO, DATA, TIPO, QUANTIDADE) 
-                                  VALUES (@ID_PRODUTO, @DATA, @TIPO, @QUANTIDADE);";
+                string strSQL = @"INSERT INTO MOVIMENTACAO (ID_PRODUTO, DATA, TIPO, QUANTIDADE, ID_VENDA) 
+                                  VALUES (@ID_PRODUTO, @DATA, @TIPO, @QUANTIDADE, @ID_VENDA);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
-                    cmd.Parameters.Add("@Data", SqlDbType.DateTime).Value = obj.Data;
-                    cmd.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = obj.Tipo;
+                    cmd.Parameters.Add("@ID_PRODUTO", SqlDbType.Int).Value = obj.Produto.Id;
+                    cmd.Parameters.Add("@DATA", SqlDbType.DateTime).Value = obj.Data;
+                    cmd.Parameters.Add("@TIPO", SqlDbType.VarChar).Value = obj.Tipo;
                     cmd.Parameters.Add("@QUANTIDADE", SqlDbType.Int).Value = obj.Quantidade;
+                    cmd.Parameters.Add("@ID_VENDA", SqlDbType.Int).Value = obj.Venda != null && obj.Venda.Id > 0 ? obj.Venda.Id : new Nullable<int>();
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -48,7 +57,8 @@ namespace ExForms.DataAccess
                                      ID_PRODUTO = @ID_PRODUTO, 
                                      DATA = @DATA,
                                      TIPO = @TIPO, 
-                                     QUANTIDADE = @QUANTIDADE                                     
+                                     QUANTIDADE = @QUANTIDADE,
+                                     ID_VENDA = @ID_VENDA
                                   WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
@@ -56,11 +66,21 @@ namespace ExForms.DataAccess
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Id", SqlDbType.Int).Value = obj.Id;
-                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
-                    cmd.Parameters.Add("@Data", SqlDbType.DateTime).Value = obj.Data;
-                    cmd.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = obj.Tipo;
+                    cmd.Parameters.Add("@ID_PRODUTO", SqlDbType.Int).Value = obj.Produto.Id;
+                    cmd.Parameters.Add("@DATA", SqlDbType.DateTime).Value = obj.Data;
+                    cmd.Parameters.Add("@TIPO", SqlDbType.VarChar).Value = obj.Tipo;
                     cmd.Parameters.Add("@QUANTIDADE", SqlDbType.Int).Value = obj.Quantidade;
+                    cmd.Parameters.Add("@ID_VENDA", SqlDbType.Int).Value = obj.Venda != null && obj.Venda.Id > 0 ? obj.Venda.Id : new Nullable<int>();
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = obj.Id;
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
+
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     //Executando instrução sql
@@ -71,7 +91,7 @@ namespace ExForms.DataAccess
             }
         }
 
-        public void Deletar(Movimentacao obj)
+        public void Excluir(Movimentacao obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
@@ -85,6 +105,31 @@ namespace ExForms.DataAccess
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
                     cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = obj.Id;
+
+                    //Abrindo conexão com o banco de dados
+                    conn.Open();
+                    //Executando instrução sql
+                    cmd.ExecuteNonQuery();
+                    //Fechando conexão com o banco de dados
+                    conn.Close();
+                }
+            }
+        }
+
+        public void ExcluirPorVenda(int idVenda)
+        {
+            //Criando uma conexão com o banco de dados
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
+            {
+                //Criando instrução sql para inserir na tabela de produtos
+                string strSQL = @"DELETE FROM MOVIMENTACAO WHERE ID_VENDA = @ID_VENDA;";
+
+                //Criando um comando sql que será executado na base de dados
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    cmd.Connection = conn;
+                    //Preenchendo os parâmetros da instrução sql
+                    cmd.Parameters.Add("@ID_VENDA", SqlDbType.VarChar).Value = idVenda;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -129,7 +174,8 @@ namespace ExForms.DataAccess
                         Produto = new Produto() { Id = Convert.ToInt32(row["ID_PRODUTO"]) },
                         Data = Convert.ToDateTime(row["DATA"]),
                         Tipo = row["TIPO"].ToString(),
-                        Quantidade = Convert.ToInt32(row["QUANTIDADE"])
+                        Quantidade = Convert.ToInt32(row["QUANTIDADE"]),
+                        Venda = row["ID_VENDA"] is DBNull ? null : new Venda() { Id = Convert.ToInt32(row["ID_VENDA"]) }
                     };
 
                     return movimentacao;
@@ -179,15 +225,16 @@ namespace ExForms.DataAccess
                             },
                             Data = Convert.ToDateTime(row["DATA"]),
                             Tipo = row["TIPO"].ToString(),
-                            Quantidade = Convert.ToInt32(row["QUANTIDADE"])
+                            Quantidade = Convert.ToInt32(row["QUANTIDADE"]),
+                            Venda = row["ID_VENDA"] is DBNull ? null : new Venda() { Id = Convert.ToInt32(row["ID_VENDA"]) }
                         };
 
                         lst.Add(obj);
                     }
                 }
+
                 return lst;
             }
-
         }
     }
 }

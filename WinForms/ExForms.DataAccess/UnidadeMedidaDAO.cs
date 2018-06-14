@@ -62,7 +62,7 @@ namespace ExForms.DataAccess
             }
         }
 
-        public void Deletar(UnidadeMedida obj)
+        public void Excluir(UnidadeMedida obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))

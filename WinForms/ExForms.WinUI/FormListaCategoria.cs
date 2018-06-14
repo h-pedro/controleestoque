@@ -133,7 +133,7 @@ namespace ExForms.WinUI
                 if (MessageBox.Show("Deseja realmente remover o registro selecionado?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
-                new CategoriaDAO().Deletar(new Categoria() { Id = id });
+                new CategoriaDAO().Excluir(new Categoria() { Id = id });
                 CarregarGridView();
             }
         }

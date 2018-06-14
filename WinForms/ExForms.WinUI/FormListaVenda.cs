@@ -28,14 +28,7 @@ namespace ExForms.WinUI
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (gridView.SelectedRows.Count > 0)
-            {
-                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
-                var obj = new VendaDAO().BuscarPorId(id);
-                var frm = new FormCadastroVenda(obj);
-                if (frm.ShowDialog() != DialogResult.OK)
-                    return;
-            }
+            Editar();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -48,7 +41,7 @@ namespace ExForms.WinUI
             CarregarGridView();
         }
 
-        private void FormListaCategoria_Load(object sender, EventArgs e)
+        private void FormListaVenda_Load(object sender, EventArgs e)
         {
             CarregarGridView();
         }
@@ -97,6 +90,17 @@ namespace ExForms.WinUI
             HabilitarBotoes((gridView.SelectedRows.Count == 1), (gridView.SelectedRows.Count > 1));
         }
 
+        private void gridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.gridView.Columns[e.ColumnIndex].Name == "colValorTotal")
+            {
+                if (e.Value != null)
+                {
+                    e.Value = string.Format("{0:C2}", e.Value);
+                }
+            }
+        }
+
         private void HabilitarBotoes(bool oneItemSelected, bool manyItemsSelected)
         {
             btnEditar.Enabled = mnuEditar.Enabled = oneItemSelected;
@@ -107,6 +111,10 @@ namespace ExForms.WinUI
         private void CarregarGridView()
         {
             var lst = new VendaDAO().BuscarPorTexto(txtBusca.Text);
+            lst.ForEach(v =>
+            {
+                v.Itens = new ItemVendaDAO().BuscarPorVenda(v.Id).ToList();
+            });
             gridView.AutoGenerateColumns = false;
             gridView.DataSource = lst;
             HabilitarBotoes((gridView.SelectedRows.Count == 1), (gridView.SelectedRows.Count > 1));
@@ -119,6 +127,7 @@ namespace ExForms.WinUI
             {
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 var obj = new VendaDAO().BuscarPorId(id);
+                obj.Itens = new ItemVendaDAO().BuscarPorVenda(obj.Id);
                 var frm = new FormCadastroVenda(obj);
                 if (frm.ShowDialog() != DialogResult.OK)
                     return;
@@ -133,7 +142,7 @@ namespace ExForms.WinUI
                 if (MessageBox.Show("Deseja realmente remover o registro selecionado?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
-                new VendaDAO().Deletar(new Venda() { Id = id });
+                new VendaDAO().Excluir(new Venda() { Id = id });
                 CarregarGridView();
             }
         }

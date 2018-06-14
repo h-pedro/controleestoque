@@ -71,7 +71,7 @@ namespace ExForms.DataAccess
             }
         }
 
-        public void Deletar(Usuario obj)
+        public void Excluir(Usuario obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))

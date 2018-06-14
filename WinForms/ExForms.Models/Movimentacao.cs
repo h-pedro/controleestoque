@@ -13,6 +13,7 @@ namespace ExForms.Models
         public DateTime Data { get; set; }
         public string Tipo { get; set; }
         public int Quantidade { get; set; }
+        public Venda Venda { get; set; }
 
         public string NomeProduto
         {

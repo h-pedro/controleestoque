@@ -86,11 +86,12 @@ create table Item_Venda(
 go
 
 create table movimentacao (
-	id int identity(1,1) not null,
-	Id_Produto int not null references Produto (id),
-	Data	   datetime not null default getdate(),
-	Tipo       varchar(1) not null,
-	Quantidade int not null
+	id          int identity(1,1) not null,
+	Id_Produto  int not null references Produto (id),
+	Data	    datetime not null default getdate(),
+	Tipo        varchar(1) not null,
+	Quantidade  int not null,
+	Id_Venda    int references Venda (id)
 );
 go
 

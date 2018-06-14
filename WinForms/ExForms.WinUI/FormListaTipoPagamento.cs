@@ -129,7 +129,7 @@ namespace ExForms.WinUI
                 if (MessageBox.Show("Deseja realmente remover o registro selecionado?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
-                new TipoPagamentoDAO().Deletar(new TipoPagamento() { Id = id });
+                new TipoPagamentoDAO().Excluir(new TipoPagamento() { Id = id });
                 CarregarGridView();
             }
         }

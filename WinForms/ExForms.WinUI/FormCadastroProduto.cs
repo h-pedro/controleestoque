@@ -8,7 +8,7 @@ namespace ExForms.WinUI
 {
     public partial class FormCadastroProduto : Form
     {
-        public Produto Produto { get; set; }
+        private Produto Produto { get; set; }
 
         public FormCadastroProduto()
         {

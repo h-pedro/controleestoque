@@ -43,16 +43,17 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
-                string strSQL = @"UPDATE categoria SET DataPagamento = @DataPagamento, NomeCliente = @NomeCliente, Id_Pagamento = @Id_Pagamento WHERE id = @id;";
+                string strSQL = @"UPDATE VENDA SET DATAPAGAMENTO = @DATAPAGAMENTO, NOMECLIENTE = @NOMECLIENTE, ID_PAGAMENTO = @ID_PAGAMENTO WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@DataPagamento", SqlDbType.VarChar).Value = obj.DataPagamento;
-                    cmd.Parameters.Add("@NomeCliente", SqlDbType.VarChar).Value = obj.NomeCliente;
-                    cmd.Parameters.Add("@Id_Pagamento", SqlDbType.VarChar).Value = obj.TipoPagamento.Id;
+                    cmd.Parameters.Add("@DATAPAGAMENTO", SqlDbType.DateTime).Value = obj.DataPagamento;
+                    cmd.Parameters.Add("@NOMECLIENTE", SqlDbType.VarChar).Value = obj.NomeCliente;
+                    cmd.Parameters.Add("@ID_PAGAMENTO", SqlDbType.Int).Value = obj.TipoPagamento.Id;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = obj.Id;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -64,13 +65,15 @@ namespace ExForms.DataAccess
             }
         }
 
-        public void Deletar(Venda obj)
+        public void Excluir(Venda obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                //Criando instrução sql para inserir na tabela de categorias
-                string strSQL = @"DELETE FROM Venda WHERE id = @id;";
+                //Criando instrução sql para excluir vendas
+                string strSQL = @"DELETE FROM MOVIMENTACAO WHERE ID_VENDA = @ID;
+                                  DELETE FROM ITEM_VENDA WHERE ID_VENDA = @ID;
+                                  DELETE FROM VENDA WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -96,10 +99,10 @@ namespace ExForms.DataAccess
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT 
-                                     v.*,
-                                     t.nome_pagamento,
-                                     FROM Venda v 
-                                     INNER JOIN TipoPagamento t on (t.id = v.id_TipoPagamento);";
+                                      V.*,
+                                      T.NOME_PAGAMENTO
+                                  FROM VENDA V 
+                                  INNER JOIN TIPOPAGAMENTO T ON (T.ID = V.ID_PAGAMENTO);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -122,13 +125,13 @@ namespace ExForms.DataAccess
                     var row = dt.Rows[0];
                     var obj = new Venda()
                     {
-                        Id = Convert.ToInt32(row["id"]),
-                        DataPagamento = Convert.ToDateTime(row["DataPagamento"]),
-                        NomeCliente = row["NomeCliente"].ToString(),
+                        Id = Convert.ToInt32(row["ID"]),
+                        DataPagamento = Convert.ToDateTime(row["DATAPAGAMENTO"]),
+                        NomeCliente = row["NOMECLIENTE"].ToString(),
                         TipoPagamento = new TipoPagamento()
                         {
-                            Id = Convert.ToInt32(row["id"]),
-                            Nome = row["Nome_Pagamento"].ToString()
+                            Id = Convert.ToInt32(row["ID_PAGAMENTO"]),
+                            Nome = row["NOME_PAGAMENTO"].ToString()
                         }
                     };
 
@@ -146,10 +149,10 @@ namespace ExForms.DataAccess
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT 
-                                     v.*,
-                                     t.nome_pagamento,
-                                     FROM Venda v 
-                                     INNER JOIN TipoPagamento t on (t.id = v.id_TipoPagamento);";
+                                     V.*,
+                                     T.NOME_PAGAMENTO,
+                                  FROM VENDA V 
+                                  INNER JOIN TIPOPAGAMENTO T ON (T.ID = V.ID_PAGAMENTO);";
 
 
                 //Criando um comando sql que será executado na base de dados
@@ -171,13 +174,13 @@ namespace ExForms.DataAccess
                     {
                         var obj = new Venda()
                         {
-                            Id = Convert.ToInt32(row["id"]),
-                            DataPagamento = Convert.ToDateTime(row["DataPagamento"]),
-                            NomeCliente = row["NomeCliente"].ToString(),
+                            Id = Convert.ToInt32(row["ID"]),
+                            DataPagamento = Convert.ToDateTime(row["DATAPAGAMENTO"]),
+                            NomeCliente = row["NOMECLIENTE"].ToString(),
                             TipoPagamento = new TipoPagamento()
                             {
-                                Id = Convert.ToInt32(row["id"]),
-                                Nome = row["Nome_Pagamento"].ToString()
+                                Id = Convert.ToInt32(row["ID_PAGAMENTO"]),
+                                Nome = row["NOME_PAGAMENTO"].ToString()
                             }
                         };
 
@@ -198,11 +201,11 @@ namespace ExForms.DataAccess
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = string.Format(@"SELECT 
-                                     v.*,
-                                     t.Nome_Pagamento 
-                                     FROM Venda v
-                                     INNER JOIN TipoPagamento t on (t.id = v.Id_Pagamento)
-                                     WHERE v.NomeCliente like '%{0}%';", texto);
+                                                    V.*,
+                                                    T.NOME_PAGAMENTO 
+                                                FROM VENDA V
+                                                INNER JOIN TIPOPAGAMENTO T ON (T.ID = V.ID_PAGAMENTO)
+                                                WHERE V.NOMECLIENTE LIKE '%{0}%';", texto);
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -211,6 +214,7 @@ namespace ExForms.DataAccess
                     conn.Open();
                     cmd.Connection = conn;
                     cmd.CommandText = strSQL;
+
                     //Executando instrução sql
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
@@ -223,13 +227,13 @@ namespace ExForms.DataAccess
                     {
                         var obj = new Venda()
                         {
-                            Id = Convert.ToInt32(row["id"]),
-                            DataPagamento = Convert.ToDateTime(row["DataPagamento"]),
-                            NomeCliente = row["NomeCliente"].ToString(),
+                            Id = Convert.ToInt32(row["ID"]),
+                            DataPagamento = Convert.ToDateTime(row["DATAPAGAMENTO"]),
+                            NomeCliente = row["NOMECLIENTE"].ToString(),
                             TipoPagamento = new TipoPagamento()
                             {
-                                Id = Convert.ToInt32(row["id"]),
-                                Nome = row["Nome_Pagamento"].ToString()
+                                Id = Convert.ToInt32(row["ID_PAGAMENTO"]),
+                                Nome = row["NOME_PAGAMENTO"].ToString()
                             }
                         };
 

@@ -8,7 +8,7 @@ namespace ExForms.WinUI
 {
     public partial class FormCadastroMovimentacao : Form
     {
-        public Movimentacao Movimentacao { get; set; }
+        private Movimentacao Movimentacao { get; set; }
 
         public FormCadastroMovimentacao()
         {

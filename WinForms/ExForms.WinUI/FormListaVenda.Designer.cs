@@ -44,12 +44,12 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
-            this.colunMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoDePagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.mnuAcoes.SuspendLayout();
@@ -77,12 +77,12 @@
             this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colunMedida,
-            this.colNome,
-            this.colCategoria,
-            this.colPreco,
-            this.Medida,
-            this.Valor});
+            this.colID,
+            this.colCliente,
+            this.colData,
+            this.colTipoDePagamento,
+            this.colQuantidade,
+            this.colValorTotal});
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(0, 25);
             this.gridView.MultiSelect = false;
@@ -92,6 +92,7 @@
             this.gridView.Size = new System.Drawing.Size(734, 381);
             this.gridView.TabIndex = 1;
             this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
+            this.gridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridView_CellFormatting);
             this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
             this.gridView.DoubleClick += new System.EventHandler(this.gridView_DoubleClick);
             // 
@@ -127,6 +128,7 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(23, 22);
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -136,6 +138,7 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(23, 22);
             this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnBuscar
             // 
@@ -205,46 +208,47 @@
             this.mnuExcluir.Text = "Excluir";
             this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
             // 
-            // colunMedida
+            // colID
             // 
-            this.colunMedida.DataPropertyName = "Id";
-            this.colunMedida.FillWeight = 60.9137F;
-            this.colunMedida.HeaderText = "ID";
-            this.colunMedida.Name = "colunMedida";
+            this.colID.DataPropertyName = "Id";
+            this.colID.FillWeight = 60.9137F;
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
             // 
-            // colNome
+            // colCliente
             // 
-            this.colNome.DataPropertyName = "NomeCliente";
-            this.colNome.FillWeight = 107.8173F;
-            this.colNome.HeaderText = "Cliente";
-            this.colNome.Name = "colNome";
+            this.colCliente.DataPropertyName = "NomeCliente";
+            this.colCliente.FillWeight = 107.8173F;
+            this.colCliente.HeaderText = "Cliente";
+            this.colCliente.Name = "colCliente";
             // 
-            // colCategoria
+            // colData
             // 
-            this.colCategoria.DataPropertyName = "DataPagamento";
-            this.colCategoria.FillWeight = 107.8173F;
-            this.colCategoria.HeaderText = "Data";
-            this.colCategoria.Name = "colCategoria";
+            this.colData.DataPropertyName = "DataPagamento";
+            this.colData.FillWeight = 107.8173F;
+            this.colData.HeaderText = "Data";
+            this.colData.Name = "colData";
             // 
-            // colPreco
+            // colTipoDePagamento
             // 
-            this.colPreco.DataPropertyName = "Nome";
-            this.colPreco.FillWeight = 107.8173F;
-            this.colPreco.HeaderText = "Tipo de Pagamento";
-            this.colPreco.Name = "colPreco";
+            this.colTipoDePagamento.DataPropertyName = "TipoDePagamento";
+            this.colTipoDePagamento.FillWeight = 107.8173F;
+            this.colTipoDePagamento.HeaderText = "Tipo de Pagamento";
+            this.colTipoDePagamento.Name = "colTipoDePagamento";
             // 
-            // Medida
+            // colQuantidade
             // 
-            this.Medida.FillWeight = 107.8173F;
-            this.Medida.HeaderText = "Itens";
-            this.Medida.Name = "Medida";
+            this.colQuantidade.DataPropertyName = "QuantidadeDeItens";
+            this.colQuantidade.FillWeight = 107.8173F;
+            this.colQuantidade.HeaderText = "Qtd de Itens";
+            this.colQuantidade.Name = "colQuantidade";
             // 
-            // Valor
+            // colValorTotal
             // 
-            this.Valor.DataPropertyName = "Preco";
-            this.Valor.FillWeight = 107.8173F;
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
+            this.colValorTotal.DataPropertyName = "ValorTotal";
+            this.colValorTotal.FillWeight = 107.8173F;
+            this.colValorTotal.HeaderText = "Valor Total (R$)";
+            this.colValorTotal.Name = "colValorTotal";
             // 
             // FormListaVenda
             // 
@@ -257,6 +261,7 @@
             this.MinimumSize = new System.Drawing.Size(775, 500);
             this.Name = "FormListaVenda";
             this.Text = "Lista de Vendas";
+            this.Load += new System.EventHandler(this.FormListaVenda_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -283,11 +288,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuEditar;
         private System.Windows.Forms.ToolStripMenuItem mnuExcluir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colunMedida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPreco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Medida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoDePagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValorTotal;
     }
 }

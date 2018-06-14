@@ -28,6 +28,14 @@ namespace ExForms.DataAccess
                     cmd.Parameters.Add("@Valor_Unitario", SqlDbType.Decimal).Value = obj.Valor_Unitario;
                     cmd.Parameters.Add("@Id_Venda", SqlDbType.Int).Value = obj.Venda.Id;
 
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
+
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     //Executando instrução sql
@@ -44,22 +52,30 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"UPDATE Item_Venda SET 
-                                   Id_Produto = @Id_Produto, 
-                                    Quantidade = @Quantidade,
-                                    Valor_Unitario = @Valor_Unitario, 
-                                    Id_Venda = @Id_Venda                                     
-                                WHERE id = @id;";
+                string strSQL = @"UPDATE ITEM_VENDA SET 
+                                      ID_PRODUTO = @ID_PRODUTO, 
+                                      QUANTIDADE = @QUANTIDADE,
+                                      VALOR_UNITARIO = @VALOR_UNITARIO
+                                  WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@Id_Produto", SqlDbType.Int).Value = obj.Produto.Id;
-                    cmd.Parameters.Add("@Quantidade", SqlDbType.VarChar).Value = obj.Quantidade;
-                    cmd.Parameters.Add("@Valor_Unitario", SqlDbType.Decimal).Value = obj.Valor_Unitario;
-                    cmd.Parameters.Add("@Id_Venda", SqlDbType.Int).Value = obj.Venda.Id;
+                    cmd.Parameters.Add("@ID_PRODUTO", SqlDbType.Int).Value = obj.Produto.Id;
+                    cmd.Parameters.Add("@QUANTIDADE", SqlDbType.VarChar).Value = obj.Quantidade;
+                    cmd.Parameters.Add("@VALOR_UNITARIO", SqlDbType.Decimal).Value = obj.Valor_Unitario;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = obj.Id;
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
+
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     //Executando instrução sql
@@ -70,13 +86,13 @@ namespace ExForms.DataAccess
             }
         }
 
-        public void Deletar(ItemVenda obj)
+        public void Excluir(ItemVenda obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de produtos
-                string strSQL = @"DELETE FROM Item_Venda WHERE id = @id;";
+                string strSQL = @"DELETE FROM ITEM_VENDA WHERE ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -122,16 +138,16 @@ namespace ExForms.DataAccess
                         return null;
 
                     var row = dt.Rows[0];
-                    var item_Venda = new ItemVenda()
+                    var itemVenda = new ItemVenda()
                     {
                         Id = Convert.ToInt32(row["id"]),
+                        Venda = new Venda() { Id = Convert.ToInt32(row["id_venda"]) },
                         Produto = new Produto() { Id = Convert.ToInt32(row["id_Produto"]) },
                         Quantidade = Convert.ToInt32(row["Quantidade"]),
-                        Valor_Unitario = Convert.ToDecimal(row["ValorUnitario"]),
-                        Venda = new Venda() { Id = Convert.ToInt32(row["id_venda"]) }
+                        Valor_Unitario = Convert.ToDecimal(row["VALOR_UNITARIO"])
                     };
 
-                    return item_Venda;
+                    return itemVenda;
                 }
             }
         }
@@ -145,13 +161,13 @@ namespace ExForms.DataAccess
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = string.Format(@"SELECT 
-                                                    iv.*, 
-                                                    p.nome as Nome_Produto,
-                                                    v.NomeCliente
-                                                FROM Item_Venda iv
-                                                INNER JOIN produto p on (p.id = iv.id_produto) 
-                                                INNER JOIN venda   v on (v.id = iv.id_venda)
-                                                WHERE p.nome like '%{0}%';", texto);
+                                                    IV.*, 
+                                                    P.NOME AS NOME_PRODUTO,
+                                                    V.NOMECLIENTE
+                                                FROM ITEM_VENDA IV
+                                                INNER JOIN PRODUTO P ON (P.ID = IV.ID_PRODUTO) 
+                                                INNER JOIN VENDA   V ON (V.ID = IV.ID_VENDA)
+                                                WHERE P.NOME LIKE '%{0}%';", texto);
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -173,22 +189,82 @@ namespace ExForms.DataAccess
                         var obj = new ItemVenda()
                         {
                             Id = Convert.ToInt32(row["id"]),
-                            Produto = new Produto()
-                            {
-
-                                Nome = row["nome"].ToString()
-                            },
-                            Quantidade = Convert.ToInt32(row["Quantidade"]),
-                            Valor_Unitario = Convert.ToDecimal(row["Valor_Unitario"]),
-
                             Venda = new Venda()
                             {
-
-                                NomeCliente = row["Nome_Cliente"].ToString()
-                            }
+                                Id = Convert.ToInt32(row["id_venda"]),
+                                NomeCliente = row["NomeCliente"].ToString()
+                            },
+                            Produto = new Produto()
+                            {
+                                Id = Convert.ToInt32(row["id_produto"]),
+                                Nome = row["NOME_PRODUTO"].ToString()
+                            },
+                            Quantidade = Convert.ToInt32(row["Quantidade"]),
+                            Valor_Unitario = Convert.ToDecimal(row["Valor_Unitario"])
                         };
 
                         lst.Add(obj);
+                    }
+                }
+            }
+
+            return lst;
+        }
+
+        public List<ItemVenda> BuscarPorVenda(int idVenda)
+        {
+            var lst = new List<ItemVenda>();
+
+            //Criando uma conexão com o banco de dados
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
+            {
+                //Criando instrução sql para selecionar todos os registros na tabela de Categorias
+                string strSQL = @"SELECT 
+                                      IV.*, 
+                                      P.NOME AS NOME_PRODUTO,
+                                      V.NOMECLIENTE
+                                  FROM ITEM_VENDA IV
+                                  INNER JOIN PRODUTO P ON (P.ID = IV.ID_PRODUTO) 
+                                  INNER JOIN VENDA   V ON (V.ID = IV.ID_VENDA)
+                                  WHERE IV.ID_VENDA = @ID_VENDA;";
+
+                //Criando um comando sql que será executado na base de dados
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    //Abrindo conexão com o banco de dados
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@ID_VENDA", SqlDbType.Int).Value = idVenda;
+                    cmd.CommandText = strSQL;
+
+                    //Executando instrução sql
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    //Fechando conexão com o banco de dados
+                    conn.Close();
+
+                    //Percorrendo todos os registros encontrados na base de dados e adicionando em uma lista
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        var itemVenda = new ItemVenda()
+                        {
+                            Id = Convert.ToInt32(row["id"]),
+                            Venda = new Venda()
+                            {
+                                Id = Convert.ToInt32(row["id_venda"]),
+                                NomeCliente = row["NomeCliente"].ToString()
+                            },
+                            Produto = new Produto()
+                            {
+                                Id = Convert.ToInt32(row["id_produto"]),
+                                Nome = row["NOME_PRODUTO"].ToString()
+                            },
+                            Quantidade = Convert.ToInt32(row["Quantidade"]),
+                            Valor_Unitario = Convert.ToDecimal(row["Valor_Unitario"])
+                        };
+
+                        lst.Add(itemVenda);
                     }
                 }
             }

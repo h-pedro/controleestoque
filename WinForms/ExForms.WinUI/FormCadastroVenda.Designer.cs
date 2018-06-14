@@ -33,8 +33,6 @@
             this.gpbVendas = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
-            this.colNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuAcoes = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
@@ -90,9 +88,6 @@
             this.gridView.AllowUserToResizeRows = false;
             this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNome,
-            this.colQuantidade});
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(0, 25);
             this.gridView.MultiSelect = false;
@@ -101,18 +96,6 @@
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridView.Size = new System.Drawing.Size(331, 225);
             this.gridView.TabIndex = 1;
-            // 
-            // colNome
-            // 
-            this.colNome.DataPropertyName = "NomeProduto";
-            this.colNome.HeaderText = "Nome";
-            this.colNome.Name = "colNome";
-            // 
-            // colQuantidade
-            // 
-            this.colQuantidade.DataPropertyName = "Quantidade";
-            this.colQuantidade.HeaderText = "Quantidade";
-            this.colQuantidade.Name = "colQuantidade";
             // 
             // mnuAcoes
             // 
@@ -198,7 +181,7 @@
             // 
             this.btnCancelarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarCadastroVenda.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(308, 423);
+            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(308, 426);
             this.btnCancelarCadastroVenda.Name = "btnCancelarCadastroVenda";
             this.btnCancelarCadastroVenda.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarCadastroVenda.TabIndex = 12;
@@ -209,7 +192,7 @@
             // btnSalvarCadastroVenda
             // 
             this.btnSalvarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(222, 423);
+            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(222, 426);
             this.btnSalvarCadastroVenda.Name = "btnSalvarCadastroVenda";
             this.btnSalvarCadastroVenda.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarCadastroVenda.TabIndex = 11;
@@ -227,10 +210,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelarCadastroVenda;
-            this.ClientSize = new System.Drawing.Size(395, 458);
+            this.ClientSize = new System.Drawing.Size(394, 461);
             this.Controls.Add(this.gpbVendas);
             this.Controls.Add(this.btnCancelarCadastroVenda);
             this.Controls.Add(this.btnSalvarCadastroVenda);
+            this.MinimumSize = new System.Drawing.Size(410, 500);
             this.Name = "FormCadastroVenda";
             this.Text = "Cadastro de Venda";
             this.Load += new System.EventHandler(this.FormCadastroVenda_Load);
@@ -263,7 +247,5 @@
         private System.Windows.Forms.ToolStrip mnuAcoes;
         private System.Windows.Forms.ToolStripButton btnNovo;
         private System.Windows.Forms.ToolStripButton btnExcluir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantidade;
     }
 }
