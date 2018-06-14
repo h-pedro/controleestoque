@@ -95,7 +95,11 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = @"SELECT * FROM Venda WHERE id = @id;";
+                string strSQL = @"SELECT 
+                                     v.*,
+                                     t.nome_pagamento,
+                                     FROM Venda v 
+                                     INNER JOIN TipoPagamento t on (t.id = v.id_TipoPagamento);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -120,7 +124,12 @@ namespace ExForms.DataAccess
                     {
                         Id = Convert.ToInt32(row["id"]),
                         DataPagamento = Convert.ToDateTime(row["DataPagamento"]),
-                        NomeCliente = row["NomeCliente"].ToString()
+                        NomeCliente = row["NomeCliente"].ToString(),
+                        TipoPagamento = new TipoPagamento()
+                        {
+                            Id = Convert.ToInt32(row["id"]),
+                            Nome = row["Nome_Pagamento"].ToString()
+                        }
                     };
 
                     return obj;
@@ -138,7 +147,7 @@ namespace ExForms.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT 
                                      v.*,
-                                     t.nome_pagamento as TipoPagamento,
+                                     t.nome_pagamento,
                                      FROM Venda v 
                                      INNER JOIN TipoPagamento t on (t.id = v.id_TipoPagamento);";
 
@@ -164,7 +173,12 @@ namespace ExForms.DataAccess
                         {
                             Id = Convert.ToInt32(row["id"]),
                             DataPagamento = Convert.ToDateTime(row["DataPagamento"]),
-                            NomeCliente = row["NomeCliente"].ToString()
+                            NomeCliente = row["NomeCliente"].ToString(),
+                            TipoPagamento = new TipoPagamento()
+                            {
+                                Id = Convert.ToInt32(row["id"]),
+                                Nome = row["Nome_Pagamento"].ToString()
+                            }
                         };
 
                         lst.Add(obj);
@@ -185,7 +199,7 @@ namespace ExForms.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = string.Format(@"SELECT 
                                      v.*,
-                                     t.Nome_Pagamento as TipoPagamento
+                                     t.Nome_Pagamento 
                                      FROM Venda v
                                      INNER JOIN TipoPagamento t on (t.id = v.Id_Pagamento)
                                      WHERE v.NomeCliente like '%{0}%';", texto);
@@ -211,7 +225,12 @@ namespace ExForms.DataAccess
                         {
                             Id = Convert.ToInt32(row["id"]),
                             DataPagamento = Convert.ToDateTime(row["DataPagamento"]),
-                            NomeCliente = row["NomeCliente"].ToString()
+                            NomeCliente = row["NomeCliente"].ToString(),
+                            TipoPagamento = new TipoPagamento()
+                            {
+                                Id = Convert.ToInt32(row["id"]),
+                                Nome = row["Nome_Pagamento"].ToString()
+                            }
                         };
 
                         lst.Add(obj);
