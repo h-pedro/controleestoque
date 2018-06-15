@@ -149,13 +149,15 @@ namespace ExForms.WinUI
 
         private void AdicionarColunas()
         {
-            gridView.Columns.Add("colProduto", "Produto", "Produto.Nome", 50, true);
+            gridView.Columns.Add("colId", "ID", "Id", 15, true);
+            gridView.Columns.Add("colProduto", "Produto", "Produto.Nome", 45, true);
             gridView.Columns.Add("colQuantidade", "Qtd", "Quantidade", 20, true);
-            gridView.Columns.Add("colUnitario", "Valor Un.", "ValorUnitario", 30, true);
+            gridView.Columns.Add("colUnitario", "Valor Un.", "ValorUnitario", 20, true);
 
-            gridView.Columns["colProduto"].FillWeight = 70;
+            gridView.Columns["colId"].FillWeight = 15;
+            gridView.Columns["colProduto"].FillWeight = 45;
             gridView.Columns["colQuantidade"].FillWeight = 20;
-            gridView.Columns["colUnitario"].FillWeight = 30;
+            gridView.Columns["colUnitario"].FillWeight = 20;
 
             gridView.Columns["colQuantidade"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             gridView.Columns["colUnitario"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -175,7 +177,7 @@ namespace ExForms.WinUI
         {
             if (itemVenda == null)
                 return;
-
+            gridView["colId", rowIndex].Value = Venda.Id;
             gridView["colProduto", rowIndex].Value = itemVenda.Produto.Nome;
             gridView["colQuantidade", rowIndex].Value = itemVenda.Quantidade.ToString("N0");
             gridView["colUnitario", rowIndex].Value = itemVenda.Quantidade.ToString("C2");
@@ -210,6 +212,23 @@ namespace ExForms.WinUI
             }
 
             return aux;
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Excluir();
+        }
+
+        private void Excluir()
+        {
+            if (gridView.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Deseja realmente remover o registro selecionado?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    return;
+                var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
+                new VendaDAO().Excluir(new Venda() { Id = id });
+                CarregarGridView();
+            }
         }
     }
 }

@@ -126,6 +126,7 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(23, 22);
             this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // cboPagamento
             // 
@@ -210,7 +211,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelarCadastroVenda;
-            this.ClientSize = new System.Drawing.Size(394, 461);
+            this.ClientSize = new System.Drawing.Size(394, 462);
             this.Controls.Add(this.gpbVendas);
             this.Controls.Add(this.btnCancelarCadastroVenda);
             this.Controls.Add(this.btnSalvarCadastroVenda);

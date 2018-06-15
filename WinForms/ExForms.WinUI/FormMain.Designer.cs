@@ -37,9 +37,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPagamento = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuVendas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,9 +71,9 @@
             this.toolStripSeparator1,
             this.movimentaçãoToolStripMenuItem,
             this.mnuPagamento,
-            this.mnuUsuarios,
+            this.mnuVendas,
             this.toolStripSeparator2,
-            this.mnuVendas});
+            this.mnuUsuarios});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -118,24 +118,24 @@
             this.mnuPagamento.Text = "Tipo de Pagamento";
             this.mnuPagamento.Click += new System.EventHandler(this.mnuPagamento_Click);
             // 
-            // mnuUsuarios
-            // 
-            this.mnuUsuarios.Name = "mnuUsuarios";
-            this.mnuUsuarios.Size = new System.Drawing.Size(220, 22);
-            this.mnuUsuarios.Text = "Usuários";
-            this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
-            // 
             // mnuVendas
             // 
             this.mnuVendas.Name = "mnuVendas";
             this.mnuVendas.Size = new System.Drawing.Size(220, 22);
             this.mnuVendas.Text = "Vendas";
             this.mnuVendas.Click += new System.EventHandler(this.mnuVendas_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
+            // 
+            // mnuUsuarios
+            // 
+            this.mnuUsuarios.Name = "mnuUsuarios";
+            this.mnuUsuarios.Size = new System.Drawing.Size(220, 22);
+            this.mnuUsuarios.Text = "Usuários";
+            this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
