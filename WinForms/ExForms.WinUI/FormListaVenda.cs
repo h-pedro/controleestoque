@@ -8,9 +8,12 @@ namespace ExForms.WinUI
 {
     public partial class FormListaVenda : Form
     {
-        public FormListaVenda()
+        private Usuario Usuario { get; set; }
+
+        public FormListaVenda(Usuario obj)
         {
             InitializeComponent();
+            this.Usuario = obj;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -20,7 +23,7 @@ namespace ExForms.WinUI
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            var frm = new FormCadastroVenda();
+            var frm = new FormCadastroVenda(this.Usuario);
             if (frm.ShowDialog() != DialogResult.OK)
                 return;
             CarregarGridView();
@@ -48,7 +51,7 @@ namespace ExForms.WinUI
 
         private void mnuNovo_Click(object sender, EventArgs e)
         {
-            var frm = new FormCadastroVenda();
+            var frm = new FormCadastroVenda(this.Usuario);
             if (frm.ShowDialog() != DialogResult.OK)
                 return;
             CarregarGridView();
@@ -128,7 +131,7 @@ namespace ExForms.WinUI
                 var id = Convert.ToInt32(gridView.SelectedRows[0].Cells[0].Value);
                 var obj = new VendaDAO().BuscarPorId(id);
                 obj.Itens = new ItemVendaDAO().BuscarPorVenda(obj.Id);
-                var frm = new FormCadastroVenda(obj);
+                var frm = new FormCadastroVenda(obj, this.Usuario);
                 if (frm.ShowDialog() != DialogResult.OK)
                     return;
                 CarregarGridView();

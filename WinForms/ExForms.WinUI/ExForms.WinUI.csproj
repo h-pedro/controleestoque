@@ -33,8 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EPPlusHelper.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FormAddProduto.cs">
       <SubType>Form</SubType>
@@ -149,11 +157,11 @@
     <Compile Include="FormListaTipoPagamento.Designer.cs">
       <DependentUpon>FormListaTipoPagamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRelatorioCliente.cs">
+    <Compile Include="FormRelatorioUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRelatorioCliente.Designer.cs">
-      <DependentUpon>FormRelatorioCliente.cs</DependentUpon>
+    <Compile Include="FormRelatorioUsuarios.Designer.cs">
+      <DependentUpon>FormRelatorioUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,8 +216,8 @@
     <EmbeddedResource Include="FormListaTipoPagamento.resx">
       <DependentUpon>FormListaTipoPagamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRelatorioCliente.resx">
-      <DependentUpon>FormRelatorioCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FormRelatorioUsuarios.resx">
+      <DependentUpon>FormRelatorioUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -220,6 +228,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

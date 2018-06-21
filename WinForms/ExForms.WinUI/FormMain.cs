@@ -1,10 +1,13 @@
-﻿using System;
+﻿using ExForms.Models;
+using System;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
 {
     public partial class FormMain : Form
     {
+        public Usuario Usuario { get; set; }
+
         public FormMain()
         {
             InitializeComponent();
@@ -27,6 +30,7 @@ namespace ExForms.WinUI
                 var frm = new FormLogin();
                 if (frm.ShowDialog() != DialogResult.OK)
                     return;
+                this.Usuario = frm.Usuario;
             }
         }
 
@@ -191,7 +195,27 @@ namespace ExForms.WinUI
 
             if (!_found)
             {
-                var frm = new FormListaVenda();
+                var frm = new FormListaVenda(this.Usuario);
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void relatórioDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool _found = false;
+            foreach (Form _openForm in Application.OpenForms)
+            {
+                if (_openForm is FormRelatorioUsuarios)
+                {
+                    _openForm.Focus();
+                    _found = true;
+                }
+            }
+
+            if (!_found)
+            {
+                var frm = new FormRelatorioUsuarios();
                 frm.MdiParent = this;
                 frm.Show();
             }

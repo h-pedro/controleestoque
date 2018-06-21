@@ -11,6 +11,7 @@ namespace ExForms.Models
         public DateTime DataPagamento { get; set; }
         public string NomeCliente { get; set; }
         public TipoPagamento TipoPagamento { get; set; }
+        public Usuario Usuario { get; set; }
         public List<ItemVenda> Itens { get; set; }
 
         public string TipoDePagamento

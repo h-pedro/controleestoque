@@ -15,7 +15,7 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
-                string strSQL = @"INSERT INTO VENDA (DATAPAGAMENTO, NOMECLIENTE, ID_PAGAMENTO) VALUES (@DATAPAGAMENTO, @NOMECLIENTE, @ID_PAGAMENTO);
+                string strSQL = @"INSERT INTO VENDA (DATAPAGAMENTO, NOMECLIENTE, ID_PAGAMENTO, ID_USUARIO) VALUES (@DATAPAGAMENTO, @NOMECLIENTE, @ID_PAGAMENTO, @ID_USUARIO);
                                   SELECT SCOPE_IDENTITY();";
 
                 //Criando um comando sql que será executado na base de dados
@@ -26,6 +26,7 @@ namespace ExForms.DataAccess
                     cmd.Parameters.Add("@DATAPAGAMENTO", SqlDbType.DateTime).Value = obj.DataPagamento;
                     cmd.Parameters.Add("@NOMECLIENTE", SqlDbType.VarChar).Value = obj.NomeCliente;
                     cmd.Parameters.Add("@ID_PAGAMENTO", SqlDbType.Int).Value = obj.TipoPagamento.Id;
+                    cmd.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = obj.Usuario.Id;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -132,6 +133,10 @@ namespace ExForms.DataAccess
                         {
                             Id = Convert.ToInt32(row["ID_PAGAMENTO"]),
                             Nome = row["NOME_PAGAMENTO"].ToString()
+                        },
+                        Usuario = new Usuario()
+                        {
+                            Id = Convert.ToInt32(row["ID_USUARIO"])
                         }
                     };
 
@@ -181,6 +186,10 @@ namespace ExForms.DataAccess
                             {
                                 Id = Convert.ToInt32(row["ID_PAGAMENTO"]),
                                 Nome = row["NOME_PAGAMENTO"].ToString()
+                            },
+                            Usuario = new Usuario()
+                            {
+                                Id = Convert.ToInt32(row["ID_USUARIO"])
                             }
                         };
 
@@ -234,6 +243,10 @@ namespace ExForms.DataAccess
                             {
                                 Id = Convert.ToInt32(row["ID_PAGAMENTO"]),
                                 Nome = row["NOME_PAGAMENTO"].ToString()
+                            },
+                            Usuario = new Usuario()
+                            {
+                                Id = Convert.ToInt32(row["ID_USUARIO"])
                             }
                         };
 

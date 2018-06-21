@@ -72,6 +72,7 @@ create table Venda(
 	Id int identity(1,1) primary key,
 	DataPagamento  datetime,
 	NomeCliente	   varchar(500),
+	Id_Usuario int references Usuario(id),
 	Id_Pagamento int references TipoPagamento(id)
 );
 go

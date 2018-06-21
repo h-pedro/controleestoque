@@ -2,7 +2,6 @@
 using ExForms.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -10,16 +9,19 @@ namespace ExForms.WinUI
     public partial class FormCadastroVenda : Form
     {
         private Venda Venda { get; set; }
+        private Usuario Usuario { get; set; }
 
-        public FormCadastroVenda()
+        public FormCadastroVenda(Usuario obj)
         {
             InitializeComponent();
+            this.Usuario = obj;
         }
 
-        public FormCadastroVenda(Venda obj)
+        public FormCadastroVenda(Venda obj, Usuario usu)
         {
             InitializeComponent();
             this.Venda = obj;
+            this.Usuario = usu;
         }
 
         private void FormCadastroVenda_Load(object sender, EventArgs e)
@@ -44,6 +46,7 @@ namespace ExForms.WinUI
             this.Venda.TipoPagamento = new TipoPagamento() { Id = (int)cboPagamento.SelectedValue };
             this.Venda.DataPagamento = txtDataCadastroVenda.Value;
             this.Venda.NomeCliente = txtClienteCadastroVenda.Text;
+            this.Venda.Usuario = this.Usuario;
 
             if (this.Venda != null && this.Venda.Id > 0)
             {
