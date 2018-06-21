@@ -211,6 +211,12 @@ namespace ExForms.WinUI
                 error.SetError(txtClienteCadastroVenda, "Campo obrigatório!");
             }
 
+            if (txtDataCadastroVenda.Value > DateTime.Now)
+            {
+                aux = false;
+                error.SetError(txtDataCadastroVenda, "Data inválida!");
+            }
+
             return aux;
         }
 
