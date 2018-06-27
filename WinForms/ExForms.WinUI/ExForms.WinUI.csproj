@@ -157,18 +157,6 @@
     <Compile Include="FormListaTipoPagamento.Designer.cs">
       <DependentUpon>FormListaTipoPagamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRelatorioUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRelatorioUsuarios.Designer.cs">
-      <DependentUpon>FormRelatorioUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormRelatorioVendas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRelatorioVendas.Designer.cs">
-      <DependentUpon>FormRelatorioVendas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAddProduto.resx">
@@ -221,12 +209,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormListaTipoPagamento.resx">
       <DependentUpon>FormListaTipoPagamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRelatorioUsuarios.resx">
-      <DependentUpon>FormRelatorioUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRelatorioVendas.resx">
-      <DependentUpon>FormRelatorioVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -43,11 +43,11 @@
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatórioDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLogoff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.relatórioDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,12 +153,21 @@
             this.relatórioDeCategoriasToolStripMenuItem.Name = "relatórioDeCategoriasToolStripMenuItem";
             this.relatórioDeCategoriasToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.relatórioDeCategoriasToolStripMenuItem.Text = "Relatório de Vendas";
+            this.relatórioDeCategoriasToolStripMenuItem.Click += new System.EventHandler(this.relatórioDeCategoriasToolStripMenuItem_Click);
             // 
             // relatórioDeProdutosToolStripMenuItem
             // 
             this.relatórioDeProdutosToolStripMenuItem.Name = "relatórioDeProdutosToolStripMenuItem";
             this.relatórioDeProdutosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.relatórioDeProdutosToolStripMenuItem.Text = "Relatório de Produtos";
+            this.relatórioDeProdutosToolStripMenuItem.Click += new System.EventHandler(this.relatórioDeProdutosToolStripMenuItem_Click);
+            // 
+            // relatórioDeUsuáriosToolStripMenuItem
+            // 
+            this.relatórioDeUsuáriosToolStripMenuItem.Name = "relatórioDeUsuáriosToolStripMenuItem";
+            this.relatórioDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.relatórioDeUsuáriosToolStripMenuItem.Text = "Relatório de Usuários";
+            this.relatórioDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.relatórioDeUsuáriosToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -190,13 +199,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(642, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // relatórioDeUsuáriosToolStripMenuItem
-            // 
-            this.relatórioDeUsuáriosToolStripMenuItem.Name = "relatórioDeUsuáriosToolStripMenuItem";
-            this.relatórioDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.relatórioDeUsuáriosToolStripMenuItem.Text = "Relatório de Usuários";
-            this.relatórioDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.relatórioDeUsuáriosToolStripMenuItem_Click);
             // 
             // FormMain
             // 

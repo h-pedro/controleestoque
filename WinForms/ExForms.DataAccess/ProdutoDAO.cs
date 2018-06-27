@@ -153,7 +153,8 @@ namespace ExForms.DataAccess
                 string strSQL = @"SELECT 
                                       p.*, 
                                       c.nome as categoria,
-                                      u.nome as unidade_medida 
+                                      u.nome as unidade_medida,
+                                      u.sigla
                                   FROM produto p
                                   INNER JOIN categoria c on (c.id = p.id_categoria)
                                   INNER JOIN unidade_medida u on (p.id_unidade_medida = u.id);";
@@ -187,7 +188,8 @@ namespace ExForms.DataAccess
                             UnidadeMedida = new UnidadeMedida()
                             {
                                 Id = Convert.ToInt32(row["id_unidade_medida"]),
-                                Nome = row["unidade_medida"].ToString()
+                                Nome = row["unidade_medida"].ToString(),
+                                Sigla = row["sigla"].ToString()
                             },
                             Preco = Convert.ToDecimal(row["preco"]),
                             Descricao = row["descricao"].ToString(),
@@ -250,7 +252,7 @@ namespace ExForms.DataAccess
                             {
                                 Id = Convert.ToInt32(row["id_unidade_medida"]),
                                 Nome = row["unidade_medida"].ToString(),
-                                Sigla = row["sigla"].ToString(),
+                                Sigla = row["sigla"].ToString()
                             },
                             Preco = Convert.ToDecimal(row["preco"]),
                             Descricao = row["descricao"].ToString(),

@@ -1,5 +1,11 @@
-﻿using ExForms.Models;
+﻿using ExForms.DataAccess;
+using ExForms.Models;
+using OfficeOpenXml;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ExForms.WinUI
@@ -203,21 +209,183 @@ namespace ExForms.WinUI
 
         private void relatórioDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool _found = false;
-            foreach (Form _openForm in Application.OpenForms)
+            using (ExcelPackage package = new ExcelPackage())
             {
-                if (_openForm is FormRelatorioUsuarios)
-                {
-                    _openForm.Focus();
-                    _found = true;
-                }
-            }
+                //1) NOME DO RELATÓRIO
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Relatório de Usuários");
+                worksheet.View.ShowGridLines = false;
 
-            if (!_found)
+                //COMEÇA AQUI A MONTAGEM DO EXCEL
+                var rowIndex = 1;
+
+                //2) COLOCAR AS COLUNAS DO RELATÓRIO
+                var lstColunas = new List<string>()
+                {
+                    "Nome",
+                    "E-mail",
+                    "Login"
+                };
+
+                //adicionando cabeçalho do relatório
+                EPPlusHelper.AdicionarColunas(worksheet, lstColunas);
+                rowIndex++;
+
+                //buscando registros no banco de dados (no caso desse relatório é uma lista de usuários)
+                //3) CHAMAR A CLASSE DAO DO RESPECTIVO RELATORIO
+                var lst = new UsuarioDAO().BuscarTodos();
+                foreach (var usuario in lst)
+                {
+                    EPPlusHelper.AdicionarLinha(worksheet, rowIndex, usuario.Nome, usuario.Email, usuario.Login);
+                    rowIndex++;
+                }
+                //TERMINA AQUI A MONTAGEM DO EXCEL
+
+                worksheet.Cells.AutoFitColumns(100);
+                worksheet.View.ShowHeaders = true;
+                worksheet.PrinterSettings.PaperSize = ePaperSize.A4;
+                worksheet.PrinterSettings.FitToPage = true;
+
+                var caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("Arquivos/{0:yyyyMMdd}", DateTime.Now));
+
+                if (!Directory.Exists(caminhoArquivo))
+                    Directory.CreateDirectory(caminhoArquivo);
+
+                //salvando o arquivo
+                var fileName = Path.Combine(caminhoArquivo, string.Format("{0:ddMMyyyyHHmmss}.xlsx", DateTime.Now));
+                var fi = new FileInfo(fileName);
+                package.SaveAs(fi);
+
+                //mandando abrir o arquivo
+                Process.Start(fileName);
+            }
+        }
+
+        private void relatórioDeCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ExcelPackage package = new ExcelPackage())
             {
-                var frm = new FormRelatorioUsuarios();
-                frm.MdiParent = this;
-                frm.Show();
+                //1) NOME DO RELATÓRIO
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Relatório de Vendas");
+                worksheet.View.ShowGridLines = false;
+
+                //COMEÇA AQUI A MONTAGEM DO EXCEL
+                var rowIndex = 1;
+
+                //2) COLOCAR AS COLUNAS DO RELATÓRIO
+                var lstColunas = new List<string>()
+                {
+                    "Cliente",
+                    "Data",
+                    "Tipo dePagamento",
+                    "Quantidade de Itens",
+                    "Valor Total (R$)"
+                };
+
+                //adicionando cabeçalho do relatório
+                EPPlusHelper.AdicionarColunas(worksheet, lstColunas);
+                rowIndex++;
+
+                //buscando registros no banco de dados (no caso desse relatório é uma lista de vendas)
+                //3) CHAMAR A CLASSE DAO DO RESPECTIVO RELATORIO
+                var lst = new VendaDAO().BuscarTodos();
+                foreach (var venda in lst)
+                {
+                    venda.Itens = new ItemVendaDAO().BuscarPorVenda(venda.Id);
+
+                    EPPlusHelper.AdicionarLinha(
+                        worksheet,
+                        rowIndex,
+                        venda.NomeCliente,
+                        venda.DataPagamento.ToShortDateString(),
+                        venda.TipoPagamento.Nome,
+                        venda.Itens.Count.ToString("N0"),
+                        venda.Itens.Sum(item => item.Quantidade * item.Valor_Unitario).ToString("C2")
+                    );
+                    rowIndex++;
+                }
+                //TERMINA AQUI A MONTAGEM DO EXCEL
+
+                worksheet.Cells.AutoFitColumns(100);
+                worksheet.View.ShowHeaders = true;
+                worksheet.PrinterSettings.PaperSize = ePaperSize.A4;
+                worksheet.PrinterSettings.FitToPage = true;
+
+                var caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("Arquivos/{0:yyyyMMdd}", DateTime.Now));
+
+                if (!Directory.Exists(caminhoArquivo))
+                    Directory.CreateDirectory(caminhoArquivo);
+
+                //salvando o arquivo
+                var fileName = Path.Combine(caminhoArquivo, string.Format("{0:ddMMyyyyHHmmss}.xlsx", DateTime.Now));
+                var fi = new FileInfo(fileName);
+                package.SaveAs(fi);
+
+                //mandando abrir o arquivo
+                Process.Start(fileName);
+            }
+        }
+
+        private void relatórioDeProdutosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ExcelPackage package = new ExcelPackage())
+            {
+                //1) NOME DO RELATÓRIO
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Relatório de Produtos");
+                worksheet.View.ShowGridLines = false;
+
+                //COMEÇA AQUI A MONTAGEM DO EXCEL
+                var rowIndex = 1;
+
+                //2) COLOCAR AS COLUNAS DO RELATÓRIO
+                var lstColunas = new List<string>()
+                {
+                    "Nome do produto",
+                    "Categoria do produto",
+                    "Valor Unitário (R$)",
+                    "Quantidade em Estoque",
+                    "Unidade de Medida"
+                };
+
+                //adicionando cabeçalho do relatório
+                EPPlusHelper.AdicionarColunas(worksheet, lstColunas);
+                rowIndex++;
+
+                //buscando registros no banco de dados (no caso desse relatório é uma lista de usuários)
+                //3) CHAMAR A CLASSE DAO DO RESPECTIVO RELATORIO
+                var lst = new ProdutoDAO().BuscarTodos();
+
+                foreach (var produto in lst)
+                {
+                    EPPlusHelper.AdicionarLinha(
+                        worksheet,
+                        rowIndex,
+                        produto.Nome,
+                        produto.Categoria.Nome,
+                        produto.Preco.ToString("C2"),
+                        produto.QtdEmEstoque.ToString("N0"),
+                        produto.UnidadeMedida.Sigla
+                    );
+                    rowIndex++;
+                }
+                //TERMINA AQUI A MONTAGEM DO EXCEL
+
+                worksheet.Cells.AutoFitColumns(100);
+                worksheet.View.ShowHeaders = true;
+                worksheet.PrinterSettings.PaperSize = ePaperSize.A4;
+                worksheet.PrinterSettings.FitToPage = true;
+
+                var caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("Arquivos/{0:yyyyMMdd}", DateTime.Now));
+
+                if (!Directory.Exists(caminhoArquivo))
+                    Directory.CreateDirectory(caminhoArquivo);
+
+                //salvando o arquivo
+                var fileName = Path.Combine(caminhoArquivo, string.Format("{0:ddMMyyyyHHmmss}.xlsx", DateTime.Now));
+                var fi = new FileInfo(fileName);
+                package.SaveAs(fi);
+
+                //mandando abrir o arquivo
+                Process.Start(fileName);
             }
         }
     }

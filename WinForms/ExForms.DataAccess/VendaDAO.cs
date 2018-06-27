@@ -15,7 +15,8 @@ namespace ExForms.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
-                string strSQL = @"INSERT INTO VENDA (DATAPAGAMENTO, NOMECLIENTE, ID_PAGAMENTO, ID_USUARIO) VALUES (@DATAPAGAMENTO, @NOMECLIENTE, @ID_PAGAMENTO, @ID_USUARIO);
+                string strSQL = @"INSERT INTO VENDA (DATAPAGAMENTO, NOMECLIENTE, ID_PAGAMENTO, ID_USUARIO) 
+                                  VALUES (@DATAPAGAMENTO, @NOMECLIENTE, @ID_PAGAMENTO, @ID_USUARIO);
                                   SELECT SCOPE_IDENTITY();";
 
                 //Criando um comando sql que será executado na base de dados
@@ -103,7 +104,8 @@ namespace ExForms.DataAccess
                                       V.*,
                                       T.NOME_PAGAMENTO
                                   FROM VENDA V 
-                                  INNER JOIN TIPOPAGAMENTO T ON (T.ID = V.ID_PAGAMENTO);";
+                                  INNER JOIN TIPOPAGAMENTO T ON (T.ID = V.ID_PAGAMENTO)
+                                  WHERE V.ID = @ID;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -155,10 +157,9 @@ namespace ExForms.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT 
                                      V.*,
-                                     T.NOME_PAGAMENTO,
+                                     T.NOME_PAGAMENTO
                                   FROM VENDA V 
                                   INNER JOIN TIPOPAGAMENTO T ON (T.ID = V.ID_PAGAMENTO);";
-
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))

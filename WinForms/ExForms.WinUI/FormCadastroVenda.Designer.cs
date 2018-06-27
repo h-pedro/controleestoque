@@ -54,6 +54,9 @@
             // 
             // gpbVendas
             // 
+            this.gpbVendas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbVendas.Controls.Add(this.panel1);
             this.gpbVendas.Controls.Add(this.cboPagamento);
             this.gpbVendas.Controls.Add(this.lblTipoPagamentoCadastroVenda);
@@ -63,7 +66,7 @@
             this.gpbVendas.Controls.Add(this.lblCadastroVenda);
             this.gpbVendas.Location = new System.Drawing.Point(12, 12);
             this.gpbVendas.Name = "gpbVendas";
-            this.gpbVendas.Size = new System.Drawing.Size(371, 405);
+            this.gpbVendas.Size = new System.Drawing.Size(446, 405);
             this.gpbVendas.TabIndex = 0;
             this.gpbVendas.TabStop = false;
             this.gpbVendas.Text = "Cadastro de Vendas";
@@ -78,7 +81,7 @@
             this.panel1.Controls.Add(this.mnuAcoes);
             this.panel1.Location = new System.Drawing.Point(19, 130);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 252);
+            this.panel1.Size = new System.Drawing.Size(408, 252);
             this.panel1.TabIndex = 14;
             // 
             // gridView
@@ -94,7 +97,7 @@
             this.gridView.Name = "gridView";
             this.gridView.RowHeadersVisible = false;
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridView.Size = new System.Drawing.Size(331, 225);
+            this.gridView.Size = new System.Drawing.Size(406, 225);
             this.gridView.TabIndex = 1;
             // 
             // mnuAcoes
@@ -104,7 +107,7 @@
             this.btnExcluir});
             this.mnuAcoes.Location = new System.Drawing.Point(0, 0);
             this.mnuAcoes.Name = "mnuAcoes";
-            this.mnuAcoes.Size = new System.Drawing.Size(331, 25);
+            this.mnuAcoes.Size = new System.Drawing.Size(406, 25);
             this.mnuAcoes.TabIndex = 0;
             this.mnuAcoes.Text = "Ações";
             // 
@@ -130,10 +133,12 @@
             // 
             // cboPagamento
             // 
+            this.cboPagamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboPagamento.FormattingEnabled = true;
             this.cboPagamento.Location = new System.Drawing.Point(149, 44);
             this.cboPagamento.Name = "cboPagamento";
-            this.cboPagamento.Size = new System.Drawing.Size(203, 21);
+            this.cboPagamento.Size = new System.Drawing.Size(278, 21);
             this.cboPagamento.TabIndex = 6;
             // 
             // lblTipoPagamentoCadastroVenda
@@ -147,9 +152,11 @@
             // 
             // txtClienteCadastroVenda
             // 
+            this.txtClienteCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClienteCadastroVenda.Location = new System.Drawing.Point(19, 92);
             this.txtClienteCadastroVenda.Name = "txtClienteCadastroVenda";
-            this.txtClienteCadastroVenda.Size = new System.Drawing.Size(333, 20);
+            this.txtClienteCadastroVenda.Size = new System.Drawing.Size(408, 20);
             this.txtClienteCadastroVenda.TabIndex = 4;
             // 
             // lblCliente
@@ -182,7 +189,7 @@
             // 
             this.btnCancelarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarCadastroVenda.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(308, 426);
+            this.btnCancelarCadastroVenda.Location = new System.Drawing.Point(383, 425);
             this.btnCancelarCadastroVenda.Name = "btnCancelarCadastroVenda";
             this.btnCancelarCadastroVenda.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarCadastroVenda.TabIndex = 12;
@@ -193,7 +200,7 @@
             // btnSalvarCadastroVenda
             // 
             this.btnSalvarCadastroVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(222, 426);
+            this.btnSalvarCadastroVenda.Location = new System.Drawing.Point(297, 425);
             this.btnSalvarCadastroVenda.Name = "btnSalvarCadastroVenda";
             this.btnSalvarCadastroVenda.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarCadastroVenda.TabIndex = 11;
@@ -211,11 +218,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelarCadastroVenda;
-            this.ClientSize = new System.Drawing.Size(394, 462);
+            this.ClientSize = new System.Drawing.Size(469, 461);
             this.Controls.Add(this.gpbVendas);
             this.Controls.Add(this.btnCancelarCadastroVenda);
             this.Controls.Add(this.btnSalvarCadastroVenda);
-            this.MinimumSize = new System.Drawing.Size(410, 500);
+            this.MinimumSize = new System.Drawing.Size(485, 500);
             this.Name = "FormCadastroVenda";
             this.Text = "Cadastro de Venda";
             this.Load += new System.EventHandler(this.FormCadastroVenda_Load);

@@ -126,9 +126,21 @@ namespace ExForms.WinUI
 
             if (frm.Venda != null)
             {
+                this.Venda = this.Venda ?? new Venda();
                 foreach (var item in frm.Venda.Itens)
                 {
-                    this.Venda = this.Venda ?? new Venda();
+                    var produto = new ProdutoDAO().BuscarPorId(item.Produto.Id);
+                    if (item.Quantidade > produto.QtdEmEstoque)
+                    {
+                        MessageBox.Show(
+                            string.Format("Este produto possui quantidade {0:N0} em estoque. Não é possivel adicionar este produto na quantidade {1:N0} desejada!", produto.QtdEmEstoque, item.Quantidade),
+                            "Alerta",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                        continue;
+                    }
+
                     this.Venda.Itens.Add(new ItemVenda()
                     {
                         Produto = item.Produto,
@@ -152,18 +164,21 @@ namespace ExForms.WinUI
 
         private void AdicionarColunas()
         {
-            gridView.Columns.Add("colId", "ID", "Id", 15, true);
-            gridView.Columns.Add("colProduto", "Produto", "Produto.Nome", 45, true);
-            gridView.Columns.Add("colQuantidade", "Qtd", "Quantidade", 20, true);
-            gridView.Columns.Add("colUnitario", "Valor Un.", "ValorUnitario", 20, true);
+            gridView.Columns.Add("colId", "ID", "Id", 10, true);
+            gridView.Columns.Add("colProduto", "Produto", "Produto.Nome", 40, true);
+            gridView.Columns.Add("colQuantidade", "Qtd", "Quantidade", 10, true);
+            gridView.Columns.Add("colUnitario", "Vlr Unitário", "ValorUnitario", 20, true);
+            gridView.Columns.Add("colTotal", "Total", "ValorUnitario", 20, true);
 
-            gridView.Columns["colId"].FillWeight = 15;
-            gridView.Columns["colProduto"].FillWeight = 45;
-            gridView.Columns["colQuantidade"].FillWeight = 20;
+            gridView.Columns["colId"].FillWeight = 10;
+            gridView.Columns["colProduto"].FillWeight = 40;
+            gridView.Columns["colQuantidade"].FillWeight = 10;
             gridView.Columns["colUnitario"].FillWeight = 20;
+            gridView.Columns["colTotal"].FillWeight = 20;
 
             gridView.Columns["colQuantidade"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             gridView.Columns["colUnitario"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            gridView.Columns["colTotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             foreach (DataGridViewColumn col in gridView.Columns)
                 gridView.Columns[col.Index].ReadOnly = true;
@@ -183,7 +198,8 @@ namespace ExForms.WinUI
             gridView["colId", rowIndex].Value = Venda.Id;
             gridView["colProduto", rowIndex].Value = itemVenda.Produto.Nome;
             gridView["colQuantidade", rowIndex].Value = itemVenda.Quantidade.ToString("N0");
-            gridView["colUnitario", rowIndex].Value = itemVenda.Quantidade.ToString("C2");
+            gridView["colUnitario", rowIndex].Value = itemVenda.Valor_Unitario.ToString("C2");
+            gridView["colTotal", rowIndex].Value = (itemVenda.Quantidade * itemVenda.Valor_Unitario).ToString("C2");
             gridView.Rows[rowIndex].Tag = itemVenda;
         }
 
