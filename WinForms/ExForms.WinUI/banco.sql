@@ -38,12 +38,29 @@ create table categoria (
 );
 go
 
+insert into categoria
+Values
+	('Frios', 'Produtos que irão no congelador'),
+	('Fritos', 'Salgados e entre outros'),
+	('Doces', 'Balas chicletes etc')
+
+select *from categoria
+
 create Table Unidade_Medida(
 	id int identity(1,1) primary key,
 	nome varchar(200),
 	sigla varchar(10)
 );
 go
+
+insert into Unidade_Medida
+Values
+	('Quilos', 'Kg'),
+	('Gramas', 'Mg'),
+	('Litros', 'L'),
+	('Mililitros', 'Ml')
+
+select *from Unidade_Medida
 
 -- criando tabela de produtos
 IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'produto')
